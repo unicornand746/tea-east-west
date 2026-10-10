@@ -1,0 +1,3089 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="一盏茶的东西方 · One Leaf, Two Worlds —— 中英茶文化八章对照：源流、茶器、茶礼、诗文、滋味、贸易与当下。">
+<title>一盏茶的东西方 · One Leaf, Two Worlds</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c8402f'/%3E%3Ctext x='16' y='23' font-size='20' font-family='serif' fill='%23fff' text-anchor='middle'%3E茶%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap">
+<style>
+:root{
+  --paper:#f7f2e6;
+  --paper-2:#efe7d5;
+  --tea:#6b4a2f;
+  --tea-light:#a9866a;
+  --celadon:#7fae9c;
+  --celadon-deep:#4f7d6c;
+  --cinnabar:#c8402f;
+  --gold:#c9a961;
+  --ink:#3a2f26;
+  --serif-cn:"Noto Serif SC","Songti SC","STSong","SimSun",serif;
+  --serif-en:"EB Garamond","Noto Serif SC","Georgia","Times New Roman",serif;
+  --sans-cn:"Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --navh:66px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;}
+body{
+  background:var(--paper);
+  font-family:var(--sans-cn);
+  color:var(--ink);
+  overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+/* 宣纸肌理 */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(201,169,97,.13), transparent 42%),
+    radial-gradient(circle at 88% 78%, rgba(127,174,156,.15), transparent 44%),
+    radial-gradient(circle at 55% 45%, rgba(200,64,47,.05), transparent 55%),
+    radial-gradient(circle at 80% 12%, rgba(127,174,156,.08), transparent 38%);
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background-image:repeating-linear-gradient(0deg, rgba(107,74,47,.028) 0 1px, transparent 1px 4px);
+}
+#fx{position:fixed;inset:0;z-index:1;pointer-events:none;}
+/* 阅读进度条 */
+.prog{
+  position:fixed;top:0;left:0;right:0;height:3px;z-index:600;
+  background:rgba(107,74,47,.08);
+}
+.prog i{
+  display:block;height:100%;width:0;
+  background:linear-gradient(90deg,var(--celadon),var(--gold));
+  border-radius:0 3px 3px 0;
+  transition:width .18s ease-out;
+}
+/* 切页水墨晕染 */
+.ink{
+  position:fixed;inset:0;z-index:550;pointer-events:none;opacity:0;
+  background:radial-gradient(circle at 50% 46%, rgba(58,47,38,.34) 0%, rgba(58,47,38,.12) 38%, transparent 62%);
+  transform:scale(.12);
+}
+.ink.on{animation:inkSwell .85s cubic-bezier(.3,.7,.3,1) forwards;}
+@keyframes inkSwell{
+  0%{opacity:0;transform:scale(.12);}
+  28%{opacity:1;}
+  100%{opacity:0;transform:scale(3.2);}
+}
+/* ============ 顶栏 ============ */
+.topbar{
+  position:fixed;top:3px;left:0;right:0;height:var(--navh);z-index:500;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 22px;
+  background:rgba(247,242,230,.78);
+  backdrop-filter:blur(16px) saturate(1.3);
+  -webkit-backdrop-filter:blur(16px) saturate(1.3);
+  border-bottom:1px solid rgba(107,74,47,.13);
+}
+.brand{display:flex;align-items:center;gap:11px;flex-shrink:0;}
+.seal{
+  width:34px;height:34px;border-radius:8px;flex-shrink:0;
+  background:linear-gradient(145deg,#d64b39,#b4351f);
+  color:#fff;display:grid;place-items:center;
+  font-family:var(--serif-cn);font-size:19px;font-weight:700;
+  box-shadow:0 4px 12px rgba(200,64,47,.3);
+  cursor:pointer;
+  transition:transform .4s cubic-bezier(.34,1.56,.64,1),box-shadow .4s;
+}
+.seal:hover{transform:rotate(-8deg) scale(1.08);box-shadow:0 6px 18px rgba(200,64,47,.42);}
+.brand-cn{
+  font-family:var(--serif-cn);font-size:15.5px;font-weight:600;
+  letter-spacing:.08em;color:var(--tea);white-space:nowrap;
+}
+/* 目录按钮 */
+.menu-btn{
+  display:flex;align-items:center;gap:7px;flex-shrink:0;
+  background:transparent;border:1px solid rgba(107,74,47,.24);
+  border-radius:999px;padding:7px 15px;cursor:pointer;
+  font-family:var(--serif-cn);font-size:13px;letter-spacing:.14em;color:var(--tea);
+  transition:all .35s cubic-bezier(.22,.9,.3,1);
+}
+.menu-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.menu-btn:hover{border-color:var(--cinnabar);color:var(--cinnabar);background:rgba(200,64,47,.06);transform:translateY(-1px);}
+.menu-btn.on{border-color:var(--cinnabar);color:#fff;background:var(--cinnabar);box-shadow:0 6px 18px rgba(200,64,47,.35);}
+.menu-btn:focus-visible{outline:2px solid var(--celadon-deep);outline-offset:2px;}
+/* 音景开关 */
+.soundbox{display:flex;align-items:center;gap:10px;margin-left:auto;margin-right:6px;flex-shrink:0;}
+.sound-btn{
+  width:38px;height:38px;border-radius:50%;border:1px solid rgba(107,74,47,.3);
+  background:rgba(255,255,255,.6);color:var(--tea);cursor:pointer;display:grid;place-items:center;
+  transition:all .35s cubic-bezier(.22,.9,.3,1);
+}
+.sb-ic{
+  font-family:var(--serif-cn);font-size:15px;font-weight:600;letter-spacing:.05em;
+  width:100%;height:100%;display:grid;place-items:center;border-radius:50%;
+}
+.sound-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(107,74,47,.16);}
+.sound-btn.on{
+  background:var(--cinnabar);border-color:var(--cinnabar);color:#fff;
+  animation:sndpulse 2.6s ease-in-out infinite;
+}
+.sound-btn.on:hover{box-shadow:0 8px 20px rgba(200,64,47,.3);}
+@keyframes sndpulse{
+  0%,100%{box-shadow:0 0 0 4px rgba(200,64,47,.14);}
+  50%{box-shadow:0 0 0 10px rgba(200,64,47,.04);}
+}
+.vol{
+  width:72px;height:4px;-webkit-appearance:none;appearance:none;outline:none;
+  background:rgba(107,74,47,.25);border-radius:4px;cursor:pointer;
+}
+.vol::-webkit-slider-thumb{
+  -webkit-appearance:none;width:13px;height:13px;border-radius:50%;
+  background:var(--cinnabar);border:2px solid #fdf8ec;
+  box-shadow:0 2px 6px rgba(107,74,47,.35);cursor:pointer;
+}
+.vol::-moz-range-thumb{
+  width:13px;height:13px;border-radius:50%;background:var(--cinnabar);
+  border:2px solid #fdf8ec;box-shadow:0 2px 6px rgba(107,74,47,.35);cursor:pointer;
+}
+/* 语言切换 */
+.lang-btn{
+  display:flex;align-items:center;gap:5px;flex-shrink:0;
+  background:transparent;border:1px solid rgba(107,74,47,.24);
+  border-radius:999px;padding:7px 13px;cursor:pointer;
+  font-family:var(--serif-en);font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--tea);
+  transition:all .35s cubic-bezier(.22,.9,.3,1);
+}
+.lang-btn:hover{border-color:var(--celadon-deep);color:var(--celadon-deep);background:rgba(127,174,156,.08);transform:translateY(-1px);}
+.lang-btn.en{background:var(--celadon-deep);border-color:var(--celadon-deep);color:#fff;box-shadow:0 6px 18px rgba(79,125,108,.35);}
+.lang-btn.en:hover{background:var(--celadon-deep);color:#fff;}
+/* 英文模式隐藏纯英文装饰行 */
+.en-cloak{display:none;}
+/* 参考文献 */
+.sources{
+  margin-top:56px;padding:28px 32px;border-radius:20px;
+  background:rgba(255,255,255,.58);border:1px solid rgba(107,74,47,.13);
+  backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);
+}
+.sources b{
+  font-family:var(--serif-cn);font-size:16px;font-weight:600;
+  letter-spacing:.14em;color:var(--tea);
+}
+.refs-head{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+.refs-tools{display:flex;align-items:center;gap:10px;}
+.refs-fmt{display:flex;border:1px solid rgba(107,74,47,.22);border-radius:999px;overflow:hidden;}
+.rf-btn{
+  background:rgba(255,255,255,.6);border:none;padding:5px 15px;cursor:pointer;
+  font-family:var(--serif-en);font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--tea);
+  transition:all .3s;
+}
+.rf-btn.active{background:var(--celadon-deep);color:#fff;}
+.rf-copy{
+  background:transparent;border:1px solid rgba(107,74,47,.24);border-radius:999px;padding:5px 17px;cursor:pointer;
+  font-family:var(--serif-cn);font-size:12px;letter-spacing:.14em;color:var(--tea);transition:all .3s;
+}
+.rf-copy:hover{border-color:var(--cinnabar);color:var(--cinnabar);transform:translateY(-1px);}
+.refs-list{
+  margin-top:20px;padding-left:0;list-style:none;
+  display:flex;flex-direction:column;gap:10px;
+}
+.refs-item{display:flex;gap:12px;align-items:flex-start;font-size:12.5px;line-height:1.8;color:#57483b;}
+.refs-item .rn{
+  flex-shrink:0;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;
+  background:rgba(127,174,156,.16);color:var(--celadon-deep);
+  font-family:var(--serif-en);font-size:10.5px;font-weight:700;
+}
+.refs-item a{color:var(--celadon-deep);text-decoration:none;border-bottom:1px dotted rgba(79,125,108,.5);}
+.refs-item a:hover{color:var(--cinnabar);}
+.refs-item .rf-note{display:block;font-size:11.5px;color:var(--tea-light);margin-top:1px;}
+.refs-copied{color:var(--cinnabar);border-color:var(--cinnabar)!important;}
+/* ============ 目录浮层（纸帘） ============ */
+.dir{
+  position:fixed;inset:0;z-index:700;
+  background:linear-gradient(180deg, rgba(247,242,230,.92), rgba(247,242,230,.82));
+  backdrop-filter:blur(22px) saturate(1.2);
+  -webkit-backdrop-filter:blur(22px) saturate(1.2);
+  clip-path:inset(0 0 100% 0);
+  visibility:hidden;
+  transition:clip-path .6s cubic-bezier(.22,.9,.3,1),visibility .6s;
+  overflow-y:auto;
+}
+.dir.open{clip-path:inset(0 0 0 0);visibility:visible;}
+.dir-close{
+  position:absolute;top:20px;right:24px;width:42px;height:42px;border-radius:50%;
+  background:transparent;border:1px solid rgba(107,74,47,.26);cursor:pointer;
+  display:grid;place-items:center;color:var(--tea);
+  transition:transform .4s,background .3s,color .3s,border-color .3s;
+}
+.dir-close svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;}
+.dir-close:hover{transform:rotate(90deg);background:var(--cinnabar);border-color:var(--cinnabar);color:#fff;}
+.dir-inner{max-width:960px;margin:0 auto;padding:86px 34px 70px;}
+.dir-head{text-align:center;margin-bottom:44px;}
+.dir-head .cn{
+  font-family:var(--serif-cn);font-size:clamp(26px,4vw,38px);font-weight:700;
+  letter-spacing:.2em;color:var(--tea);
+}
+.dir-head em{
+  display:block;margin-top:8px;font-family:var(--serif-en);font-style:italic;
+  font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--celadon-deep);
+}
+.dir-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.dir-item{
+  display:block;width:100%;text-align:left;cursor:pointer;
+  background:rgba(255,255,255,.55);
+  border:1px solid rgba(107,74,47,.14);border-radius:16px;
+  padding:18px 22px;
+  font-family:inherit;color:var(--tea);
+  display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center;
+  transition:transform .4s cubic-bezier(.22,.9,.3,1),box-shadow .4s,border-color .4s,background .4s;
+}
+.dir-item:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(107,74,47,.12);border-color:rgba(79,125,108,.5);}
+.dir-item.active{border-color:var(--cinnabar);background:rgba(200,64,47,.07);box-shadow:inset 0 0 0 1px rgba(200,64,47,.3);}
+.dir-item .no{
+  width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
+  font-family:var(--serif-cn);font-size:17px;color:var(--celadon-deep);
+  border:1px solid rgba(127,174,156,.4);background:rgba(127,174,156,.14);
+  transition:all .4s;
+}
+.dir-item.active .no{background:var(--cinnabar);border-color:var(--cinnabar);color:#fff;box-shadow:0 0 0 6px rgba(200,64,47,.12);}
+.dir-item .tt{min-width:0;}
+.dir-item b{display:block;font-family:var(--serif-cn);font-size:17px;font-weight:600;letter-spacing:.1em;}
+.dir-item b em{font-style:normal;font-family:var(--serif-en);font-style:italic;font-weight:400;font-size:12px;letter-spacing:.05em;color:var(--celadon-deep);margin-left:8px;}
+.dir-item .desc{display:block;margin-top:5px;font-size:12px;line-height:1.6;color:var(--tea-light);letter-spacing:.03em;}
+.dir-foot{
+  display:flex;justify-content:center;gap:14px;margin-top:40px;
+}
+.dir-foot button{
+  display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+  border:1px solid rgba(107,74,47,.24);background:rgba(255,255,255,.55);
+  border-radius:999px;padding:9px 22px;
+  font-family:var(--serif-cn);font-size:13px;letter-spacing:.14em;color:var(--tea);
+  transition:all .35s;
+}
+.dir-foot button:hover{border-color:var(--cinnabar);color:var(--cinnabar);transform:translateY(-2px);}
+.dir-foot svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+/* ============ 底部茶路导航 ============ */
+.track{
+  position:fixed;left:50%;bottom:14px;z-index:520;
+  transform:translateX(-50%);
+}
+.track-rail{
+  display:flex;align-items:center;gap:2px;padding:8px 14px;
+  background:linear-gradient(180deg, rgba(255,253,247,.92), rgba(247,242,230,.9));
+  border:1px solid rgba(107,74,47,.16);
+  border-top:2px solid rgba(201,169,97,.35);
+  border-bottom:2px solid rgba(107,74,47,.2);
+  border-radius:999px;
+  box-shadow:0 18px 44px rgba(107,74,47,.16);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  max-width:min(94vw,720px);
+  overflow-x:auto;scrollbar-width:none;
+}
+.track-rail::-webkit-scrollbar{display:none;}
+.track-node{
+  position:relative;background:transparent;border:none;cursor:pointer;flex-shrink:0;
+  display:flex;align-items:center;gap:0;
+  padding:0 2px;font-family:inherit;color:var(--tea);
+}
+.track-seal{
+  width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+  font-family:var(--serif-cn);font-size:15px;font-weight:600;
+  background:rgba(255,255,255,.6);color:var(--tea);
+  border:1.5px solid rgba(107,74,47,.26);
+  transition:all .45s cubic-bezier(.22,.9,.3,1);
+}
+.track-node:hover .track-seal{
+  transform:translateY(-3px) scale(1.1);
+  border-color:var(--celadon-deep);color:var(--celadon-deep);
+  box-shadow:0 8px 20px rgba(79,125,108,.3);
+}
+.track-node.active .track-seal{
+  background:linear-gradient(145deg,#d64b39,#b4351f);
+  border-color:var(--cinnabar);color:#fff;
+  box-shadow:0 0 0 5px rgba(200,64,47,.16),0 10px 24px rgba(200,64,47,.4);
+}
+.track-name{
+  max-width:0;overflow:hidden;white-space:nowrap;
+  font-family:var(--serif-en);font-style:italic;font-size:12px;letter-spacing:.06em;
+  color:var(--tea);opacity:0;
+  transition:max-width .5s cubic-bezier(.22,.9,.3,1),opacity .4s,padding .4s;
+}
+.track-node.active .track-name,.track-node:hover .track-name{
+  max-width:130px;opacity:1;padding-left:9px;
+}
+.track-name b{display:inline;font-weight:400;}
+/* ============ 舞台 ============ */
+.stage{position:fixed;top:calc(var(--navh) + 3px);left:0;right:0;bottom:0;z-index:2;}
+.page{
+  position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;
+  -webkit-overflow-scrolling:touch;
+  opacity:0;visibility:hidden;transform:translateY(18px);
+  transition:opacity .55s ease,transform .55s cubic-bezier(.22,.9,.3,1),visibility .55s;
+}
+.page.active{opacity:1;visibility:visible;transform:none;}
+.page::-webkit-scrollbar{width:8px;}
+.page::-webkit-scrollbar-thumb{background:rgba(107,74,47,.2);border-radius:8px;}
+.wrap{max-width:1080px;margin:0 auto;padding:58px 38px 150px;}
+/* 章节入场 */
+.page.active .chapter-banner{animation:rise .8s cubic-bezier(.22,.9,.3,1) backwards;}
+.page.active .chapter-head{animation:rise .7s .05s cubic-bezier(.22,.9,.3,1) both;}
+.page.active .compare{animation:rise .8s .14s cubic-bezier(.22,.9,.3,1) both;}
+.page.active .quote-wrap{animation:rise .8s .12s cubic-bezier(.22,.9,.3,1) both;}
+.page.active .taste-band{animation:rise .8s .2s cubic-bezier(.22,.9,.3,1) both;}
+@keyframes rise{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+/* ============ 序 · Hero ============ */
+.hero{
+  position:relative;min-height:calc(100vh - var(--navh) - 3px);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0;z-index:1;will-change:transform;}
+.hero-bg img{width:100%;height:100%;object-fit:cover;display:block;}
+.hero-shade{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 50% 16%, rgba(247,242,230,.62), rgba(247,242,230,.18) 46%, transparent 72%),
+    linear-gradient(180deg, rgba(247,242,230,.88) 0%, rgba(247,242,230,.34) 30%, rgba(247,242,230,.06) 52%, rgba(247,242,230,.96) 88%, var(--paper) 100%);
+}
+.steam{position:absolute;inset:0;z-index:2;pointer-events:none;mix-blend-mode:screen;}
+.steam i{
+  position:absolute;bottom:26%;border-radius:50%;
+  width:64px;height:64px;
+  background:radial-gradient(circle at 50% 60%, rgba(255,255,255,.85), rgba(255,255,255,0) 72%);
+  filter:blur(7px);
+  opacity:0;
+  animation:steam-rise 7s ease-in-out infinite;
+}
+.steam i:nth-child(1){left:30%;animation-delay:0s;}
+.steam i:nth-child(2){left:52%;animation-delay:2.3s;}
+.steam i:nth-child(3){left:66%;animation-delay:4.1s;}
+@keyframes steam-rise{
+  0%{opacity:0;transform:translateY(34px) scale(.7);}
+  30%{opacity:.5;}
+  100%{opacity:0;transform:translateY(-90px) scale(1.25);}
+}
+.hero-inner{
+  position:relative;z-index:3;will-change:transform;
+  max-width:960px;width:100%;margin:0 auto;
+  padding:100px 34px 128px;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+}
+/* 英雄区入场 */
+.hero-inner>*{animation:heroIn .95s cubic-bezier(.22,.9,.3,1) both;}
+.hero-inner>*:nth-child(1){animation-delay:.05s;}
+.hero-inner>*:nth-child(2){animation-delay:.18s;}
+.hero-inner>*:nth-child(3){animation-delay:.32s;}
+.hero-inner>*:nth-child(4){animation-delay:.46s;}
+.hero-inner>*:nth-child(5){animation-delay:.6s;}
+.hero-inner>*:nth-child(6){animation-delay:.74s;}
+.hero-inner>.scroll-hint{animation:heroIn .95s .86s cubic-bezier(.22,.9,.3,1) both, breathe 3s 1.9s ease-in-out infinite;}
+@keyframes heroIn{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:none;}}
+.eyebrow{
+  font-family:var(--serif-en);font-size:11px;letter-spacing:.32em;
+  text-transform:uppercase;color:var(--celadon-deep);margin-bottom:18px;
+}
+.hero-title{display:flex;flex-direction:column;gap:10px;margin-bottom:26px;}
+.hero-title .cn{
+  font-family:var(--serif-cn);font-weight:900;
+  font-size:clamp(40px,7vw,74px);letter-spacing:.1em;
+  color:var(--tea);line-height:1.16;
+  text-shadow:0 2px 26px rgba(247,242,230,.7);
+}
+.hero-title .en{
+  font-family:var(--serif-en);font-style:italic;
+  font-size:clamp(13px,1.8vw,18px);letter-spacing:.3em;
+  text-transform:uppercase;color:var(--celadon-deep);
+}
+.hero-lead{
+  font-size:clamp(15px,1.9vw,18px);line-height:2.05;color:#57483b;
+  letter-spacing:.05em;margin-bottom:12px;
+  text-shadow:0 1px 10px rgba(247,242,230,.65);
+}
+.hero-lead-en{
+  font-family:var(--serif-en);font-style:italic;
+  font-size:13.5px;line-height:1.9;color:var(--celadon-deep);
+  letter-spacing:.03em;margin-bottom:40px;opacity:.92;
+}
+.duo{
+  display:grid;grid-template-columns:1fr 46px 1fr;gap:0;
+  align-items:stretch;max-width:820px;width:100%;margin-bottom:34px;
+}
+.duo-side{
+  background:rgba(255,253,247,.72);
+  border:1px solid rgba(107,74,47,.16);
+  border-radius:20px;padding:28px 22px;text-align:center;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  box-shadow:0 14px 38px rgba(107,74,47,.14);
+  transition:transform .45s cubic-bezier(.22,.9,.3,1),box-shadow .45s,border-color .45s;
+  cursor:default;
+}
+.duo-side:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(107,74,47,.18);}
+.duo-side.east{border-color:rgba(79,125,108,.4);}
+.duo-side.east:hover{border-color:rgba(79,125,108,.65);}
+.duo-side.west{border-color:rgba(201,169,97,.52);}
+.duo-side.west:hover{border-color:rgba(201,169,97,.9);}
+.duo-num{
+  font-family:var(--serif-cn);font-size:36px;line-height:1;margin-bottom:13px;
+  color:var(--celadon);opacity:.6;
+}
+.duo-side.west .duo-num{color:var(--gold);opacity:.8;}
+.duo-side h3{
+  font-family:var(--serif-cn);font-size:19px;font-weight:600;
+  letter-spacing:.14em;color:var(--tea);margin-bottom:11px;
+}
+.duo-side p{font-size:13.5px;line-height:1.85;color:#57483b;letter-spacing:.02em;}
+.duo-side .en{
+  display:block;margin-top:9px;font-family:var(--serif-en);font-style:italic;
+  font-size:12px;color:var(--celadon-deep);letter-spacing:.02em;
+}
+.duo-divider{display:grid;place-items:center;position:relative;}
+.duo-divider::before{
+  content:'';position:absolute;top:12%;bottom:12%;left:50%;
+  width:1px;background:linear-gradient(transparent,rgba(107,74,47,.24),transparent);
+}
+.duo-divider span{
+  position:relative;z-index:1;width:30px;height:30px;border-radius:50%;
+  background:var(--paper);border:1px solid rgba(107,74,47,.26);
+  display:grid;place-items:center;
+  font-family:var(--serif-en);font-style:italic;font-size:12px;color:var(--tea-light);
+  transition:transform .4s,background .4s,color .4s;
+}
+.duo:hover .duo-divider span{transform:rotate(180deg);background:var(--cinnabar);border-color:var(--cinnabar);color:#fff;}
+/* 关键数字 */
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+  width:100%;max-width:860px;
+}
+.stat{
+  background:rgba(255,253,247,.7);
+  border:1px solid rgba(107,74,47,.13);
+  border-radius:16px;padding:18px 14px 14px;text-align:center;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  transition:transform .4s,border-color .4s;
+}
+.stat:hover{transform:translateY(-3px);border-color:rgba(79,125,108,.45);}
+.stat b{
+  display:block;font-family:var(--serif-en);font-weight:600;
+  font-size:clamp(24px,3.4vw,34px);color:var(--tea);line-height:1.1;
+  letter-spacing:.02em;
+}
+.stat b::after{content:'';display:block;width:26px;height:2px;margin:8px auto 10px;
+  background:linear-gradient(90deg,var(--celadon),var(--gold));border-radius:2px;}
+.stat span{
+  display:block;font-size:12.5px;letter-spacing:.08em;color:#57483b;line-height:1.7;
+}
+.stat small{display:block;margin-top:6px;font-family:var(--serif-en);font-style:italic;
+  font-size:10px;color:var(--tea-light);letter-spacing:.03em;}
+.scroll-hint{
+  margin-top:36px;font-size:12px;letter-spacing:.16em;color:var(--tea-light);
+}
+.scroll-hint em{
+  display:block;margin-top:5px;font-family:var(--serif-en);font-style:italic;
+  font-size:11px;letter-spacing:.06em;color:var(--celadon-deep);opacity:.85;
+}
+@keyframes breathe{0%,100%{opacity:.55;}50%{opacity:1;}}
+/* ============ 章节通用 ============ */
+.chapter-head{text-align:center;margin-bottom:34px;}
+.chapter-num{
+  display:inline-grid;place-items:center;width:48px;height:48px;border-radius:50%;
+  border:1.5px solid var(--cinnabar);color:var(--cinnabar);
+  font-family:var(--serif-cn);font-size:20px;margin-bottom:16px;
+  background:rgba(255,255,255,.55);
+  box-shadow:0 0 0 6px rgba(200,64,47,.06);
+  transition:transform .5s cubic-bezier(.34,1.56,.64,1);
+}
+.chapter-head:hover .chapter-num{transform:rotate(360deg);}
+.chapter-head h2{
+  font-family:var(--serif-cn);font-weight:700;
+  font-size:clamp(30px,4.6vw,46px);letter-spacing:.16em;color:var(--tea);
+  display:flex;align-items:baseline;justify-content:center;gap:16px;flex-wrap:wrap;
+}
+.chapter-head h2 em{
+  font-family:var(--serif-en);font-style:italic;font-weight:400;
+  font-size:.4em;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--celadon-deep);opacity:.9;
+}
+.chapter-sub{
+  margin-top:14px;font-size:14.5px;line-height:2;color:var(--tea-light);
+  letter-spacing:.05em;
+}
+.chapter-sub em{
+  display:block;margin-top:5px;font-family:var(--serif-en);font-style:italic;
+  font-size:12.5px;color:var(--celadon-deep);opacity:.88;
+}
+/* 章节对开横幅（3D 倾角） */
+.chapter-banner{
+  margin:0 0 40px;border-radius:20px;overflow:hidden;
+  border:1px solid rgba(107,74,47,.16);
+  background:rgba(255,255,255,.4);
+  box-shadow:0 18px 46px rgba(107,74,47,.12);
+  will-change:transform;
+}
+.chapter-banner img{
+  display:block;width:100%;aspect-ratio:16/9;object-fit:cover;
+  transition:transform 1.1s cubic-bezier(.22,.9,.3,1);
+  will-change:transform;
+}
+.chapter-banner:hover img{transform:scale(1.035);}
+.chapter-banner figcaption{
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  padding:11px 16px;font-size:11.5px;letter-spacing:.12em;color:var(--tea-light);
+  border-top:1px solid rgba(107,74,47,.1);
+}
+.chapter-banner figcaption .cap-e{color:var(--celadon-deep);}
+.chapter-banner figcaption .cap-w{color:#a2883f;}
+.chapter-banner figcaption .cap-x{
+  font-family:var(--serif-en);font-style:italic;font-size:10.5px;color:var(--tea-light);
+}
+/* 双栏对照 */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.col{
+  background:rgba(255,255,255,.58);
+  border:1px solid rgba(107,74,47,.13);
+  border-radius:20px;padding:30px 28px;
+  backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);
+  transition:box-shadow .45s,transform .45s;
+}
+.col:hover{box-shadow:0 16px 44px rgba(107,74,47,.1);transform:translateY(-3px);}
+.col.east{border-top:3px solid var(--celadon);}
+.col.west{border-top:3px solid var(--gold);}
+.col-label{
+  font-family:var(--serif-cn);font-size:12.5px;letter-spacing:.3em;
+  color:var(--tea-light);padding-bottom:14px;margin-bottom:22px;
+  border-bottom:1px dashed rgba(107,74,47,.2);
+}
+.col.west .col-label{color:#a2883f;}
+/* 时间轴 */
+.timeline{list-style:none;display:flex;flex-direction:column;gap:24px;}
+.timeline li{position:relative;padding-left:22px;}
+.timeline li::before{
+  content:'';position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;
+  background:var(--celadon);box-shadow:0 0 0 4px rgba(127,174,156,.2);
+}
+.col.west .timeline li::before{
+  background:var(--gold);box-shadow:0 0 0 4px rgba(201,169,97,.22);
+}
+.year{
+  display:inline-block;font-family:var(--serif-en);font-size:10.5px;
+  letter-spacing:.14em;color:#fff;background:var(--celadon-deep);
+  padding:2px 10px;border-radius:20px;margin-bottom:9px;
+  transition:transform .4s;
+}
+.timeline li:hover .year{transform:translateX(4px);}
+.col.west .year{background:var(--tea);}
+.timeline h4{
+  font-family:var(--serif-cn);font-size:17.5px;font-weight:600;
+  color:var(--tea);letter-spacing:.07em;margin-bottom:7px;
+}
+.timeline p{font-size:13.5px;line-height:1.85;color:#57483b;letter-spacing:.02em;}
+.timeline .en{
+  font-family:var(--serif-en);font-style:italic;font-size:12px;line-height:1.7;
+  color:var(--celadon-deep);margin-top:7px;opacity:.9;
+}
+/* 器物条目 */
+.vitem{
+  display:grid;grid-template-columns:46px 1fr;gap:15px;
+  padding:17px 0;border-bottom:1px dashed rgba(107,74,47,.14);
+}
+.vitem:last-child{border-bottom:none;padding-bottom:0;}
+.vitem:first-child{padding-top:0;}
+.vicon{
+  width:46px;height:46px;border-radius:13px;display:grid;place-items:center;
+  font-family:var(--serif-cn);font-size:18px;
+  background:rgba(127,174,156,.16);color:var(--celadon-deep);
+  border:1px solid rgba(127,174,156,.34);
+  transition:transform .4s,background .4s;
+}
+.col.west .vicon{
+  background:rgba(201,169,97,.16);color:#8a6d2f;
+  border-color:rgba(201,169,97,.45);
+}
+.vitem:hover .vicon{transform:scale(1.08) rotate(-4deg);}
+.vname{
+  font-family:var(--serif-cn);font-size:16px;font-weight:600;
+  color:var(--tea);letter-spacing:.07em;margin-right:9px;
+}
+.ven{
+  font-family:var(--serif-en);font-style:italic;font-size:11.5px;
+  color:var(--celadon-deep);letter-spacing:.02em;
+}
+.vitem p{font-size:13px;line-height:1.78;color:#57483b;margin-top:7px;}
+.vitem p.en{
+  font-family:var(--serif-en);font-style:italic;font-size:11.5px;
+  color:var(--celadon-deep);opacity:.88;margin-top:4px;
+}
+/* 步骤 */
+.steps{display:flex;flex-direction:column;gap:2px;}
+.step{display:grid;grid-template-columns:28px 1fr;gap:14px;padding:11px 0;}
+.step .n{
+  width:28px;height:28px;border-radius:50%;display:grid;place-items:center;
+  font-family:var(--serif-en);font-size:11.5px;font-weight:600;
+  background:rgba(127,174,156,.18);color:var(--celadon-deep);
+  border:1px solid rgba(127,174,156,.34);
+  transition:transform .4s,background .4s,color .4s;
+}
+.step:hover .n{transform:scale(1.12);}
+.col.west .step .n{
+  background:rgba(201,169,97,.18);color:#8a6d2f;border-color:rgba(201,169,97,.45);
+}
+.step h5{
+  font-family:var(--serif-cn);font-size:15px;font-weight:600;
+  color:var(--tea);letter-spacing:.06em;margin-bottom:4px;
+}
+.step h5 em{
+  font-family:var(--serif-en);font-style:italic;font-weight:400;
+  font-size:11px;color:var(--celadon-deep);margin-left:8px;letter-spacing:.02em;
+}
+.step p{font-size:12.5px;line-height:1.75;color:#57483b;}
+/* 引言块 */
+.quote{
+  background:rgba(255,255,255,.58);
+  border-radius:20px;padding:32px 34px 28px;
+  border:1px solid rgba(107,74,47,.13);
+  border-left:4px solid var(--celadon);
+  margin-bottom:20px;
+  backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);
+  transition:transform .45s,box-shadow .45s;
+}
+.quote:hover{transform:translateX(5px);box-shadow:0 14px 40px rgba(107,74,47,.1);}
+.quote.w{border-left-color:var(--gold);}
+.quote .q-cn{
+  font-family:var(--serif-cn);font-size:clamp(16px,2.2vw,21px);
+  line-height:2;color:var(--tea);letter-spacing:.06em;margin-bottom:14px;
+}
+.quote .q-en{
+  font-family:var(--serif-en);font-style:italic;font-size:13.5px;
+  line-height:1.85;color:#6b7f76;margin-bottom:14px;
+}
+.quote .q-src{
+  font-size:12px;letter-spacing:.12em;color:var(--tea-light);
+  text-align:right;padding-top:12px;border-top:1px dashed rgba(107,74,47,.16);
+}
+.quote .q-src em{
+  font-family:var(--serif-en);font-style:italic;letter-spacing:.03em;
+  color:var(--celadon-deep);margin-left:8px;
+}
+/* 味 · 茶类条目 */
+.titem{
+  display:grid;grid-template-columns:42px 1fr;gap:15px;
+  padding:16px 0;border-bottom:1px dashed rgba(107,74,47,.14);
+}
+.titem:last-child{border-bottom:none;padding-bottom:0;}
+.titem:first-child{padding-top:0;}
+.titem .sw{
+  width:42px;height:42px;border-radius:50%;place-self:start;
+  background:var(--sw);
+  border:1px solid rgba(107,74,47,.3);
+  box-shadow:inset 0 2px 5px rgba(255,255,255,.55);
+  transition:transform .4s;
+}
+@supports (background: color-mix(in srgb, red 50%, blue)){
+  .titem .sw{
+    background:radial-gradient(circle at 34% 30%, color-mix(in srgb, var(--sw) 78%, #fff), var(--sw));
+    border:1px solid color-mix(in srgb, var(--sw) 72%, rgba(107,74,47,.35));
+  }
+}
+.titem:hover .sw{transform:scale(1.12) rotate(6deg);}
+.titem h4{
+  font-family:var(--serif-cn);font-size:16px;font-weight:600;
+  color:var(--tea);letter-spacing:.07em;display:inline;margin-right:9px;
+}
+.titem p{font-size:12.8px;line-height:1.8;color:#57483b;margin-top:6px;}
+.titem p.en{
+  font-family:var(--serif-en);font-style:italic;font-size:11px;
+  color:var(--celadon-deep);opacity:.85;
+}
+/* 味 · 收束对照带 */
+.taste-band{
+  display:grid;grid-template-columns:1fr 52px 1fr;gap:0;align-items:stretch;
+  margin-top:34px;border-radius:20px;overflow:hidden;
+  border:1px solid rgba(107,74,47,.14);
+}
+.taste-half{padding:26px 26px 24px;text-align:center;transition:transform .4s;}
+.taste-half.e:hover{transform:translateX(-4px);}
+.taste-half.w:hover{transform:translateX(4px);}
+.taste-half.e{background:rgba(127,174,156,.1);border-right:1px dashed rgba(107,74,47,.16);}
+.taste-half.w{background:rgba(201,169,97,.1);}
+.taste-half h4{
+  font-family:var(--serif-cn);font-size:16.5px;font-weight:600;
+  letter-spacing:.14em;color:var(--tea);margin-bottom:10px;
+}
+.taste-half p{font-size:13px;line-height:1.95;color:#57483b;letter-spacing:.03em;}
+.taste-vs{
+  display:grid;place-items:center;background:rgba(255,255,255,.6);
+  font-family:var(--serif-en);font-style:italic;font-size:13px;color:var(--tea-light);
+}
+/* 数据带 */
+.dstat-band{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:38px;
+}
+.dstat{
+  background:rgba(255,255,255,.58);border:1px solid rgba(107,74,47,.13);
+  border-radius:16px;padding:20px 14px;text-align:center;
+  transition:transform .4s,border-color .4s;
+}
+.dstat:hover{transform:translateY(-3px);border-color:rgba(200,64,47,.4);}
+.dstat b{
+  display:block;font-family:var(--serif-en);font-weight:600;
+  font-size:clamp(22px,3vw,30px);color:var(--cinnabar);line-height:1.15;
+}
+.dstat b::after{content:'';display:block;width:26px;height:2px;margin:8px auto 10px;
+  background:linear-gradient(90deg,var(--cinnabar),var(--gold));border-radius:2px;}
+.dstat span{display:block;font-size:12.5px;letter-spacing:.08em;color:#57483b;line-height:1.75;}
+/* 结语 */
+.coda{
+  margin-top:56px;text-align:center;padding:48px 30px;
+  border-radius:24px;
+  background:linear-gradient(150deg,rgba(127,174,156,.13),rgba(201,169,97,.15));
+  border:1px solid rgba(107,74,47,.13);
+}
+.coda h3{
+  font-family:var(--serif-cn);font-size:clamp(20px,3vw,28px);font-weight:700;
+  color:var(--tea);letter-spacing:.14em;margin-bottom:16px;
+}
+.coda p{font-size:14.5px;line-height:2.1;color:#57483b;letter-spacing:.04em;}
+.coda .en{
+  display:block;margin-top:14px;font-family:var(--serif-en);font-style:italic;
+  font-size:12.5px;line-height:1.9;color:var(--celadon-deep);opacity:.9;
+}
+.coda .seal-mark{
+  display:inline-grid;place-items:center;width:42px;height:42px;border-radius:9px;
+  background:linear-gradient(145deg,#d64b39,#b4351f);color:#fff;
+  font-family:var(--serif-cn);font-size:22px;font-weight:700;
+  margin-bottom:20px;box-shadow:0 6px 18px rgba(200,64,47,.3);
+  transition:transform .5s cubic-bezier(.34,1.56,.64,1);
+}
+.coda:hover .seal-mark{transform:rotate(-10deg) scale(1.1);}
+/* 来源注记 */
+.sources{
+  margin-top:44px;padding:20px 24px;text-align:left;
+  border:1px dashed rgba(107,74,47,.22);border-radius:14px;
+  font-size:11.5px;line-height:2;color:var(--tea-light);letter-spacing:.04em;
+}
+.sources b{font-family:var(--serif-cn);font-weight:600;color:var(--tea);letter-spacing:.2em;margin-right:8px;}
+/* ============ 卡片悬停放大增强 ============ */
+.col,.stat,.dstat,.duo-side,.quote,.dir-item,.taste-half{
+  position:relative;
+  transition:transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .45s,border-color .45s,background .45s;
+}
+.col:hover,.duo-side:hover,.dir-item:hover{
+  transform:translateY(-9px) scale(1.1);
+  box-shadow:0 32px 66px rgba(107,74,47,.24);
+  background:rgba(255,255,255,.94);
+  z-index:5;
+}
+.stat:hover,.dstat:hover{
+  transform:translateY(-8px) scale(1.15);
+  box-shadow:0 28px 60px rgba(107,74,47,.22);
+  background:rgba(255,255,255,.96);
+  z-index:5;
+}
+.quote:hover{
+  transform:translateY(-7px) scale(1.08);
+  box-shadow:0 28px 60px rgba(107,74,47,.2);
+  background:rgba(255,255,255,.94);
+  z-index:5;
+}
+.taste-half.e:hover,.taste-half.w:hover{
+  transform:translateY(-7px) scale(1.07);
+  z-index:5;
+}
+/* 卡片内部元素联动放大 */
+.col:hover .vicon,.dir-item:hover .no,.duo-side:hover .duo-num{
+  transform:scale(1.18) rotate(-5deg);
+  box-shadow:0 8px 18px rgba(107,74,47,.22);
+}
+.col:hover .ven,.duo-side:hover .en,.dir-item:hover .desc{color:var(--celadon-deep);}
+
+/* ============ 商 · 茶路星图 ============ */
+.trademap{
+  margin-top:44px;border-radius:26px;position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse at 18% 8%, rgba(201,169,97,.16), transparent 55%),
+    radial-gradient(ellipse at 85% 92%, rgba(127,174,156,.14), transparent 55%),
+    linear-gradient(160deg,#251d16,#392a1d 55%,#251d16);
+  border:1px solid rgba(201,169,97,.3);
+  padding:34px 34px 28px;
+  box-shadow:0 26px 60px rgba(42,32,24,.32);
+}
+.trademap::before{
+  content:'';position:absolute;inset:0;pointer-events:none;opacity:.55;
+  background-image:
+    radial-gradient(1.2px 1.2px at 8% 18%, rgba(240,217,168,.8), transparent 1.2px),
+    radial-gradient(1px 1px at 16% 68%, rgba(240,217,168,.55), transparent 1px),
+    radial-gradient(1.3px 1.3px at 24% 32%, rgba(240,217,168,.7), transparent 1.3px),
+    radial-gradient(1px 1px at 31% 82%, rgba(240,217,168,.45), transparent 1px),
+    radial-gradient(1.2px 1.2px at 40% 12%, rgba(240,217,168,.6), transparent 1.2px),
+    radial-gradient(1px 1px at 47% 58%, rgba(240,217,168,.5), transparent 1px),
+    radial-gradient(1.3px 1.3px at 55% 26%, rgba(240,217,168,.75), transparent 1.3px),
+    radial-gradient(1px 1px at 61% 74%, rgba(240,217,168,.5), transparent 1px),
+    radial-gradient(1.2px 1.2px at 70% 40%, rgba(240,217,168,.65), transparent 1.2px),
+    radial-gradient(1px 1px at 76% 88%, rgba(240,217,168,.45), transparent 1px),
+    radial-gradient(1.3px 1.3px at 84% 22%, rgba(240,217,168,.7), transparent 1.3px),
+    radial-gradient(1px 1px at 92% 64%, rgba(240,217,168,.55), transparent 1px);
+}
+.tm-top{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:16px;position:relative;z-index:2;}
+.tm-cn{display:block;font-family:var(--serif-cn);font-size:clamp(18px,2.4vw,23px);font-weight:600;letter-spacing:.14em;color:#f0e0bb;}
+.tm-en{display:block;margin-top:6px;font-family:var(--serif-en);font-style:italic;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(233,213,171,.55);}
+.tm-replay{
+  flex-shrink:0;background:transparent;border:1px solid rgba(201,169,97,.45);color:#e8c98a;
+  font-family:var(--serif-cn);font-size:12px;letter-spacing:.16em;padding:7px 16px;border-radius:20px;
+  cursor:pointer;transition:background .3s,color .3s,transform .3s;
+}
+.tm-replay:hover{background:rgba(201,169,97,.18);transform:translateY(-2px);}
+.tm-svg{display:block;width:100%;height:auto;position:relative;z-index:2;}
+.tm-path{fill:none;stroke:rgba(201,169,97,.5);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.tm-path.flow{stroke-dasharray:6 8;animation:tmflow 1.1s linear infinite;}
+@keyframes tmflow{to{stroke-dashoffset:-14;}}
+.tm-dot{opacity:0;filter:drop-shadow(0 0 5px rgba(239,217,166,.95));transition:opacity .3s;}
+.tm-node{cursor:pointer;}
+.tm-node .nd{fill:#b89455;stroke:#f0d9a8;stroke-width:1;transition:r .35s,fill .35s;}
+.tm-node .halo{fill:none;stroke:rgba(233,205,145,.6);stroke-width:1;opacity:0;transition:opacity .4s;transform-box:fill-box;transform-origin:center;}
+.tm-node text{fill:rgba(247,242,230,.66);font-size:12.5px;letter-spacing:.06em;font-family:var(--serif-cn);transition:fill .3s;}
+.tm-node .sm{fill:rgba(233,213,171,.42);font-size:9px;font-style:italic;font-family:var(--serif-en);letter-spacing:.04em;}
+.tm-node:hover .nd{fill:#e8c98a;}
+.tm-node:hover text{fill:rgba(247,242,230,.95);}
+.tm-node.on .nd{r:7;fill:#f0d9a8;}
+.tm-node.on .halo{opacity:.95;animation:halopulse 2.4s ease-in-out infinite;}
+.tm-node.sel .nd{r:7.5;fill:#f7e7c4;stroke:#e8c98a;stroke-width:1.4;}
+.tm-node.sel text{fill:#fdf3d8;}
+@keyframes halopulse{0%,100%{transform:scale(.82);opacity:.35;}50%{transform:scale(1.28);opacity:1;}}
+.tm-info{
+  margin-top:14px;padding:13px 18px;position:relative;z-index:2;
+  border:1px dashed rgba(201,169,97,.38);border-radius:14px;background:rgba(255,255,255,.045);
+}
+.tm-i-year{font-family:var(--serif-en);font-size:11.5px;letter-spacing:.22em;color:#e8c98a;margin-bottom:5px;}
+.tm-i-txt{font-size:14px;line-height:1.85;color:rgba(247,242,230,.85);letter-spacing:.04em;}
+.tm-info.flash{animation:tmflash .5s ease;}
+@keyframes tmflash{0%{opacity:.12;transform:translateY(5px);}100%{opacity:1;transform:none;}}
+
+/* ============ 同题对照剧场 ============ */
+.cmp-layer{
+  position:fixed;inset:0;z-index:800;display:grid;place-items:center;padding:24px;
+  background:rgba(30,22,15,.55);
+  backdrop-filter:blur(10px) saturate(1.1);-webkit-backdrop-filter:blur(10px) saturate(1.1);
+  opacity:0;visibility:hidden;transition:opacity .45s,visibility .45s;
+}
+.cmp-layer.open{opacity:1;visibility:visible;}
+.cmp{
+  width:min(960px,calc(100vw - 48px));max-height:88vh;overflow-y:auto;
+  background:linear-gradient(160deg,#fdf8ec,#f5eeda);
+  border:1px solid rgba(107,74,47,.2);border-radius:24px;padding:36px 38px 30px;position:relative;
+  transform:translateY(28px) scale(.97);transition:transform .5s cubic-bezier(.22,.9,.3,1);
+  box-shadow:0 44px 100px rgba(24,17,10,.5);
+}
+.cmp-layer.open .cmp{transform:none;}
+.cmp::-webkit-scrollbar{width:8px;}
+.cmp::-webkit-scrollbar-thumb{background:rgba(107,74,47,.2);border-radius:8px;}
+.cmp-close{
+  position:absolute;top:16px;right:18px;background:transparent;border:1px solid rgba(107,74,47,.25);
+  color:var(--tea);font-family:var(--serif-cn);font-size:12px;letter-spacing:.2em;padding:6px 14px;
+  border-radius:20px;cursor:pointer;transition:background .3s,color .3s,border-color .3s;
+}
+.cmp-close:hover{background:var(--cinnabar);border-color:var(--cinnabar);color:#fff;}
+.cmp-head{text-align:center;margin-bottom:24px;}
+.cmp-title{font-family:var(--serif-cn);font-size:clamp(22px,3vw,28px);font-weight:700;letter-spacing:.14em;color:var(--tea);}
+.cmp-en{display:block;margin-top:8px;font-family:var(--serif-en);font-style:italic;font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--celadon-deep);}
+.cmp-tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px;}
+.cmp-tab{
+  background:rgba(255,255,255,.6);border:1px solid rgba(107,74,47,.22);color:var(--tea);
+  font-family:var(--serif-cn);font-size:14px;letter-spacing:.08em;padding:8px 18px;border-radius:22px;
+  cursor:pointer;transition:background .3s,color .3s,border-color .3s,transform .3s,box-shadow .3s;
+}
+.cmp-tab:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(107,74,47,.14);}
+.cmp-tab.active{background:var(--cinnabar);border-color:var(--cinnabar);color:#fff;box-shadow:0 10px 24px rgba(200,64,47,.3);}
+.cmp-body{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.cmp-card{
+  background:rgba(255,255,255,.75);border:1px solid rgba(107,74,47,.14);
+  border-radius:18px;padding:26px 24px;
+}
+.cmp-card.e{border-top:3px solid var(--celadon);}
+.cmp-card.w{border-top:3px solid var(--gold);}
+.cmp-tag{
+  display:flex;justify-content:space-between;align-items:baseline;
+  font-family:var(--serif-cn);font-size:11px;letter-spacing:.28em;color:var(--tea-light);
+  padding-bottom:12px;margin-bottom:16px;border-bottom:1px dashed rgba(107,74,47,.18);
+}
+.cmp-tag i{font-style:normal;font-family:var(--serif-en);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;opacity:.7;}
+.cmp-card h4{font-family:var(--serif-cn);font-size:19px;font-weight:600;color:var(--tea);letter-spacing:.08em;margin-bottom:12px;}
+.cmp-card p{font-size:14px;line-height:2.05;color:#5c4d40;letter-spacing:.02em;}
+.cmp-card .x{
+  margin-top:16px;padding-left:12px;border-left:2px solid rgba(127,174,156,.45);
+  font-size:12.5px;line-height:1.9;color:var(--celadon-deep);font-style:italic;
+}
+.cmp-card.w .x{border-left-color:rgba(201,169,97,.55);color:#8a6d2f;}
+.cmp-card.swap{animation:cmpswap .45s ease;}
+@keyframes cmpswap{from{opacity:.05;transform:translateY(10px);}to{opacity:1;transform:none;}}
+.cmp-foot{text-align:center;margin-top:22px;font-family:var(--serif-en);font-style:italic;font-size:11.5px;letter-spacing:.18em;color:var(--tea-light);}
+/* 长卷上的「对」章 */
+.track-node.cmp-btn{border:1.5px dashed rgba(201,169,97,.65);}
+.track-node.cmp-btn .track-seal{color:#9a7c35;}
+.track-node.cmp-btn:hover{background:rgba(201,169,97,.18);}
+.track-node.cmp-btn.on{background:rgba(201,169,97,.24);box-shadow:0 0 0 3px rgba(201,169,97,.22);}
+.track-node.cmp-btn.on .track-seal{color:var(--cinnabar);}
+
+/* ============ 响应式 ============ */
+@media (max-width:920px){
+  .stats{grid-template-columns:repeat(2,1fr);}
+  .dstat-band{grid-template-columns:repeat(2,1fr);}
+  .taste-band{grid-template-columns:1fr;}
+  .taste-vs{height:36px;}
+  .taste-half.e{border-right:none;border-bottom:1px dashed rgba(107,74,47,.16);}
+  .dir-list{grid-template-columns:1fr;}
+  .dir-inner{padding:72px 20px 60px;}
+}
+@media (max-width:860px){
+  :root{--navh:56px;}
+  .wrap{padding:42px 20px 140px;}
+  .hero-inner{padding:74px 18px 130px;}
+  .brand-cn{display:none;}
+  .track{bottom:8px;}
+  .track-rail{padding:6px 10px;max-width:96vw;}
+  .track-seal{width:32px;height:32px;font-size:13px;}
+  .track-name{display:none;}
+  .compare{grid-template-columns:1fr;}
+  .duo{grid-template-columns:1fr;gap:14px;}
+  .duo-divider{height:34px;}
+  .duo-divider::before{top:50%;left:12%;right:12%;bottom:auto;width:auto;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(107,74,47,.24),transparent);}
+  .chapter-head{margin-bottom:30px;}
+  .col{padding:24px 20px;}
+  .quote{padding:26px 22px;}
+  .chapter-banner{margin-bottom:30px;}
+  .chapter-banner img{aspect-ratio:16/9;}
+  .dir-item{padding:14px 16px;grid-template-columns:38px 1fr;}
+  .dir-item .no{width:38px;height:38px;font-size:15px;}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important;}
+  .page{transition:none;}
+  .hero-inner>*{animation:none!important;}
+}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+<div class="prog"><i id="progFill"></i></div>
+<div class="ink" id="inkLayer"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="seal" id="sealHome" title="回到序章">茶</div>
+    <div class="brand-cn">一盏茶的东西方</div>
+  </div>
+  <div class="soundbox" id="soundBox" title="环境音景">
+    <input type="range" class="vol" id="volRange" min="0" max="100" value="70" aria-label="音量">
+    <button class="sound-btn" id="soundBtn" type="button" aria-label="开启或关闭环境音景" aria-pressed="false"><span class="sb-ic">音</span></button>
+  </div>
+  <button class="lang-btn" id="langBtn" type="button" aria-label="切换中英文"><b>EN</b></button>
+  <button class="menu-btn" id="dirBtn" aria-expanded="false" aria-controls="dirLayer">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h12M6 9h12M6 13h12M6 17h8"/><path d="M18 15.5v3.5"/></svg>
+    <span>目录</span>
+  </button>
+</header>
+
+<!-- 目录纸帘 -->
+<div class="dir" id="dirLayer" aria-hidden="true">
+  <button class="dir-close" id="dirClose" aria-label="关闭目录">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <div class="dir-inner">
+    <div class="dir-head">
+      <div class="cn">八章茶路</div>
+      <em>Eight Chapters · One Leaf, Two Worlds</em>
+    </div>
+    <ol class="dir-list">
+      <li><button class="dir-item" data-i="0"><span class="no">序</span><span class="tt"><b>序<em>Prologue</em></b><span class="desc">同一片叶子，两个世界</span></span></button></li>
+      <li><button class="dir-item" data-i="1"><span class="no">壹</span><span class="tt"><b>源<em>Origins</em></b><span class="desc">从神农的解毒草，到凯瑟琳的嫁妆</span></span></button></li>
+      <li><button class="dir-item" data-i="2"><span class="no">贰</span><span class="tt"><b>器<em>Vessels</em></b><span class="desc">东方为茶选器，西方为器配茶</span></span></button></li>
+      <li><button class="dir-item" data-i="3"><span class="no">叁</span><span class="tt"><b>礼<em>Ritual</em></b><span class="desc">手上有分寸，桌上有规矩</span></span></button></li>
+      <li><button class="dir-item" data-i="4"><span class="no">肆</span><span class="tt"><b>文<em>Letters</em></b><span class="desc">把茶写成诗，写进小说</span></span></button></li>
+      <li><button class="dir-item" data-i="5"><span class="no">伍</span><span class="tt"><b>味<em>Taste</em></b><span class="desc">一种叶子六种味道，六种味道一杯茶</span></span></button></li>
+      <li><button class="dir-item" data-i="6"><span class="no">陆</span><span class="tt"><b>商<em>Trade</em></b><span class="desc">一片叶子改写世界贸易地图</span></span></button></li>
+      <li><button class="dir-item" data-i="7"><span class="no">柒</span><span class="tt"><b>今<em>Now</em></b><span class="desc">两个茶世界，重新遇见彼此</span></span></button></li>
+    </ol>
+    <div class="dir-foot">
+      <button id="dirPrev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6l-6 6 6 6"/></svg><span>上一章</span></button>
+      <button id="dirNext"><span>下一章</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<!-- 底部茶路导航 -->
+<nav class="track" id="trackNav" aria-label="章节导航">
+  <div class="track-rail">
+    <button class="track-node active" data-i="0" aria-label="序 Prologue"><span class="track-seal">序</span><span class="track-name"><b>Prologue</b></span></button>
+    <button class="track-node" data-i="1" aria-label="源 Origins"><span class="track-seal">源</span><span class="track-name"><b>Origins</b></span></button>
+    <button class="track-node" data-i="2" aria-label="器 Vessels"><span class="track-seal">器</span><span class="track-name"><b>Vessels</b></span></button>
+    <button class="track-node" data-i="3" aria-label="礼 Ritual"><span class="track-seal">礼</span><span class="track-name"><b>Ritual</b></span></button>
+    <button class="track-node" data-i="4" aria-label="文 Letters"><span class="track-seal">文</span><span class="track-name"><b>Letters</b></span></button>
+    <button class="track-node" data-i="5" aria-label="味 Taste"><span class="track-seal">味</span><span class="track-name"><b>Taste</b></span></button>
+    <button class="track-node" data-i="6" aria-label="商 Trade"><span class="track-seal">商</span><span class="track-name"><b>Trade</b></span></button>
+    <button class="track-node" data-i="7" aria-label="今 Now"><span class="track-seal">今</span><span class="track-name"><b>Now</b></span></button>
+    <button class="track-node cmp-btn" id="cmpOpenBtn" type="button" aria-label="同题对照剧场"><span class="track-seal">对</span><span class="track-name"><b>Compare</b></span></button>
+  </div>
+</nav>
+
+<main class="stage" id="stage">
+  <!-- ========== 0 序 ========== -->
+  <section class="page active" data-i="0">
+    <div class="hero">
+      <div class="hero-bg" id="heroBg">
+        <img src="https://aka.doubaocdn.com/s/OJRax9vDQt" alt="对开主视觉：左侧青瓷盖碗与紫砂壶、茶烟与水墨远山，右侧骨瓷茶壶、牛奶与司康，一缕茶烟衔接两个世界">
+        <div class="hero-shade"></div>
+      </div>
+      <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="hero-inner" id="heroInner">
+        <div class="eyebrow">中英茶文化对比 · A Comparative Study</div>
+        <h1 class="hero-title">
+          <span class="cn">一盏茶的东西方</span>
+          <span class="en">One Leaf, Two Worlds</span>
+        </h1>
+        <p class="hero-lead">
+          同一片叶子，落在东方的山泉里，是「和敬清寂」；<br>
+          落在西方的银壶中，是「四点一刻」。
+        </p>
+        <p class="hero-lead-en">
+          The same leaf — a path inward in the East, a reason to gather in the West.
+        </p>
+        <div class="duo">
+          <div class="duo-side east">
+            <div class="duo-num">東</div>
+            <h3>清饮 · 独啜</h3>
+            <p>一片叶子，一壶山泉。<br>喝茶是向内的事。</p>
+            <span class="en">Tea as an inward practice.</span>
+          </div>
+          <div class="duo-divider"><span>vs</span></div>
+          <div class="duo-side west">
+            <div class="duo-num">西</div>
+            <h3>调和 · 共聚</h3>
+            <p>一杯茶，一碟点心。<br>喝茶是向外的事。</p>
+            <span class="en">Tea as a social ritual.</span>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><b><span class="num" data-count="374">0</span><small>万吨</small></b><span>中国茶叶年产量（2024）<br>居世界第一</span><small>国家统计局</small></div>
+          <div class="stat"><b><span class="num" data-count="660">0</span><small>万吨</small></b><span>全球茶叶年产量（2023）<br>中国约占近半</span><small>国际茶叶委员会</small></div>
+          <div class="stat"><b><span class="num" data-count="20">0</span><small>亿人</small></b><span>全球饮茶人口<br>60 多国与地区产茶</span><small>新华网</small></div>
+          <div class="stat"><b><span class="num" data-count="1">0</span><small>亿杯/日</small></b><span>英国人每日饮茶杯数<br>高于咖啡（9,800 万杯）</span><small>UK Tea &amp; Infusions Assoc.</small></div>
+        </div>
+        <div class="scroll-hint">
+          沿底部茶路，漫游八章
+          <em>Walk the tea road below — eight chapters await</em>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ========== 1 源 ========== -->
+  <section class="page" data-i="1">
+    <div class="wrap">
+      <div class="chapter-head">
+        <div class="chapter-num">壹</div>
+        <h2>源 <em>Origins</em></h2>
+        <p class="chapter-sub">
+          从神农的解毒草，到凯瑟琳的嫁妆
+          <em>From a legendary antidote to a royal dowry</em>
+        </p>
+      </div>
+      <figure class="chapter-banner">
+        <img src="https://aka.doubaocdn.com/s/f4xPrMMDqF" alt="对开插画：左侧中国云雾茶园与采茶人，右侧17世纪伦敦咖啡馆的铜壶与航海图" loading="lazy">
+        <figcaption><span class="cap-e">東 · 中国茶山</span><span class="cap-x">vs</span><span class="cap-w">西 · 伦敦咖啡馆</span></figcaption>
+      </figure>
+      <div class="compare">
+        <div class="col east">
+          <div class="col-label">中國 · CHINA</div>
+          <ul class="timeline">
+            <li>
+              <span class="year">传 说</span>
+              <h4>神农尝百草</h4>
+              <p>“日遇七十二毒，得荼而解之。”茶最初是药，不是饮料。</p>
+              <p class="en">Shennong, the Divine Farmer, is said to have discovered tea when leaves blew into his boiling water.</p>
+            </li>
+            <li>
+              <span class="year">三国 · 3世纪</span>
+              <h4>以茶代酒</h4>
+              <p>《三国志》记吴主孙皓密赐韦曜“茶荈以当酒”——史载最早的“以茶代酒”。</p>
+              <p class="en">The earliest recorded toast of tea in place of wine — from the Three Kingdoms.</p>
+            </li>
+            <li>
+              <span class="year">唐 · 8世纪</span>
+              <h4>陆羽《茶经》</h4>
+              <p>世界第一部茶学专著问世。茶从“药”升格为“道”，煮茶、煎茶成为一门学问。</p>
+              <p class="en">Lu Yu's <i>Classic of Tea</i>, the world's first monograph on tea, elevated drinking to a discipline.</p>
+            </li>
+            <li>
+              <span class="year">宋</span>
+              <h4>点茶与斗茶</h4>
+              <p>碾茶为末，注汤击拂，比谁的沫饽更白、更持久。茶在这里变成了竞技与审美。</p>
+              <p class="en">Whisked powdered tea — a contest of foam, whiteness and endurance.</p>
+            </li>
+            <li>
+              <span class="year">明</span>
+              <h4>废团改散</h4>
+              <p>朱元璋罢造龙团。散茶直接冲泡成为主流——今天全世界的喝法，由此定形。</p>
+              <p class="en">The Ming court abolished compressed cakes; loose-leaf brewing became the norm we still use.</p>
+            </li>
+          </ul>
+        </div>
+        <div class="col west">
+          <div class="col-label">英國 · BRITAIN</div>
+          <ul class="timeline">
+            <li>
+              <span class="year">1657</span>
+              <h4>加威咖啡馆</h4>
+              <p>伦敦首家公开售茶的咖啡馆开张，茶被宣传为“包治百病的中国饮料”，价格高昂。</p>
+              <p class="en">Garraway's Coffee House sold tea as a cure-all Chinese beverage — at a princely price.</p>
+            </li>
+            <li>
+              <span class="year">1662</span>
+              <h4>凯瑟琳公主</h4>
+              <p>葡萄牙公主凯瑟琳嫁入英国王室，以茶代酒。宫廷饮茶之风，自此席卷上流社会。</p>
+              <p class="en">Catherine of Braganza brought a taste for tea to the English court.</p>
+            </li>
+            <li>
+              <span class="year">1706</span>
+              <h4>汤宁茶店</h4>
+              <p>托马斯·汤宁在伦敦河岸街开张茶店，至今仍在原址营业——世上最古老的茶店之一。</p>
+              <p class="en">Thomas Twining opened at 216 Strand — still trading on the same site today.</p>
+            </li>
+            <li>
+              <span class="year">1840</span>
+              <h4>下午茶诞生</h4>
+              <p>第七代贝德福德公爵夫人安娜，午后腹中饥饿，命人端来茶与点心——一个国民传统就此开始。</p>
+              <p class="en">Anna, Duchess of Bedford, asked for tea and cake at four o'clock — and invented an institution.</p>
+            </li>
+            <li>
+              <span class="year">19世纪</span>
+              <h4>全民饮品</h4>
+              <p>关税下调、印度茶园兴起，茶价大跌。茶从贵族沙龙走进工厂与厨房，成为“国民饮料”。</p>
+              <p class="en">Cheaper tea turned a luxury into the daily cup of every household.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ========== 2 器 ========== -->
+  <section class="page" data-i="2">
+    <div class="wrap">
+      <div class="chapter-head">
+        <div class="chapter-num">贰</div>
+        <h2>器 <em>Vessels</em></h2>
+        <p class="chapter-sub">
+          一器一世界：东方为茶选器，西方为器配茶
+          <em>The East chooses a vessel for the tea; the West chooses a tea for the vessel</em>
+        </p>
+      </div>
+      <figure class="chapter-banner">
+        <img src="https://aka.doubaocdn.com/s/jvGUOIb9qH" alt="对开插画：左侧盖碗、紫砂壶与青瓷杯盏，右侧骨瓷茶壶、三层点心架与银质奶盅" loading="lazy">
+        <figcaption><span class="cap-e">東 · 中式茶器</span><span class="cap-x">vs</span><span class="cap-w">西 · 英式茶器</span></figcaption>
+      </figure>
+      <div class="compare">
+        <div class="col east">
+          <div class="col-label">中國茶器 · CHINESE TEA WARE</div>
+          <div class="vitem">
+            <div class="vicon">盖</div>
+            <div>
+              <span class="vname">盖碗</span><span class="ven">Gaiwan</span>
+              <p>又称“三才碗”——盖为天，托为地，碗为人。可独饮，可作泡器。</p>
+              <p class="en">"Three Powers": Heaven, Earth and Man in lid, saucer and bowl.</p>
+            </div>
+          </div>
+          <div class="vitem">
+            <div class="vicon">壶</div>
+            <div>
+              <span class="vname">紫砂壶</span><span class="ven">Yixing Teapot</span>
+              <p>宜兴紫砂，双气孔结构，能吸附茶香。一壶侍一茶，越养越润。</p>
+              <p class="en">Porous clay that "remembers" a single tea, seasoned over years.</p>
+            </div>
+          </div>
+          <div class="vitem">
+            <div class="vicon">公</div>
+            <div>
+              <span class="vname">公道杯</span><span class="ven">Fairness Cup</span>
+              <p>先出汤于公道杯，再分入各杯，确保浓淡一致。名字里就是“公平”。</p>
+              <p class="en">A sharing vessel that guarantees every guest the same strength.</p>
+            </div>
+          </div>
+          <div class="vitem">
+            <div class="vicon">品</div>
+            <div>
+              <span class="vname">品茗杯</span><span class="ven">Tasting Cup</span>
+              <p>小、薄、白。小口慢啜，白瓷衬汤色——眼睛先喝一口。</p>
+              <p class="en">Small, thin, white — the eyes drink first.</p>
+            </div>
+          </div>
+          <div class="vitem">
+            <div class="vicon">盏</div>
+            <div>
+              <span class="vname">建盏</span><span class="ven">Jian Ware</span>
+              <p>宋代点茶之器。深色厚胎藏住热量，兔毫、油滴在盏心绽开星云。</p>
+              <p class="en">The dark, thick-walled bowl that framed the Song dynasty's foamy tea.</p>
+            </div>
+          </div>
+          <div class="vitem">
+            <div class="vicon">瓷</div>
+            <div>
+              <span class="vname">青瓷 · 白瓷</span><span class="ven">Celadon &amp; Porcelain</span>
+              <p>青瓷如雨过天青，白瓷似凝脂。器色本身，就是一套审美语言。</p>
+              <p class="en">Glaze colour is itself a vocabulary of taste.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col west">
+          <div class="col-label">英國茶器 · BRITISH TEA WARE</div>
+          <div class="vitem">
+            <div class="vicon">壶</div>
+            <div>
+              <span class="vname">骨瓷茶壶</span><span class="ven">Bone China Pot</span>
+              <p>1750年代英国人发明骨瓷，透亮、轻、保温。圆胖壶身便于茶叶舒展。</p>
+              <p class="en">Invented in England in the 1750s: translucent, light, heat-retaining.</p>
+            </div>
+          </div>
+          <div class="vitem">
+            <div class="vicon">杯</div>
+            <div>
+              <span class="vname">茶杯与茶碟</span><span class="ven">Cup &amp; Saucer</span>
+              <p>碟不是装饰，是礼仪的一部分——放勺、接溢、避免烫手。</p>
+              <p class="en">The saucer is not decoration; it is etiquette made porcelain.</p>
+            </div>
+          </div>
+          <div class="vitem">
+            <div class="vicon">架</div>
+            <div>
+              <span class="vname">三层点心架</span><span class="ven">Three-Tier Stand</span>
+              <p>自下而上：三明治 → 司康 → 甜点。顺序是规矩，不是随便拿。</p>
+              <p class="en">Bottom to top: savouries, scones, sweets. Order is the rule.</p>
+            </div>
+          </div>
+          <div class="vitem">
+            <div class="vicon">滤</div>
+            <div>
+              <span class="vname">茶滤</span><span class="ven">Tea Strainer</span>
+              <p>散茶流行后，滤网成了茶桌标配，也造就了“倒茶要看着滤网”的动作记忆。</p>
+              <p class="en">Once loose tea arrived, the strainer became indispensable.</p>
+            </div>
+          </div>
+          <div class="vitem">
+            <div class="vicon">箱</div>
+            <div>
+              <span class="vname">带锁茶箱</span><span class="ven">Tea Caddy</span>
+              <p>茶贵如金的时代，茶箱要上锁，钥匙只挂女主人腰间——防的不是外人，是仆人。</p>
+              <p class="en">When tea was gold, the caddy was locked — and the key hung at the mistress's waist.</p>
+            </div>
+          </div>
+          <div class="vitem">
+            <div class="vicon">银</div>
+            <div>
+              <span class="vname">银壶 · 奶盅 · 糖罐</span><span class="ven">Silver, Milk &amp; Sugar</span>
+              <p>加奶加糖，是英式茶的“调和哲学”——把茶变成一件可以共享的成品。</p>
+              <p class="en">Milk and sugar: tea as a finished, shareable product.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ========== 3 礼 ========== -->
+  <section class="page" data-i="3">
+    <div class="wrap">
+      <div class="chapter-head">
+        <div class="chapter-num">叁</div>
+        <h2>礼 <em>Ritual</em></h2>
+        <p class="chapter-sub">
+          东方讲究“手上有分寸”，西方讲究“桌上有规矩”
+          <em>In the East, restraint of the hand; in the West, order at the table</em>
+        </p>
+      </div>
+      <figure class="chapter-banner">
+        <img src="https://aka.doubaocdn.com/s/nJytZUDSNG" alt="对开插画：左侧工夫茶高冲注水与一排白瓷小杯，右侧银壶斟茶入骨瓷杯与蕾丝桌布" loading="lazy">
+        <figcaption><span class="cap-e">東 · 工夫茶七式</span><span class="cap-x">vs</span><span class="cap-w">西 · 下午茶礼仪</span></figcaption>
+      </figure>
+      <div class="compare">
+        <div class="col east">
+          <div class="col-label">工夫茶七式 · GONGFU TEA</div>
+          <div class="steps">
+            <div class="step"><div class="n">1</div><div>
+              <h5>温器 <em>Warm</em></h5>
+              <p>沸水烫壶烫杯，去异味、提温度，也让客人感到被郑重对待。</p>
+            </div></div>
+            <div class="step"><div class="n">2</div><div>
+              <h5>置茶 <em>Measure</em></h5>
+              <p>茶量约占壶容三分之一，视茶类而定。多一分苦，少一分薄。</p>
+            </div></div>
+            <div class="step"><div class="n">3</div><div>
+              <h5>醒茶 <em>Awaken</em></h5>
+              <p>快速注水即倒，叫“洗茶”，实为唤醒沉睡的香气。</p>
+            </div></div>
+            <div class="step"><div class="n">4</div><div>
+              <h5>高冲 <em>High Pour</em></h5>
+              <p>水壶高提，让水流冲击茶叶，激发香气——“高冲低斟”。</p>
+            </div></div>
+            <div class="step"><div class="n">5</div><div>
+              <h5>刮沫 <em>Skim</em></h5>
+              <p>以壶盖刮去浮沫，盖香一闻，是泡茶人独享的一口。</p>
+            </div></div>
+            <div class="step"><div class="n">6</div><div>
+              <h5>关公巡城 · 韩信点兵 <em>Share Evenly</em></h5>
+              <p>巡回分杯，浓淡均等；最后几滴逐杯点入，一滴不浪费。</p>
+            </div></div>
+            <div class="step"><div class="n">7</div><div>
+              <h5>叩指礼 <em>Tap Thanks</em></h5>
+              <p>主人斟茶，客人以指节轻叩桌面三下，代跪谢之礼。无声，却郑重。</p>
+            </div></div>
+          </div>
+        </div>
+        <div class="col west">
+          <div class="col-label">下午茶礼仪 · AFTERNOON TEA</div>
+          <div class="steps">
+            <div class="step"><div class="n">1</div><div>
+              <h5>烧新鲜水 <em>Fresh Water</em></h5>
+              <p>水必须现烧，不能反复煮沸——“再沸的水没有氧气，茶就死了”。</p>
+            </div></div>
+            <div class="step"><div class="n">2</div><div>
+              <h5>温壶 <em>Warm the Pot</em></h5>
+              <p>先用热水涮壶，再倒掉。这个动作比东方更“功能性”，却同样必要。</p>
+            </div></div>
+            <div class="step"><div class="n">3</div><div>
+              <h5>一人一勺，另加一勺 <em>One Spoon Each, and One for the Pot</em></h5>
+              <p>这是英式茶的黄金口诀，字面上精确到“勺”。</p>
+            </div></div>
+            <div class="step"><div class="n">4</div><div>
+              <h5>焖泡三至五分钟 <em>Steep 3–5 min</em></h5>
+              <p>时间到即滤出，否则涩。英式红茶讲究“浓、亮、有劲”。</p>
+            </div></div>
+            <div class="step"><div class="n">5</div><div>
+              <h5>先奶还是先茶？ <em>Milk First or Last?</em></h5>
+              <p>经典争论。先奶是旧时平民做法——怕薄瓷被滚茶激裂。今天，先茶后奶已成主流。</p>
+            </div></div>
+            <div class="step"><div class="n">6</div><div>
+              <h5>三层架自下而上 <em>Bottom to Top</em></h5>
+              <p>先咸后甜，司康用手掰、涂果酱与凝脂奶油——顺序本身就是礼仪。</p>
+            </div></div>
+            <div class="step"><div class="n">7</div><div>
+              <h5>不搅出声音 <em>Stir Silently</em></h5>
+              <p>勺子在杯中前后（而非画圈）轻推，不碰杯壁，之后搁回碟上——绝不留在杯里。</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ========== 4 文 ========== -->
+  <section class="page" data-i="4">
+    <div class="wrap">
+      <div class="chapter-head">
+        <div class="chapter-num">肆</div>
+        <h2>文 <em>Letters</em></h2>
+        <p class="chapter-sub">
+          中国人把茶写成诗，英国人把茶写进小说
+          <em>The Chinese wrote tea into poetry; the English wrote it into novels</em>
+        </p>
+      </div>
+      <figure class="chapter-banner">
+        <img src="https://aka.doubaocdn.com/s/Q459OAlyyj" alt="对开插画：左侧文人书斋的毛笔、砚台与卷轴，右侧英式书房的旧书、羽毛笔与骨瓷茶杯" loading="lazy">
+        <figcaption><span class="cap-e">東 · 诗与卷轴</span><span class="cap-x">vs</span><span class="cap-w">西 · 小说与随笔</span></figcaption>
+      </figure>
+      <div class="quote-wrap">
+        <div class="quote">
+          <p class="q-cn">「茶者，南方之嘉木也。」</p>
+          <p class="q-en">"Tea is the finest tree of the south."</p>
+          <p class="q-src">陆羽《茶经》<em>Lu Yu, The Classic of Tea, c. 760</em></p>
+        </div>
+        <div class="quote">
+          <p class="q-cn">
+            「一碗喉吻润，二碗破孤闷。<br>
+            三碗搜枯肠，惟有文字五千卷。<br>
+            四碗发轻汗，平生不平事，尽向毛孔散。」
+          </p>
+          <p class="q-en">
+            "The first bowl moistens my lips and throat;<br>
+            the second breaks my loneliness;<br>
+            the third searches my withered entrails, and finds but five thousand scrolls of writing;<br>
+            the fourth sends a light sweat — all of life's grievances disperse through my pores."
+          </p>
+          <p class="q-src">卢仝《走笔谢孟谏议寄新茶》<em>Lu Tong, Song of Seven Bowls, Tang Dynasty</em></p>
+        </div>
+        <div class="quote">
+          <p class="q-cn">「休对故人思故国，且将新火试新茶。诗酒趁年华。」</p>
+          <p class="q-en">"Do not, before old friends, pine for a lost homeland — take the new fire, try the new tea, and live to the fullest."</p>
+          <p class="q-src">苏轼《望江南·超然台作》<em>Su Shi, 1076</em></p>
+        </div>
+        <div class="quote w">
+          <p class="q-cn">
+            「一个顽固而不羞耻的饮茶者——二十年来，<br>
+            只用这种迷人植物的浸液来稀释他的饭食。」
+          </p>
+          <p class="q-en">
+            "A hardened and shameless tea-drinker, who has for twenty years diluted his meals with only the infusion of this fascinating plant."
+          </p>
+          <p class="q-src">塞缪尔·约翰逊，1757<em>Samuel Johnson</em></p>
+        </div>
+        <div class="quote w">
+          <p class="q-cn">
+            「茶是留给我们的唯一纯粹的乐趣。」
+          </p>
+          <p class="q-en">
+            "Tea is the only simple pleasure left to us." — 在《傲慢与偏见》《爱丽丝梦游仙境》里，茶桌是社交的战场，也是荒诞的舞台。
+          </p>
+          <p class="q-src">英国文学传统<em>From Jane Austen to Lewis Carroll</em></p>
+        </div>
+        <div class="quote w">
+          <p class="q-cn">
+            「茶——总被神经粗糙者嘲笑——<br>
+            永远是智者的最爱饮料。」
+          </p>
+          <p class="q-en">
+            "Tea, though ridiculed by those who are naturally coarse in their nervous sensibilities, will always be the favourite beverage of the intellectual."
+          </p>
+          <p class="q-src">托马斯·德·昆西《一个英国鸦片服用者的自白》<em>Thomas De Quincey, 1821</em></p>
+        </div>
+        <div class="quote w">
+          <p class="q-cn">
+            奥威尔《一杯好茶》十一条准则：<br>
+            用印度或锡兰茶 · 用陶瓷壶 · 先温壶 · 茶叶直接入壶不加茶球 ·<br>
+            水必须沸 · 倒前搅一搅 · 用矮胖杯 · 先倒奶再加茶……
+          </p>
+          <p class="q-en">
+            George Orwell's "A Nice Cup of Tea" (1946) laid down eleven rules — a very British act of seriousness about a very ordinary thing.
+          </p>
+          <p class="q-src">乔治·奥威尔《一杯好茶》1946<em>George Orwell</em></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ========== 5 味 ========== -->
+  <section class="page" data-i="5">
+    <div class="wrap">
+      <div class="chapter-head">
+        <div class="chapter-num">伍</div>
+        <h2>味 <em>Taste</em></h2>
+        <p class="chapter-sub">
+          东方把一种叶子做成六种味道，西方把六种味道拼成一杯
+          <em>The East makes six teas of one leaf; the West makes one cup of six blends</em>
+        </p>
+      </div>
+      <figure class="chapter-banner">
+        <img src="https://aka.doubaocdn.com/s/DCC3QpRADa" alt="对开插画：左侧六碟中国茶叶与六杯色泽各异的茶汤，右侧英式茶包、拼配茶叶罐、牛奶与方糖" loading="lazy">
+        <figcaption><span class="cap-e">東 · 六大茶类</span><span class="cap-x">vs</span><span class="cap-w">西 · 拼配与加奶</span></figcaption>
+      </figure>
+      <div class="compare">
+        <div class="col east">
+          <div class="col-label">六大茶类 · SIX CHINESE TEAS</div>
+          <div class="titem">
+            <div class="sw" style="--sw:#8fbf9a"></div>
+            <div>
+              <h4>绿茶</h4><span class="ven">Green</span>
+              <p>不发酵 · 杀青锁鲜，豆香清冽。龙井、碧螺春，是“最像春天”的一杯。</p>
+              <p class="en">Unoxidised, pan-fired — the taste of early spring.</p>
+            </div>
+          </div>
+          <div class="titem">
+            <div class="sw" style="--sw:#e6dfc8"></div>
+            <div>
+              <h4>白茶</h4><span class="ven">White</span>
+              <p>微发酵 · 萎凋日晒，毫香蜜韵。越存越醇，是最“素”的一类。</p>
+              <p class="en">Withered and sun-dried; the quietest of all teas.</p>
+            </div>
+          </div>
+          <div class="titem">
+            <div class="sw" style="--sw:#d8b56a"></div>
+            <div>
+              <h4>黄茶</h4><span class="ven">Yellow</span>
+              <p>轻发酵 · 闷黄工艺，黄汤黄叶。君山银针，比绿茶多一道“闷”出来的温柔。</p>
+              <p class="en">Sealed and sweltered; a mellow, golden cousin of green.</p>
+            </div>
+          </div>
+          <div class="titem">
+            <div class="sw" style="--sw:#c98f52"></div>
+            <div>
+              <h4>青茶（乌龙）</h4><span class="ven">Oolong</span>
+              <p>半发酵 · 做青摇香。铁观音有“观音韵”，凤凰单丛一树一香。</p>
+              <p class="en">Partially oxidised and shaken — one bush, one aroma.</p>
+            </div>
+          </div>
+          <div class="titem">
+            <div class="sw" style="--sw:#a44c2f"></div>
+            <div>
+              <h4>红茶</h4><span class="ven">Black</span>
+              <p>全发酵 · 萎凋揉捻发酵。正山小种松烟入骨，祁红香似玫瑰蜜糖。</p>
+              <p class="en">Fully oxidised — the tea the West first learned to love.</p>
+            </div>
+          </div>
+          <div class="titem">
+            <div class="sw" style="--sw:#4a3528"></div>
+            <div>
+              <h4>黑茶</h4><span class="ven">Dark</span>
+              <p>后发酵 · 渥堆陈化。普洱越陈越香，是唯一“老”成资产的茶。</p>
+              <p class="en">Post-fermented and aged — tea that improves with decades.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col west">
+          <div class="col-label">英式经典 · BRITISH CLASSICS</div>
+          <div class="titem">
+            <div class="sw" style="--sw:#6f4a2f"></div>
+            <div>
+              <h4>英式早餐茶</h4><span class="ven">English Breakfast</span>
+              <p>19 世纪的拼配：阿萨姆、锡兰与肯尼亚红茶相融，浓强耐加奶——早餐桌上的“闹钟”。</p>
+              <p class="en">A bold blend built to take milk — the alarm clock of the English morning.</p>
+            </div>
+          </div>
+          <div class="titem">
+            <div class="sw" style="--sw:#8a6d2f"></div>
+            <div>
+              <h4>伯爵茶</h4><span class="ven">Earl Grey</span>
+              <p>相传以 19 世纪格雷伯爵命名，红茶调入佛手柑油——一杯茶里的“香水”。</p>
+              <p class="en">Black tea scented with bergamot — named for an earl, worn like perfume.</p>
+            </div>
+          </div>
+          <div class="titem">
+            <div class="sw" style="--sw:#7a4a2a"></div>
+            <div>
+              <h4>阿萨姆</h4><span class="ven">Assam</span>
+              <p>印度原产 · 麦芽香浓烈。福琼偷走茶种之后，这里成了大英帝国的新茶园。</p>
+              <p class="en">Malt-forward and powerful — the empire's second tea home.</p>
+            </div>
+          </div>
+          <div class="titem">
+            <div class="sw" style="--sw:#b57a48"></div>
+            <div>
+              <h4>大吉岭</h4><span class="ven">Darjeeling</span>
+              <p>印度原产 · 喜马拉雅山麓，花果香清雅，人称“红茶中的香槟”。</p>
+              <p class="en">Grown in the Himalayan foothills — the champagne of teas.</p>
+            </div>
+          </div>
+          <div class="titem">
+            <div class="sw" style="--sw:#3f2e22"></div>
+            <div>
+              <h4>正山小种（烟熏）</h4><span class="ven">Lapsang Souchong</span>
+              <p>源自福建武夷，松烟熏焙。茶香里有篝火与山林的记忆，是西方最早熟悉的“中国味”。</p>
+              <p class="en">Pine-smoked in Wuyi — a taste of campfire that travelled west first.</p>
+            </div>
+          </div>
+          <div class="titem">
+            <div class="sw" style="--sw:#c9a961"></div>
+            <div>
+              <h4>袋泡茶</h4><span class="ven">Tea Bag</span>
+              <p>相传 1908 年纽约商人误寄丝袋茶样，意外发明了茶包。今天英国年进口茶叶约 10 万吨，大多以袋泡茶入杯。</p>
+              <p class="en">An accident of 1908 — now the daily ritual of a nation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="taste-band">
+        <div class="taste-half e">
+          <h4>东方 · 一叶千面</h4>
+          <p>看山知味：原叶、清饮、一泡一味。<br>以「工艺」划分六类，叶有千面。</p>
+        </div>
+        <div class="taste-vs">vs</div>
+        <div class="taste-half w">
+          <h4>西方 · 一杯恒定</h4>
+          <p>拼配定味：碎茶、浓泡、加奶成杯。<br>以「风味」守住一杯，日日如此。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ========== 6 商 ========== -->
+  <section class="page" data-i="6">
+    <div class="wrap">
+      <div class="chapter-head">
+        <div class="chapter-num">陆</div>
+        <h2>商 <em>Trade</em></h2>
+        <p class="chapter-sub">
+          一片叶子，改写了世界贸易的地图
+          <em>One leaf that redrew the map of world trade</em>
+        </p>
+      </div>
+      <figure class="chapter-banner">
+        <img src="https://aka.doubaocdn.com/s/L1aOpTr8Tm" alt="对开插画：左侧茶马古道驮茶马帮行于雪山古道，右侧东印度公司帆船与码头茶箱" loading="lazy">
+        <figcaption><span class="cap-e">東 · 茶马古道</span><span class="cap-x">vs</span><span class="cap-w">西 · 帝国航线</span></figcaption>
+      </figure>
+      <div class="compare">
+        <div class="col east">
+          <div class="col-label">中国 · THE TEA ROAD</div>
+          <ul class="timeline">
+            <li>
+              <span class="year">唐宋</span>
+              <h4>茶马古道</h4>
+              <p>以茶易马。茶叶从云南、四川出发，翻越横断山脉，抵达藏区与中亚。</p>
+              <p class="en">Tea for horses — across the Hengduan Mountains to Tibet and Central Asia.</p>
+            </li>
+            <li>
+              <span class="year">17–19世纪</span>
+              <h4>万里茶道</h4>
+              <p>晋商从武夷山下梅村起运，经汉口、张家口，至恰克图，全程约一万三千公里。</p>
+              <p class="en">The 13,000-kilometre tea road from Fujian to the Russian border.</p>
+            </li>
+            <li>
+              <span class="year">清代</span>
+              <h4>一口通商</h4>
+              <p>广州十三行垄断对外贸易。茶叶、丝绸、瓷器，换回白银。贸易逆差，成了战争的伏笔。</p>
+              <p class="en">Canton's monopoly: tea out, silver in — and a trade imbalance that led to war.</p>
+            </li>
+          </ul>
+        </div>
+        <div class="col west">
+          <div class="col-label">英国 · THE EMPIRE OF TEA</div>
+          <ul class="timeline">
+            <li>
+              <span class="year">1600</span>
+              <h4>东印度公司</h4>
+              <p>获女王特许状。两个半世纪后，这家公司几乎垄断了从好望角到马六甲的贸易。</p>
+              <p class="en">Chartered by Elizabeth I — and eventually master of half the world's trade.</p>
+            </li>
+            <li>
+              <span class="year">1773</span>
+              <h4>波士顿倾茶事件</h4>
+              <p>抗议者登上茶船，将三百余箱茶叶倒入海中。一船茶叶，点燃了美国独立战争。</p>
+              <p class="en">342 chests of tea into Boston Harbour — and a revolution ignited.</p>
+            </li>
+            <li>
+              <span class="year">1839–1842</span>
+              <h4>鸦片战争</h4>
+              <p>为平衡茶叶贸易逆差，英国向中国输入鸦片。战争的结果，是《南京条约》与香港。</p>
+              <p class="en">To balance the tea trade, opium was smuggled — and war followed.</p>
+            </li>
+            <li>
+              <span class="year">1848</span>
+              <h4>植物猎人福琼</h4>
+              <p>罗伯特·福琼乔装深入中国内陆，带走约两万株茶苗与茶种。印度阿萨姆的茶园，从此改变了世界茶价。</p>
+              <p class="en">Robert Fortune smuggled some 20,000 plants out of China — and broke its monopoly.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="dstat-band">
+        <div class="dstat"><b><span class="num" data-count="13000">0</span><small> km</small></b><span>万里茶道全程<br>武夷山至恰克图</span></div>
+        <div class="dstat"><b><span class="num" data-count="342">0</span><small> 箱</small></b><span>波士顿倾茶事件<br>沉入海港的茶叶</span></div>
+        <div class="dstat"><b><span class="num" data-count="20000">0</span><small> 株</small></b><span>福琼偷运出华的<br>茶苗与茶种</span></div>
+        <div class="dstat"><b><span class="num" data-count="10">0</span><small> 万吨/年</small></b><span>英国茶叶年进口量<br>（UK Tea &amp; Infusions Assoc.）</span></div>
+      </div>
+      <!-- ===== 商 · 茶路星图 ===== -->
+      <div class="trademap" id="tradeMap">
+        <div class="tm-top">
+          <div class="tm-title">
+            <span class="tm-cn">一片叶子的环球航路</span>
+            <span class="tm-en">The Leaf&rsquo;s Global Voyage</span>
+          </div>
+          <button class="tm-replay" id="tradeReplay" type="button">重演航程</button>
+        </div>
+        <svg class="tm-svg" viewBox="0 0 1000 430" preserveAspectRatio="xMidYMid meet" role="img" aria-label="茶叶从武夷山经广州、好望角至伦敦、波士顿的航线示意">
+          <path id="tw1" class="tm-path" d="M120 300 C 142 318, 158 332, 175 345"></path>
+          <path id="tw2" class="tm-path" d="M175 345 C 290 385, 380 360, 470 330"></path>
+          <path id="tw3" class="tm-path" d="M470 330 C 560 285, 640 220, 760 150"></path>
+          <path id="tw4" class="tm-path" d="M760 150 C 810 132, 855 108, 905 95"></path>
+          <path id="tw5" class="tm-path" d="M175 345 C 240 300, 300 262, 380 232"></path>
+          <circle id="td1" class="tm-dot" r="3.4" fill="#efd9a6"></circle>
+          <circle id="td2" class="tm-dot" r="3.4" fill="#efd9a6"></circle>
+          <circle id="td3" class="tm-dot" r="3.4" fill="#efd9a6"></circle>
+          <circle id="td4" class="tm-dot" r="3.4" fill="#efd9a6"></circle>
+          <circle id="td5" class="tm-dot" r="3.4" fill="#efd9a6"></circle>
+          <g class="tm-node" data-k="wuyi" transform="translate(120 300)">
+            <circle class="nd" r="5"></circle><circle class="halo" r="12"></circle>
+            <text y="-15" text-anchor="middle">武夷山 · 下梅</text>
+            <text class="sm" y="-3" text-anchor="middle">Wuyishan</text>
+          </g>
+          <g class="tm-node" data-k="guangzhou" transform="translate(175 345)">
+            <circle class="nd" r="5"></circle><circle class="halo" r="12"></circle>
+            <text y="26" text-anchor="middle">广州 · 十三行</text>
+            <text class="sm" y="38" text-anchor="middle">Canton</text>
+          </g>
+          <g class="tm-node" data-k="cape" transform="translate(470 330)">
+            <circle class="nd" r="5"></circle><circle class="halo" r="12"></circle>
+            <text y="-15" text-anchor="middle">好望角</text>
+            <text class="sm" y="-3" text-anchor="middle">Cape of Good Hope</text>
+          </g>
+          <g class="tm-node" data-k="london" transform="translate(760 150)">
+            <circle class="nd" r="5"></circle><circle class="halo" r="12"></circle>
+            <text y="-15" text-anchor="middle">伦敦</text>
+            <text class="sm" y="-3" text-anchor="middle">London</text>
+          </g>
+          <g class="tm-node" data-k="boston" transform="translate(905 95)">
+            <circle class="nd" r="5"></circle><circle class="halo" r="12"></circle>
+            <text y="-15" text-anchor="end">波士顿</text>
+            <text class="sm" y="-3" text-anchor="end">Boston</text>
+          </g>
+          <g class="tm-node" data-k="assam" transform="translate(380 232)">
+            <circle class="nd" r="5"></circle><circle class="halo" r="12"></circle>
+            <text x="16" y="5" text-anchor="start">阿萨姆</text>
+            <text class="sm" x="16" y="18" text-anchor="start">Assam</text>
+          </g>
+        </svg>
+        <div class="tm-info" id="tradeInfo">
+          <div class="tm-i-year" id="tradeYear">起 · 航</div>
+          <div class="tm-i-txt" id="tradeTxt">轻触航线上的节点，读取每一段航程。</div>
+        </div>
+      </div>
+      <div class="coda" style="margin-top:40px;">
+        <h3>一杯茶的代价</h3>
+        <p>
+          茶从东方出发，带着山水与诗；抵达西方时，却卷入了白银、鸦片与战争。<br>
+          同一片叶子，一边是审美，一边是资本。
+        </p>
+        <span class="en">
+          The same leaf, carried east to west, became both poetry and profit — beauty and empire.
+        </span>
+      </div>
+    </div>
+  </section>
+  <!-- ========== 7 今 ========== -->
+  <section class="page" data-i="7">
+    <div class="wrap">
+      <div class="chapter-head">
+        <div class="chapter-num">柒</div>
+        <h2>今 <em>Now</em></h2>
+        <p class="chapter-sub">
+          两个茶世界，正在重新遇见彼此
+          <em>Two tea worlds, meeting again</em>
+        </p>
+      </div>
+      <figure class="chapter-banner">
+        <img src="https://aka.doubaocdn.com/s/Ea81te76Sz" alt="对开插画：左侧新式茶饮与围炉煮茶的炭炉陶壶，右侧英式厨房的保温杯浓茶、茶包与手机" loading="lazy">
+        <figcaption><span class="cap-e">東 · 新式茶饮</span><span class="cap-x">vs</span><span class="cap-w">西 · 日常一杯</span></figcaption>
+      </figure>
+      <div class="compare">
+        <div class="col east">
+          <div class="col-label">中国 · THE NEW TEA WAVE</div>
+          <div class="vitem">
+            <div class="vicon">新</div>
+            <div>
+              <span class="vname">新式茶饮</span><span class="ven">New-Style Tea</span>
+              <p>2015年后，喜茶、奈雪把原叶茶、鲜奶、鲜果装进一只杯子，让年轻人重新喝茶。</p>
+              <p class="en">A new generation drinks tea again — in a paper cup.</p>
+            </div>
+          </div>
+          <div class="vitem">
+            <div class="vicon">炉</div>
+            <div>
+              <span class="vname">围炉煮茶</span><span class="ven">Tea by the Brazier</span>
+              <p>炭炉、陶壶、烤橘、烤年糕。一种慢下来的社交，在2022年后成为现象。</p>
+              <p class="en">A slow ritual of charcoal, clay and conversation.</p>
+            </div>
+          </div>
+          <div class="vitem">
+            <div class="vicon">奶</div>
+            <div>
+              <span class="vname">珍珠奶茶走向世界</span><span class="ven">Bubble Tea Goes Global</span>
+              <p>从台中春水堂出发，如今在伦敦、纽约、悉尼街头排起长队。</p>
+              <p class="en">From Taichung to every high street on earth.</p>
+            </div>
+          </div>
+          <div class="vitem">
+            <div class="vicon">冷</div>
+            <div>
+              <span class="vname">冷泡 · 原叶 · 纯饮</span><span class="ven">Cold Brew &amp; Pure Leaf</span>
+              <p>年轻人开始回到“只喝水与茶”的极简，讲究产区、年份、工艺。</p>
+              <p class="en">A return to origin, altitude and craft.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col west">
+          <div class="col-label">英国 · THE DAILY CUP</div>
+          <div class="vitem">
+            <div class="vicon">工</div>
+            <div>
+              <span class="vname">Builder's Tea</span><span class="ven">浓茶加奶</span>
+              <p>浓、甜、加奶，建筑工人的保温杯。它代表的不是品味，而是休息的权利。</p>
+              <p class="en">Strong, sweet, milky — the working cup.</p>
+            </div>
+          </div>
+          <div class="vitem">
+            <div class="vicon">歇</div>
+            <div>
+              <span class="vname">Tea Break</span><span class="ven">茶歇</span>
+              <p>“Have a cuppa”是安慰，是开场白，是谈判前的缓冲。茶是社交润滑剂。</p>
+              <p class="en">An offer of tea is an offer of pause.</p>
+            </div>
+          </div>
+          <div class="vitem">
+            <div class="vicon">牌</div>
+            <div>
+              <span class="vname">国民品牌</span><span class="ven">PG Tips · Yorkshire Tea</span>
+              <p>英国人每天喝掉超过一亿杯茶，约 98% 加奶。茶包，是厨房里最日常的存在。</p>
+              <p class="en">Over 100 million cups a day — the most ordinary thing in Britain.</p>
+            </div>
+          </div>
+          <div class="vitem">
+            <div class="vicon">新</div>
+            <div>
+              <span class="vname">精品茶复兴</span><span class="ven">Specialty Tea Revival</span>
+              <p>年轻一代开始学泡功夫茶、喝单枞、讨论水温与出汤时间——东西方的边界正在模糊。</p>
+              <p class="en">Young Britons now brew gongfu tea. The two worlds are converging.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="coda">
+        <div class="seal-mark">茶</div>
+        <h3>一片叶子，两种人间</h3>
+        <p>
+          东方在茶里寻找内心的秩序，西方在茶里寻找彼此的陪伴。<br>
+          一个向内，一个向外——但端起杯子那一刻，我们都停了一下。
+        </p>
+        <span class="en">
+          The East looks inward over a cup; the West looks outward.<br>
+          Yet for a moment, both put the world down.
+        </span>
+      </div>
+      <div class="sources" id="refsBox">
+        <div class="refs-head">
+          <b>数据与史实来源</b>
+          <div class="refs-tools">
+            <div class="refs-fmt" id="refsFmt">
+              <button class="rf-btn active" data-f="mla" type="button">MLA</button>
+              <button class="rf-btn" data-f="apa" type="button">APA</button>
+            </div>
+            <button class="rf-copy" id="refsCopy" type="button">复制</button>
+          </div>
+        </div>
+        <ol class="refs-list" id="refsList"></ol>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 同题对照剧场 -->
+<div class="cmp-layer" id="cmpLayer" aria-hidden="true">
+  <div class="cmp" role="dialog" aria-label="同一个问题，两种答案">
+    <button class="cmp-close" id="cmpClose" type="button">收卷</button>
+    <div class="cmp-head">
+      <div class="cmp-title">同一个问题，两种答案</div>
+      <span class="cmp-en">One Question, Two Answers</span>
+      <div class="cmp-tabs" id="cmpTabs"></div>
+    </div>
+    <div class="cmp-body">
+      <div class="cmp-card e" id="cmpE"></div>
+      <div class="cmp-card w" id="cmpW"></div>
+    </div>
+    <div class="cmp-foot">same leaf, two answers</div>
+  </div>
+</div>
+<script>
+(function(){
+  'use strict';
+  const REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* ==================== 粒子系统 + 墨迹 ==================== */
+  const cvs = document.getElementById('fx');
+  const ctx = cvs.getContext('2d');
+  const DPR = Math.min(window.devicePixelRatio || 1, 2);
+  let W = 0, H = 0;
+  const COLORS = [
+    [107, 74, 47],   // 茶褐
+    [79, 125, 108],  // 青瓷
+    [200, 64, 47],   // 朱砂
+    [201, 169, 97]   // 金
+  ];
+  const particles = [];
+  const ripples = [];
+  const inks = [];
+  let maxParticles = 90;
+  let scrollImpulse = 0;
+  let pressed = false;
+  let lastInk = 0;
+  const mouse = { x: -9999, y: -9999 };
+  function resize(){
+    W = window.innerWidth;
+    H = window.innerHeight;
+    cvs.width = Math.floor(W * DPR);
+    cvs.height = Math.floor(H * DPR);
+    cvs.style.width = W + 'px';
+    cvs.style.height = H + 'px';
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    maxParticles = Math.max(48, Math.min(130, Math.floor(W * H / 13000)));
+    seed();
+  }
+  class Particle {
+    constructor(x, y){
+      this.x = (x !== undefined) ? x : Math.random() * W;
+      this.y = (y !== undefined) ? y : Math.random() * H;
+      const a = Math.random() * Math.PI * 2;
+      const s = Math.random() * 0.32 + 0.06;
+      this.vx = Math.cos(a) * s;
+      this.vy = Math.sin(a) * s;
+      this.r = Math.random() * 1.9 + 0.7;
+      this.c = COLORS[(Math.random() * COLORS.length) | 0];
+      this.a = Math.random() * 0.34 + 0.18;
+      this.leaf = Math.random() < 0.22;
+      this.rot = Math.random() * Math.PI * 2;
+      this.vr = (Math.random() - 0.5) * 0.022;
+      this.ttl = null;
+      this.dead = false;
+    }
+    update(){
+      const dx = this.x - mouse.x;
+      const dy = this.y - mouse.y;
+      const d2 = dx * dx + dy * dy;
+      const R = 150;
+      if(d2 < R * R && d2 > 0.5){
+        const d = Math.sqrt(d2);
+        const f = 1 - d / R;
+        this.vx += (dx / d) * f * 0.62;
+        this.vy += (dy / d) * f * 0.62;
+      }
+      // 音频能量扰动（音景开启时粒子随声起伏）
+      if(audioLevel > 0.004){
+        this.vx += (Math.random() - 0.5) * audioLevel * 0.55;
+        this.vy += (Math.random() - 0.5) * audioLevel * 0.55;
+      }
+      this.vy += scrollImpulse * 0.055;
+      this.vx += scrollImpulse * 0.022;
+      this.x += this.vx;
+      this.y += this.vy;
+      this.vx *= 0.965;
+      this.vy *= 0.965;
+      const sp = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
+      if(sp < 0.07){
+        this.vx += (Math.random() - 0.5) * 0.07;
+        this.vy += (Math.random() - 0.5) * 0.07;
+      } else if(sp > 4.5){
+        this.vx *= 0.9;
+        this.vy *= 0.9;
+      }
+      this.rot += this.vr;
+      if(this.x < -40) this.x = W + 40;
+      else if(this.x > W + 40) this.x = -40;
+      if(this.y < -40) this.y = H + 40;
+      else if(this.y > H + 40) this.y = -40;
+      if(this.ttl !== null){
+        this.ttl--;
+        this.a *= 0.985;
+        if(this.ttl <= 0 || this.a < 0.03) this.dead = true;
+      }
+    }
+    draw(){
+      const c = this.c;
+      if(this.leaf){
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rot);
+        ctx.beginPath();
+        ctx.ellipse(0, 0, this.r * 2.6, this.r * 1.05, 0, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + (this.a * 0.72) + ')';
+        ctx.fill();
+        ctx.restore();
+      } else {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + this.a + ')';
+        ctx.fill();
+      }
+    }
+  }
+  function seed(){
+    particles.length = 0;
+    for(let i = 0; i < maxParticles; i++) particles.push(new Particle());
+  }
+  let lastSpawn = 0;
+  function onMove(x, y){
+    mouse.x = x;
+    mouse.y = y;
+    const now = performance.now();
+    if(now - lastSpawn > 65 && particles.length < maxParticles + 40){
+      lastSpawn = now;
+      const p = new Particle(x + (Math.random() - 0.5) * 26, y + (Math.random() - 0.5) * 26);
+      p.vx = (Math.random() - 0.5) * 0.7;
+      p.vy = (Math.random() - 0.5) * 0.7;
+      p.a = 0.55;
+      p.ttl = 110 + Math.random() * 90;
+      particles.push(p);
+    }
+  }
+  window.addEventListener('mousemove', function(e){ onMove(e.clientX, e.clientY); }, { passive: true });
+  window.addEventListener('mouseleave', function(){ mouse.x = -9999; mouse.y = -9999; });
+  window.addEventListener('touchmove', function(e){
+    if(e.touches[0]) onMove(e.touches[0].clientX, e.touches[0].clientY);
+  }, { passive: true });
+  window.addEventListener('touchstart', function(e){
+    if(e.touches[0]){
+      const t = e.touches[0];
+      onMove(t.clientX, t.clientY);
+      addRipple(t.clientX, t.clientY);
+    }
+  }, { passive: true });
+  window.addEventListener('click', function(e){
+    if(e.target.closest && (e.target.closest('.topbar') || e.target.closest('.track') || e.target.closest('.dir'))) return;
+    addRipple(e.clientX, e.clientY);
+  });
+  window.addEventListener('wheel', function(e){
+    scrollImpulse += e.deltaY * 0.018;
+    if(scrollImpulse > 6) scrollImpulse = 6;
+    if(scrollImpulse < -6) scrollImpulse = -6;
+  }, { passive: true });
+  /* ---- 拖拽墨迹 ---- */
+  window.addEventListener('pointerdown', function(){ pressed = true; });
+  window.addEventListener('pointerup', function(){ pressed = false; });
+  window.addEventListener('pointermove', function(e){
+    if(!pressed || REDUCED) return;
+    const now = performance.now();
+    if(now - lastInk < 16) return;
+    lastInk = now;
+    inks.push({
+      x: e.clientX, y: e.clientY,
+      r: 5 + Math.random() * 8,
+      a: 0.55,
+      c: Math.random() < 0.55 ? COLORS[0] : (Math.random() < 0.5 ? COLORS[2] : COLORS[3])
+    });
+    if(inks.length > 150) inks.shift();
+  });
+  function addRipple(x, y){
+    ripples.push({ x: x, y: y, r: 4, max: 190, alpha: 1 });
+    for(let i = 0; i < 12; i++){
+      const p = new Particle(x, y);
+      const a = Math.random() * Math.PI * 2;
+      const s = Math.random() * 3 + 0.6;
+      p.vx = Math.cos(a) * s;
+      p.vy = Math.sin(a) * s;
+      p.a = 0.7;
+      p.ttl = 70 + Math.random() * 60;
+      particles.push(p);
+    }
+    if(particles.length > maxParticles + 110){
+      particles.splice(0, particles.length - (maxParticles + 110));
+    }
+  }
+  function burst(){
+    const cx = W * 0.5;
+    const cy = 90;
+    for(let i = 0; i < 34; i++){
+      const p = new Particle(cx + (Math.random() - 0.5) * W * 0.85, cy + Math.random() * 44);
+      const a = Math.random() * Math.PI * 2;
+      const s = Math.random() * 3.6 + 0.5;
+      p.vx = Math.cos(a) * s;
+      p.vy = Math.sin(a) * s + 0.4;
+      p.a = 0.7;
+      p.ttl = 90 + Math.random() * 80;
+      particles.push(p);
+    }
+    if(particles.length > maxParticles + 110){
+      particles.splice(0, particles.length - (maxParticles + 110));
+    }
+  }
+  /* ---- 英雄区视差 ---- */
+  const heroBg = document.getElementById('heroBg');
+  const heroInner = document.getElementById('heroInner');
+  const hTarget = { x: 0, y: 0 };
+  const hCur = { x: 0, y: 0 };
+  if(!REDUCED){
+    window.addEventListener('mousemove', function(e){
+      hTarget.x = (e.clientX / W - 0.5) * 2;
+      hTarget.y = (e.clientY / H - 0.5) * 2;
+    }, { passive: true });
+  }
+  const LINK_D2 = 13000;
+  function loop(){
+    ctx.clearRect(0, 0, W, H);
+    // 音景能量 → 粒子扰动系数
+    if(sAnalyzer && sEnabled){
+      sAnalyzer.getByteFrequencyData(audioData);
+      let sum = 0;
+      for(let i = 0; i < audioData.length; i++) sum += audioData[i];
+      audioLevel = sum / (audioData.length * 255);
+    } else {
+      audioLevel *= 0.92;
+    }
+    for(let i = 0; i < particles.length; i++){
+      const a = particles[i];
+      if(a.dead) continue;
+      for(let j = i + 1; j < particles.length; j++){
+        const b = particles[j];
+        if(b.dead) continue;
+        const dx = a.x - b.x;
+        const dy = a.y - b.y;
+        const d2 = dx * dx + dy * dy;
+        if(d2 < LINK_D2){
+          const t = 1 - d2 / LINK_D2;
+          ctx.strokeStyle = 'rgba(107,74,47,' + (t * 0.11) + ')';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+    if(mouse.x > -1000){
+      const MR = 165;
+      for(let i = 0; i < particles.length; i++){
+        const p = particles[i];
+        if(p.dead) continue;
+        const dx = p.x - mouse.x;
+        const dy = p.y - mouse.y;
+        const d2 = dx * dx + dy * dy;
+        if(d2 < MR * MR){
+          const t = 1 - Math.sqrt(d2) / MR;
+          ctx.strokeStyle = 'rgba(79,125,108,' + (t * 0.2) + ')';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(mouse.x, mouse.y);
+          ctx.lineTo(p.x, p.y);
+          ctx.stroke();
+        }
+      }
+    }
+    for(let i = particles.length - 1; i >= 0; i--){
+      const p = particles[i];
+      p.update();
+      if(p.dead){ particles.splice(i, 1); continue; }
+      p.draw();
+    }
+    /* 墨迹 */
+    for(let i = inks.length - 1; i >= 0; i--){
+      const k = inks[i];
+      k.a *= 0.958;
+      k.r += 0.3;
+      if(k.a < 0.03){ inks.splice(i, 1); continue; }
+      ctx.beginPath();
+      ctx.arc(k.x, k.y, k.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(' + k.c[0] + ',' + k.c[1] + ',' + k.c[2] + ',' + k.a.toFixed(3) + ')';
+      ctx.fill();
+    }
+    /* 涟漪 */
+    for(let i = ripples.length - 1; i >= 0; i--){
+      const r = ripples[i];
+      r.r += (r.max - r.r) * 0.085 + 1.4;
+      r.alpha *= 0.955;
+      if(r.alpha < 0.025 || r.r > r.max - 2){
+        ripples.splice(i, 1);
+        continue;
+      }
+      ctx.beginPath();
+      ctx.arc(r.x, r.y, r.r, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(200,64,47,' + (r.alpha * 0.34) + ')';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(r.x, r.y, r.r * 0.62, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(79,125,108,' + (r.alpha * 0.2) + ')';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+    /* 英雄视差 */
+    hCur.x += (hTarget.x - hCur.x) * 0.05;
+    hCur.y += (hTarget.y - hCur.y) * 0.05;
+    heroBg.style.transform = 'translate(' + (hCur.x * -12).toFixed(1) + 'px,' + (hCur.y * -8).toFixed(1) + 'px) scale(1.06)';
+    heroInner.style.transform = 'translate(' + (hCur.x * 7).toFixed(1) + 'px,' + (hCur.y * 5).toFixed(1) + 'px)';
+    scrollImpulse *= 0.88;
+    if(Math.abs(scrollImpulse) < 0.002) scrollImpulse = 0;
+    requestAnimationFrame(loop);
+  }
+  /* ==================== 页面切换 ==================== */
+  const pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
+  const trackNodes = Array.prototype.slice.call(document.querySelectorAll('.track-node'));
+  const dirItems = Array.prototype.slice.call(document.querySelectorAll('.dir-item'));
+  const progFill = document.getElementById('progFill');
+  const inkLayer = document.getElementById('inkLayer');
+  const dirLayer = document.getElementById('dirLayer');
+  const dirBtn = document.getElementById('dirBtn');
+  const dirClose = document.getElementById('dirClose');
+  let current = 0;
+  function updateProg(){
+    const p = pages[current];
+    const max = p.scrollHeight - p.clientHeight;
+    const v = max > 0 ? p.scrollTop / max : 0;
+    progFill.style.width = (v * 100).toFixed(2) + '%';
+  }
+  function syncNav(){
+    trackNodes.forEach(function(n){ n.classList.toggle('active', parseInt(n.getAttribute('data-i'), 10) === current); });
+    dirItems.forEach(function(n){ n.classList.toggle('active', parseInt(n.getAttribute('data-i'), 10) === current); });
+    const rail = document.querySelector('.track-rail');
+    const act = trackNodes[current];
+    if(act){
+      const rr = rail.getBoundingClientRect();
+      const ar = act.getBoundingClientRect();
+      if(ar.left < rr.left || ar.right > rr.right){
+        rail.scrollLeft += ar.left - rr.left - (rr.width - ar.width) / 2;
+      }
+    }
+  }
+  function goTo(i){
+    if(i === current || i < 0 || i >= pages.length) return;
+    current = i;
+    pages.forEach(function(p, k){ p.classList.toggle('active', k === i); });
+    pages[i].scrollTop = 0;
+    syncNav();
+    updateProg();
+    if(!REDUCED){
+      burst();
+      inkLayer.classList.remove('on');
+      void inkLayer.offsetWidth;
+      inkLayer.classList.add('on');
+    }
+    if(sEnabled) startScene(current);
+  }
+  trackNodes.forEach(function(t){
+    t.addEventListener('click', function(){
+      goTo(parseInt(t.getAttribute('data-i'), 10));
+    });
+  });
+  dirItems.forEach(function(it){
+    it.addEventListener('click', function(){
+      closeDir();
+      goTo(parseInt(it.getAttribute('data-i'), 10));
+    });
+  });
+  document.getElementById('sealHome').addEventListener('click', function(){ goTo(0); });
+  /* ---- 目录浮层 ---- */
+  function openDir(){
+    dirLayer.classList.add('open');
+    dirLayer.setAttribute('aria-hidden', 'false');
+    dirBtn.classList.add('on');
+    dirBtn.setAttribute('aria-expanded', 'true');
+  }
+  function closeDir(){
+    dirLayer.classList.remove('open');
+    dirLayer.setAttribute('aria-hidden', 'true');
+    dirBtn.classList.remove('on');
+    dirBtn.setAttribute('aria-expanded', 'false');
+  }
+  dirBtn.addEventListener('click', function(){
+    if(dirLayer.classList.contains('open')) closeDir(); else openDir();
+  });
+  dirClose.addEventListener('click', closeDir);
+  dirLayer.addEventListener('click', function(e){
+    if(e.target === dirLayer) closeDir();
+  });
+  document.getElementById('dirPrev').addEventListener('click', function(){
+    goTo(current - 1 < 0 ? pages.length - 1 : current - 1);
+    closeDir();
+  });
+  document.getElementById('dirNext').addEventListener('click', function(){
+    goTo(current + 1 >= pages.length ? 0 : current + 1);
+    closeDir();
+  });
+  pages.forEach(function(p){
+    p.addEventListener('scroll', function(){
+      if(p === pages[current]) updateProg();
+    }, { passive: true });
+  });
+  window.addEventListener('resize', function(){
+    if(!REDUCED) resize();
+    updateProg();
+  });
+  window.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      if(cmpLayer.classList.contains('open')){ closeCmp(); }
+      else if(dirLayer.classList.contains('open')){ closeDir(); }
+      return;
+    }
+    if(cmpLayer.classList.contains('open') || dirLayer.classList.contains('open')) return;
+    if(e.key === 'ArrowRight') goTo(current + 1);
+    if(e.key === 'ArrowLeft') goTo(current - 1);
+    if(e.key === 'Home') goTo(0);
+    if(e.key === 'End') goTo(pages.length - 1);
+  });
+  /* ==================== 滚入逐条显现 ==================== */
+  const REVEAL_SEL = '.timeline>li,.vitem,.step,.titem,.dstat,.stat,.quote,.taste-half';
+  const marked = [];
+  pages.forEach(function(p){
+    const els = p.querySelectorAll(REVEAL_SEL);
+    els.forEach(function(el){ marked.push(el); });
+    if(REDUCED){
+      els.forEach(function(el){ el.classList.add('in'); });
+      return;
+    }
+    const io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting) return;
+        const el = en.target;
+        const idx = Array.prototype.indexOf.call(el.parentElement.children, el);
+        el.animate(
+          [
+            { opacity: 0, transform: 'translateY(24px)' },
+            { opacity: 1, transform: 'none' }
+          ],
+          { duration: 760, delay: Math.min(idx * 70, 520), easing: 'cubic-bezier(.22,.9,.3,1)', fill: 'backwards' }
+        );
+        io.unobserve(el);
+        const num = el.querySelector('.num');
+        if(num && num.dataset.count && !num.dataset.done) runCount(num);
+      });
+    }, { root: p, threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  });
+  /* ---- 数字滚动 ---- */
+  function runCount(el, delay){
+    if(el.dataset.done) return;
+    el.dataset.done = '1';
+    const target = parseFloat(el.dataset.count);
+    const dec = (String(el.dataset.count).split('.')[1] || '').length;
+    const dur = 1200;
+    let t0 = 0;
+    function step(now){
+      const k = Math.min(1, (now - t0) / dur);
+      const e = 1 - Math.pow(1 - k, 3);
+      el.textContent = (target * e).toFixed(dec);
+      if(k < 1) requestAnimationFrame(step);
+    }
+    window.setTimeout(function(){ t0 = performance.now(); requestAnimationFrame(step); }, delay || 0);
+  }
+  /* ==================== 横幅 3D 倾角 ==================== */
+  if(!REDUCED){
+    document.querySelectorAll('.chapter-banner').forEach(function(b){
+      b.addEventListener('mousemove', function(e){
+        const r = b.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width;
+        const y = (e.clientY - r.top) / r.height;
+        b.style.transition = 'transform .08s linear';
+        b.style.transform = 'perspective(1000px) rotateY(' + ((x - 0.5) * 8).toFixed(2) + 'deg) rotateX(' + ((0.5 - y) * 6).toFixed(2) + 'deg) translateY(-4px)';
+      });
+      b.addEventListener('mouseleave', function(){
+        b.style.transition = 'transform .55s cubic-bezier(.22,.9,.3,1)';
+        b.style.transform = '';
+      });
+    });
+  }
+  /* ==================== 商 · 茶路星图 ==================== */
+  const tradeMap = document.getElementById('tradeMap');
+  const tradeReplay = document.getElementById('tradeReplay');
+  const tradeYear = document.getElementById('tradeYear');
+  const tradeTxt = document.getElementById('tradeTxt');
+  const tradeInfo = document.getElementById('tradeInfo');
+  const TRADE = {
+    wuyi:      { year: '17–19 世纪', txt: '万里茶道起点 · 茶砖从武夷山北上，全程约 13,000 公里抵达恰克图。' },
+    guangzhou: { year: '清 · 一口通商', txt: '广州十三行垄断对外贸易 · 茶叶、丝绸、瓷器换回白银。' },
+    cape:      { year: '1600 起', txt: '东印度公司特许航线 · 绕过好望角，垄断东西方贸易两百年。' },
+    london:    { year: '1662', txt: '凯瑟琳公主以茶代酒嫁入王室 · 宫廷茶风席卷上流社会。' },
+    boston:    { year: '1773', txt: '波士顿倾茶事件 · 342 箱茶叶倒入海中，点燃独立战争。' },
+    assam:     { year: '1848', txt: '福琼带走两万株茶苗 · 印度茶业兴起，改写世界茶价。' }
+  };
+  const TRADE_EN = {
+    wuyi:      { name: 'Wuyishan · Xiamei', year: '17th–19th c.', txt: 'The start of the Wanli Tea Road — tea bricks north to Kyakhta, about 13,000 km.' },
+    guangzhou: { name: 'Guangzhou · Canton', year: 'Qing · Canton System', txt: 'The Thirteen Factories monopolised foreign trade — tea, silk and porcelain for silver.' },
+    cape:      { name: 'Cape of Good Hope', year: 'from 1600', txt: 'The East India Company&rsquo;s chartered route around the Cape, dominating East–West trade.' },
+    london:    { name: 'London', year: '1662', txt: 'Catherine of Braganza chose tea over ale — courtly tea-drinking swept high society.' },
+    boston:    { name: 'Boston', year: '1773', txt: 'The Boston Tea Party — 342 chests into the harbour lit a revolution.' },
+    assam:     { name: 'Assam', year: '1848', txt: 'Fortune carried out 20,000 plants; the gardens of Assam rewrote world tea prices.' }
+  };
+  const tradeSegs = [
+    { p: 'tw1', s: 0,    d: 1000, lit: 'wuyi',      at: 60 },
+    { p: 'tw2', s: 380,  d: 1000, lit: 'guangzhou', at: 1380 },
+    { p: 'tw5', s: 380,  d: 1000, lit: 'assam',     at: 1380 },
+    { p: 'tw3', s: 760,  d: 1000, lit: 'cape',      at: 1760 },
+    { p: 'tw4', s: 1140, d: 1000, lit: 'london',    at: 2140 }
+  ];
+  const tradeNodes = {};
+  document.querySelectorAll('.tm-node').forEach(function(g){
+    tradeNodes[g.getAttribute('data-k')] = g;
+  });
+  const tradePaths = ['tw1','tw2','tw3','tw4','tw5'].map(function(id){ return document.getElementById(id); });
+  const tradeDots = ['td1','td2','td3','td4','td5'].map(function(id){ return document.getElementById(id); });
+  let tradePlaying = false;
+  function lightTrade(k){
+    const g = tradeNodes[k];
+    if(g) g.classList.add('on');
+  }
+  function moveDot(path, dot, dur){
+    const len = path.getTotalLength();
+    const t0 = performance.now();
+    (function step(now){
+      const k = Math.min(1, (now - t0) / dur);
+      const e = 1 - Math.pow(1 - k, 3);
+      const pt = path.getPointAtLength(e * len);
+      dot.setAttribute('cx', pt.x);
+      dot.setAttribute('cy', pt.y);
+      if(k < 1) requestAnimationFrame(step);
+      else dot.style.opacity = 0;
+    })(performance.now());
+  }
+  function resetTrade(){
+    tradePlaying = false;
+    tradePaths.forEach(function(p){
+      p.classList.remove('flow');
+      const len = p.getTotalLength();
+      p.style.strokeDasharray = len;
+      p.style.strokeDashoffset = len;
+    });
+    tradeDots.forEach(function(d){ d.style.opacity = 0; });
+    document.querySelectorAll('.tm-node').forEach(function(g){ g.classList.remove('on','sel'); });
+    tradeYear.textContent = lang === 'en' ? 'Set · Sail' : '起 · 航';
+    tradeTxt.textContent = lang === 'en' ? 'Tap a port to read its story.' : '轻触航线上的节点，读取每一段航程。';
+  }
+  function runTrade(){
+    if(tradePlaying) return;
+    tradePlaying = true;
+    if(REDUCED){
+      tradePaths.forEach(function(p){ p.classList.add('flow'); p.style.strokeDashoffset = 0; });
+      document.querySelectorAll('.tm-node').forEach(function(g){ g.classList.add('on'); });
+      tradePlaying = false;
+      return;
+    }
+    tradeSegs.forEach(function(seg){
+      const path = document.getElementById(seg.p);
+      const len = path.getTotalLength();
+      window.setTimeout(function(){ lightTrade(seg.lit); }, seg.at);
+      const anim = path.animate([
+        { strokeDashoffset: len },
+        { strokeDashoffset: 0 }
+      ], { duration: seg.d, delay: seg.s, easing: 'cubic-bezier(.42,.05,.32,.98)', fill: 'forwards' });
+      anim.onfinish = function(){
+        path.classList.add('flow');
+        path.style.strokeDashoffset = 0;
+        const dot = tradeDots[tradePaths.indexOf(path)];
+        dot.style.opacity = 1;
+        moveDot(path, dot, 900);
+      };
+    });
+    window.setTimeout(function(){ lightTrade('boston'); }, 2300);
+    window.setTimeout(function(){
+      tradePlaying = false;
+      tradeYear.textContent = lang === 'en' ? 'Voyage · Done' : '航 · 尽';
+      tradeTxt.textContent = lang === 'en' ? 'One tea road, five voyages — tap a port to revisit.' : '一条茶路，五段航程——轻触节点回看。';
+    }, 3000);
+  }
+  if(tradeReplay) tradeReplay.addEventListener('click', function(){
+    resetTrade();
+    runTrade();
+  });
+  document.querySelectorAll('.tm-node').forEach(function(g){
+    g.addEventListener('click', function(){
+      const k = g.getAttribute('data-k');
+      const d = TRADE[k];
+      if(!d) return;
+      const e = TRADE_EN[k];
+      tradeYear.textContent = (lang === 'en' && e) ? e.year : d.year;
+      tradeTxt.textContent = (lang === 'en' && e) ? e.txt : d.txt;
+      tradeInfo.classList.remove('flash');
+      void tradeInfo.offsetWidth;
+      tradeInfo.classList.add('flash');
+      document.querySelectorAll('.tm-node').forEach(function(n){ n.classList.remove('sel'); });
+      g.classList.add('sel');
+    });
+  });
+  if(tradeMap && !REDUCED){
+    const tio = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting && !tradePlaying){ runTrade(); tio.unobserve(en.target); }
+      });
+    }, { threshold: 0.35 });
+    tio.observe(tradeMap);
+  }
+
+  /* ==================== 同题对照剧场 ==================== */
+  const cmpLayer = document.getElementById('cmpLayer');
+  const cmpTabs = document.getElementById('cmpTabs');
+  const cmpE = document.getElementById('cmpE');
+  const cmpW = document.getElementById('cmpW');
+  const cmpOpenBtn = document.getElementById('cmpOpenBtn');
+  const cmpClose = document.getElementById('cmpClose');
+  const CMPT = [
+    { q: '加不加奶？', en: 'Milk or Not?',
+      e: { t: '清饮为上', d: '牛奶与糖是外来的杂音。好茶要喝「本味」——水是骨，叶是魂。', x: '陆羽《茶经》论水论火，独不论奶。' },
+      w: { t: '九成加奶', d: '约 98% 的英式茶饮都加奶。茶不是终点，是基料——奶与糖把茶调成一件可以共享的成品。', x: '「Builder&rsquo;s Tea」：浓、甜、加奶，是休息的权利。' } },
+    { q: '先奶还是先茶？', en: 'Milk First or Last?',
+      e: { t: '没有这个问题', d: '茶汤直接入口，不加他物，也就无所谓先后。这个问题本身，就是英式的。', x: '东方的回答，是沉默。' },
+      w: { t: '一场礼仪之争', d: '先奶是旧时平民的做法——怕滚茶激裂薄瓷；先茶后奶如今已是主流。争论本身，成了谈资。', x: '乔治·奥威尔：先倒茶，再倒奶。' } },
+    { q: '独饮还是共饮？', en: 'Alone or Together?',
+      e: { t: '一人得神', d: '独啜时茶是镜子，照见自己。品茶重「静」，人多则喧，喧则失味。', x: '明人陈继儒：一人得神，二人得趣，三人得味。' },
+      w: { t: '共聚的借口', d: '下午茶从来不是为茶，是为相聚。一杯茶递过去，是安慰、是开场、是谈判前的缓冲。', x: '「Have a cuppa」——茶是社交润滑剂。' } },
+    { q: '茶配什么？', en: 'What Goes with Tea?',
+      e: { t: '清饮，佐以本味', d: '茶点是配角，不抢茶的风头。一碟瓜子、几块茶食，重在清雅。', x: '以淡佐浓，以素佐香。' },
+      w: { t: '三层架上的秩序', d: '自下而上：三明治 → 司康 → 甜点。先咸后甜，顺序就是规矩。', x: '司康要手掰，涂果酱，再涂凝脂奶油。' } },
+    { q: '水温怎么控？', en: 'How Hot?',
+      e: { t: '看茶下壶', d: '绿茶 80°C 上下，乌龙沸水高冲。不同茶类不同水温，是功课，也是敬意。', x: '「水老不可食也」——陆羽。' },
+      w: { t: '必须现烧的沸水', d: '水要现烧，不能反复煮沸——「再沸的水没有氧气，茶就死了」。闷泡三至五分钟，到点即滤。', x: '英式红茶讲究「浓、亮、有劲」。' } }
+  ];
+  let cmpIdx = 0;
+  function renderCmp(){
+    const en = lang === 'en';
+    cmpTabs.innerHTML = '';
+    CMPT.forEach(function(tp, i){
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'cmp-tab' + (i === cmpIdx ? ' active' : '');
+      b.textContent = en ? tp.en : tp.q;
+      b.addEventListener('click', function(){
+        if(i === cmpIdx) return;
+        cmpIdx = i;
+        renderCmp();
+      });
+      cmpTabs.appendChild(b);
+    });
+    const C = en ? CMP_EN[cmpIdx] : CMPT[cmpIdx];
+    const tagE = en ? 'East · China' : '東 · 中国';
+    const tagW = en ? 'West · Britain' : '西 · 英国';
+    cmpE.innerHTML =
+      '<div class="cmp-tag"><span>' + tagE + '</span><i>' + (en ? 'CHINA' : 'CHINA') + '</i></div>' +
+      '<h4>' + C.e.t + '</h4><p>' + C.e.d + '</p><p class="x">' + C.e.x + '</p>';
+    cmpW.innerHTML =
+      '<div class="cmp-tag"><span>' + tagW + '</span><i>' + (en ? 'BRITAIN' : 'BRITAIN') + '</i></div>' +
+      '<h4>' + C.w.t + '</h4><p>' + C.w.d + '</p><p class="x">' + C.w.x + '</p>';
+    cmpE.classList.remove('swap'); cmpW.classList.remove('swap');
+    void cmpE.offsetWidth;
+    cmpE.classList.add('swap'); cmpW.classList.add('swap');
+  }
+  function openCmp(){
+    cmpLayer.classList.add('open');
+    cmpLayer.setAttribute('aria-hidden', 'false');
+    cmpOpenBtn.classList.add('on');
+    renderCmp();
+  }
+  function closeCmp(){
+    cmpLayer.classList.remove('open');
+    cmpLayer.setAttribute('aria-hidden', 'true');
+    cmpOpenBtn.classList.remove('on');
+  }
+  if(cmpOpenBtn) cmpOpenBtn.addEventListener('click', function(){
+    if(cmpLayer.classList.contains('open')) closeCmp(); else openCmp();
+  });
+  if(cmpClose) cmpClose.addEventListener('click', closeCmp);
+  if(cmpLayer) cmpLayer.addEventListener('click', function(e){
+    if(e.target === cmpLayer) closeCmp();
+  });
+
+  /* ==================== 环境音景引擎 ==================== */
+  const soundBtn = document.getElementById('soundBtn');
+  const volRange = document.getElementById('volRange');
+  const ACTX = window.AudioContext || window.webkitAudioContext;
+  const SOUND_SUPPORTED = !!ACTX;
+  let actx = null, sMaster = null, sVol = null, sAnalyzer = null;
+  let sEnabled = false, sScene = null;
+  let audioLevel = 0;
+  const audioData = new Uint8Array(256);
+  function makeNoiseBuf(){
+    const len = actx.sampleRate * 2;
+    const buf = actx.createBuffer(1, len, actx.sampleRate);
+    const data = buf.getChannelData(0);
+    for(let i = 0; i < len; i++) data[i] = Math.random() * 2 - 1;
+    return buf;
+  }
+  function envGain(ctx, g, target, dur){
+    const t = ctx.currentTime;
+    g.gain.cancelScheduledValues(t);
+    g.gain.setValueAtTime(g.gain.value, t);
+    g.gain.linearRampToValueAtTime(target, t + dur);
+  }
+  const SCENES = [
+    { loops: [ {k:'air', f:600, v:.03} ], events: [ {k:'gong', lo:10, hi:20, v:.045} ] },
+    { loops: [ {k:'air', f:420, v:.048} ], events: [ {k:'pour', lo:6, hi:12, v:.055} ] },
+    { loops: [ {k:'air', f:1100, v:.024} ], events: [ {k:'chime', lo:4, hi:9, v:.08} ] },
+    { loops: [ {k:'boil', f:1500, v:.05} ], events: [ {k:'chime', lo:8, hi:15, v:.055}, {k:'pour', lo:10, hi:18, v:.045} ] },
+    { loops: [ {k:'air', f:520, v:.032} ], events: [ {k:'page', lo:6, hi:13, v:.045} ] },
+    { loops: [ {k:'air', f:850, v:.026} ], events: [ {k:'stir', lo:8, hi:15, v:.06} ] },
+    { loops: [ {k:'harbor', f:280, v:.06} ], events: [ {k:'horn', lo:12, hi:24, v:.075} ] },
+    { loops: [ {k:'rain', f:3800, v:.055} ], events: [ {k:'chime', lo:14, hi:22, v:.025} ] }
+  ];
+  function triggerEvent(ev, out){
+    const t = actx.currentTime;
+    if(ev.k === 'gong'){
+      [220, 330, 440].forEach(function(f, i){
+        const o = actx.createOscillator();
+        o.type = 'sine';
+        o.frequency.value = f;
+        const g = actx.createGain();
+        g.gain.setValueAtTime(0.0001, t);
+        g.gain.linearRampToValueAtTime(ev.v * (i ? 0.35 : 0.8), t + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + 3.2);
+        o.connect(g); g.connect(out);
+        o.start(t); o.stop(t + 3.4);
+      });
+    } else if(ev.k === 'chime'){
+      const o = actx.createOscillator();
+      o.type = 'sine';
+      o.frequency.value = 1200 + Math.random() * 1000;
+      const g = actx.createGain();
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.linearRampToValueAtTime(ev.v, t + 0.006);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.22);
+      o.connect(g); g.connect(out);
+      o.start(t); o.stop(t + 0.3);
+    } else if(ev.k === 'pour'){
+      const d = actx.createBufferSource();
+      d.buffer = makeNoiseBuf();
+      const flt = actx.createBiquadFilter();
+      flt.type = 'bandpass';
+      flt.frequency.value = 900 + Math.random() * 500;
+      flt.Q.value = 0.6;
+      const g = actx.createGain();
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.linearRampToValueAtTime(ev.v, t + 0.12);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 1.6);
+      d.connect(flt); flt.connect(g); g.connect(out);
+      d.start(t); d.stop(t + 1.8);
+    } else if(ev.k === 'page'){
+      const d = actx.createBufferSource();
+      d.buffer = makeNoiseBuf();
+      const flt = actx.createBiquadFilter();
+      flt.type = 'highpass'; flt.frequency.value = 4800;
+      const g = actx.createGain();
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.linearRampToValueAtTime(ev.v, t + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.28);
+      d.connect(flt); flt.connect(g); g.connect(out);
+      d.start(t); d.stop(t + 0.35);
+    } else if(ev.k === 'stir'){
+      const d = actx.createBufferSource();
+      d.buffer = makeNoiseBuf();
+      const flt = actx.createBiquadFilter();
+      flt.type = 'bandpass'; flt.frequency.value = 420; flt.Q.value = 1.2;
+      const g = actx.createGain();
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.linearRampToValueAtTime(ev.v, t + 0.1);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.9);
+      d.connect(flt); flt.connect(g); g.connect(out);
+      d.start(t); d.stop(t + 1.0);
+    } else if(ev.k === 'horn'){
+      const o = actx.createOscillator();
+      o.type = 'sawtooth';
+      o.frequency.setValueAtTime(150, t);
+      o.frequency.linearRampToValueAtTime(108, t + 1.6);
+      const flt = actx.createBiquadFilter();
+      flt.type = 'lowpass'; flt.frequency.value = 420;
+      const g = actx.createGain();
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.linearRampToValueAtTime(ev.v, t + 0.3);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 2.6);
+      o.connect(flt); flt.connect(g); g.connect(out);
+      o.start(t); o.stop(t + 2.8);
+    }
+  }
+  function createScene(idx, dest){
+    const cfg = SCENES[idx];
+    const nodes = [];
+    const timers = [];
+    const out = actx.createGain();
+    out.gain.value = 0;
+    out.connect(dest);
+    nodes.push(out);
+    const t0 = actx.currentTime;
+    out.gain.linearRampToValueAtTime(1, t0 + 1.2);
+    cfg.loops.forEach(function(lc){
+      const n = actx.createBufferSource();
+      n.buffer = makeNoiseBuf();
+      n.loop = true;
+      const flt = actx.createBiquadFilter();
+      if(lc.k === 'air'){ flt.type = 'lowpass'; flt.frequency.value = lc.f; }
+      else if(lc.k === 'boil'){ flt.type = 'bandpass'; flt.frequency.value = lc.f; flt.Q.value = 0.9; }
+      else if(lc.k === 'rain'){ flt.type = 'highpass'; flt.frequency.value = lc.f; }
+      else { flt.type = 'lowpass'; flt.frequency.value = lc.f; }
+      const g = actx.createGain();
+      g.gain.value = lc.v * 0.6;
+      n.connect(flt); flt.connect(g); g.connect(out);
+      n.start();
+      nodes.push(n, flt, g);
+      const lfo = actx.createOscillator();
+      const lg = actx.createGain();
+      lfo.frequency.value = lc.k === 'harbor' ? 0.09 : 0.13;
+      lg.gain.value = lc.v * 0.45;
+      lfo.connect(lg); lg.connect(g.gain);
+      lfo.start();
+      nodes.push(lfo, lg);
+      if(lc.k === 'rain'){
+        const drip = function(){
+          const d = actx.createBufferSource();
+          d.buffer = makeNoiseBuf();
+          const df = actx.createBiquadFilter();
+          df.type = 'highpass'; df.frequency.value = 4200;
+          const dg = actx.createGain();
+          dg.gain.setValueAtTime(0.0001, actx.currentTime);
+          dg.gain.linearRampToValueAtTime(0.05 + Math.random() * 0.06, actx.currentTime + 0.004);
+          dg.gain.exponentialRampToValueAtTime(0.0001, actx.currentTime + 0.05);
+          d.connect(df); df.connect(dg); dg.connect(out);
+          d.start(); d.stop(actx.currentTime + 0.1);
+          nodes.push(d, df, dg);
+          const nt = setTimeout(drip, 130 + Math.random() * 340);
+          timers.push(nt);
+        };
+        const ft = setTimeout(drip, 300);
+        timers.push(ft);
+      }
+    });
+    cfg.events.forEach(function(ev){
+      const tick = function(){
+        triggerEvent(ev, out);
+        const nt = setTimeout(tick, (ev.lo + Math.random() * (ev.hi - ev.lo)) * 1000);
+        timers.push(nt);
+      };
+      const ft = setTimeout(tick, (ev.lo + Math.random() * 4) * 1000);
+      timers.push(ft);
+    });
+    return {
+      stop: function(){
+        timers.forEach(function(t){ clearTimeout(t); });
+        nodes.forEach(function(nd){ try{ nd.disconnect(); }catch(e){} });
+      }
+    };
+  }
+  function startScene(idx){
+    if(!actx) return;
+    if(sScene) sScene.stop();
+    sScene = createScene(idx, sMaster);
+  }
+  function startAudio(){
+    if(!SOUND_SUPPORTED) return;
+    if(!actx){
+      actx = new ACTX();
+      sMaster = actx.createGain();
+      sMaster.gain.value = 0;
+      sVol = actx.createGain();
+      sVol.gain.value = (parseInt(volRange.value, 10) || 70) / 100;
+      sAnalyzer = actx.createAnalyser();
+      sAnalyzer.fftSize = 256;
+      sMaster.connect(sVol);
+      sVol.connect(sAnalyzer);
+      sAnalyzer.connect(actx.destination);
+    }
+    if(actx.state === 'suspended') actx.resume();
+    startScene(current);
+    envGain(actx, sMaster, 1, 1.1);
+    sEnabled = true;
+    soundBtn.classList.add('on');
+    soundBtn.setAttribute('aria-pressed', 'true');
+  }
+  function stopAudio(){
+    if(sScene){ sScene.stop(); sScene = null; }
+    if(sMaster) envGain(actx, sMaster, 0, 0.5);
+    sEnabled = false;
+    soundBtn.classList.remove('on');
+    soundBtn.setAttribute('aria-pressed', 'false');
+  }
+  if(soundBtn){
+    soundBtn.addEventListener('click', function(){
+      if(sEnabled) stopAudio();
+      else startAudio();
+    });
+  }
+  if(volRange){
+    volRange.addEventListener('input', function(){
+      const v = parseInt(volRange.value, 10) || 70;
+      if(sVol && actx) sVol.gain.setTargetAtTime(v / 100, actx.currentTime, 0.05);
+    });
+  }
+  if(!SOUND_SUPPORTED && soundBtn){
+    soundBtn.style.opacity = '.35';
+    soundBtn.title = '当前浏览器不支持音频';
+  }
+
+  /* ==================== 中英双语系统 ==================== */
+  const langBtn = document.getElementById('langBtn');
+  /* 默认英文演示模式（面向英语课汇报），中文由按钮切换、不跨会话记忆 */
+  let lang = 'en';
+  const zhCache = new WeakMap();
+  const CMP_EN = [
+    { e: { t: 'Pure Above All', d: 'Milk and sugar are noise from outside. Good tea is drunk for its &ldquo;true flavour&rdquo; — water is the bone, the leaf the soul.', x: 'Lu Yu&rsquo;s <i>Classic of Tea</i> discusses water and fire, but never milk.' },
+      w: { t: 'Nine in Ten Add Milk', d: 'Roughly 98% of British tea is drunk with milk. Tea is not the destination but the base — milk and sugar turn it into a finished thing to be shared.', x: '&ldquo;Builder&rsquo;s Tea&rdquo;: strong, sweet, milky — the right to rest.' } },
+    { e: { t: 'There Is No Such Question', d: 'The tea goes straight into the mouth, unmixed. There is no before or after — the question itself is a British one.', x: 'The East&rsquo;s answer is silence.' },
+      w: { t: 'A War of Etiquette', d: 'Milk first was the old working-class way — for fear the boiling tea would crack thin porcelain. Tea first is the mainstream today. The quarrel itself became small talk.', x: 'George Orwell: pour the tea, then the milk.' } },
+    { e: { t: 'One Person Finds the Spirit', d: 'Drunk alone, tea is a mirror. Tasting demands stillness — too many voices, and the flavour is lost.', x: 'Ming scholar Chen Jiru: one person finds the spirit, two the fun, three the taste.' },
+      w: { t: 'An Excuse to Gather', d: 'Afternoon tea was never about the tea but about company. Handing someone a cup is comfort, an opener, a buffer before negotiation.', x: '&ldquo;Have a cuppa&rdquo; — tea as social lubricant.' } },
+    { e: { t: 'Plain, with Plain Things', d: 'Snacks are supporting actors, never stealing the show. A dish of seeds, a few tea cakes — lightness is the point.', x: 'Pair the light with the strong, the plain with the fragrant.' },
+      w: { t: 'Order on the Stand', d: 'Bottom to top: sandwiches, scones, sweets. Savoury before sweet — the sequence is the rule.', x: 'Scones are broken by hand, then jam, then clotted cream.' } },
+    { e: { t: 'Match the Leaf', d: 'Green tea around 80°C, oolong at a rolling boil poured from high. Matching the water to the tea is homework, and respect.', x: '&ldquo;Water too old is undrinkable&rdquo; — Lu Yu.' },
+      w: { t: 'Fresh Boiling Water, Always', d: 'Water must be freshly boiled and never re-boiled — &ldquo;reboiled water has no oxygen; the tea dies.&rdquo; Steep three to five minutes, then strain at once.', x: 'British tea is prized for being &ldquo;strong, bright, brisk.&rdquo;' } }
+  ];
+  const LANG = {
+    '.brand-cn': { en: 'One Leaf, Two Worlds' },
+    '.eyebrow': { en: 'East &amp; West in a Cup · A Comparative Study' },
+    '.hero-title .cn': { en: 'One Leaf, Two Worlds' },
+    '.hero-lead': { en: 'The same leaf falls into a mountain spring in the East — it becomes <i>harmony and stillness</i>.<br>Poured from a silver pot in the West — it becomes <i>four o&rsquo;clock</i>.' },
+    '.duo-side.east h3': { en: 'Pure · Alone' },
+    '.duo-side.east p': { en: 'A leaf, a kettle of spring water.<br>Tea is a journey inward.' },
+    '.duo-side.west h3': { en: 'Blended · Together' },
+    '.duo-side.west p': { en: 'A cup, a plate of cakes.<br>Tea is a reason to gather.' },
+    '.scroll-hint': { en: 'Walk the tea road below — eight chapters await' },
+    '.stats .stat:nth-child(1) b small': { en: 'mn t' },
+    '.stats .stat:nth-child(1) > span': { en: 'China&rsquo;s tea output (2024)<br>world No. 1' },
+    '.stats .stat:nth-child(1) > small': { en: 'NBS China' },
+    '.stats .stat:nth-child(2) b small': { en: 'mn t' },
+    '.stats .stat:nth-child(2) > span': { en: 'Global output (2023)<br>China grows nearly half' },
+    '.stats .stat:nth-child(2) > small': { en: 'ITC' },
+    '.stats .stat:nth-child(3) b small': { en: 'bn people' },
+    '.stats .stat:nth-child(3) > span': { en: 'Global tea drinkers<br>60+ countries grow tea' },
+    '.stats .stat:nth-child(3) > small': { en: 'Xinhua' },
+    '.stats .stat:nth-child(4) b small': { en: 'bn cups/day' },
+    '.stats .stat:nth-child(4) > span': { en: 'Cups drunk daily in Britain<br>more than coffee (98m)' },
+    '.stats .stat:nth-child(4) > small': { en: 'UKTIA' },
+    'section[data-i="1"] h2': { en: 'Origins' },
+    'section[data-i="1"] .chapter-sub': { en: 'From a legendary antidote to a royal dowry' },
+    'section[data-i="2"] h2': { en: 'Vessels' },
+    'section[data-i="2"] .chapter-sub': { en: 'The East chooses a vessel for the tea; the West chooses a tea for the vessel' },
+    'section[data-i="3"] h2': { en: 'Ritual' },
+    'section[data-i="3"] .chapter-sub': { en: 'In the East, restraint of the hand; in the West, order at the table' },
+    'section[data-i="4"] h2': { en: 'Letters' },
+    'section[data-i="4"] .chapter-sub': { en: 'The Chinese wrote tea into poetry; the English wrote it into novels' },
+    'section[data-i="5"] h2': { en: 'Taste' },
+    'section[data-i="5"] .chapter-sub': { en: 'The East makes six teas of one leaf; the West makes one cup of six blends' },
+    'section[data-i="6"] h2': { en: 'Trade' },
+    'section[data-i="6"] .chapter-sub': { en: 'One leaf that redrew the map of world trade' },
+    'section[data-i="7"] h2': { en: 'Now' },
+    'section[data-i="7"] .chapter-sub': { en: 'Two tea worlds, meeting again' },
+    'section[data-i="4"] .quote:nth-child(1) .q-cn': { en: '&ldquo;Tea is the finest tree of the south.&rdquo;' },
+    'section[data-i="4"] .quote:nth-child(1) .q-src': { en: 'Lu Yu, <i>The Classic of Tea</i>, c. 760' },
+    'section[data-i="4"] .quote:nth-child(2) .q-cn': { en: '&ldquo;The first bowl moistens my lips and throat;<br>the second breaks my loneliness;<br>the third searches my withered entrails — only five thousand scrolls of writing remain;<br>the fourth sends a light sweat, and all of life&rsquo;s grievances disperse through my pores.&rdquo;' },
+    'section[data-i="4"] .quote:nth-child(2) .q-src': { en: 'Lu Tong, <i>Song of Seven Bowls</i>, Tang Dynasty' },
+    'section[data-i="4"] .quote:nth-child(3) .q-cn': { en: '&ldquo;Do not, before old friends, pine for a lost homeland — take the new fire, try the new tea, and live fully while the years are young.&rdquo;' },
+    'section[data-i="4"] .quote:nth-child(3) .q-src': { en: 'Su Shi, 1076' },
+    'section[data-i="4"] .quote:nth-child(4) .q-cn': { en: '&ldquo;A hardened and shameless tea-drinker, who has for twenty years diluted his meals with only the infusion of this fascinating plant.&rdquo;' },
+    'section[data-i="4"] .quote:nth-child(4) .q-src': { en: 'Samuel Johnson, 1757' },
+    'section[data-i="4"] .quote:nth-child(5) .q-cn': { en: '&ldquo;Tea is the only simple pleasure left to us.&rdquo;' },
+    'section[data-i="4"] .quote:nth-child(5) .q-src': { en: 'From Jane Austen to Lewis Carroll' },
+    'section[data-i="4"] .quote:nth-child(6) .q-cn': { en: '&ldquo;Tea — though ridiculed by those who are naturally coarse in their nervous sensibilities — will always be the favourite beverage of the intellectual.&rdquo;' },
+    'section[data-i="4"] .quote:nth-child(6) .q-src': { en: 'Thomas De Quincey, <i>Confessions of an English Opium-Eater</i>, 1821' },
+    'section[data-i="4"] .quote:nth-child(7) .q-cn': { en: 'George Orwell&rsquo;s eleven rules for a nice cup of tea:<br>Indian or Ceylon tea · a ceramic pot · warm the pot · loose leaves, no bag ·<br>water at a roaring boil · stir before pouring · a stout cup · milk in last…' },
+    'section[data-i="4"] .quote:nth-child(7) .q-src': { en: 'George Orwell, &ldquo;A Nice Cup of Tea&rdquo;, 1946' },
+    'section[data-i="6"] .dstat:nth-child(1) > b small': { en: ' km' },
+    'section[data-i="6"] .dstat:nth-child(1) > span': { en: 'The Wanli Tea Road:<br>Wuyishan to Kyakhta' },
+    'section[data-i="6"] .dstat:nth-child(2) > b small': { en: ' chests' },
+    'section[data-i="6"] .dstat:nth-child(2) > span': { en: 'Chests of tea sunk<br>into Boston Harbour' },
+    'section[data-i="6"] .dstat:nth-child(3) > b small': { en: ' plants' },
+    'section[data-i="6"] .dstat:nth-child(3) > span': { en: 'Plants and seeds smuggled out<br>by Robert Fortune' },
+    'section[data-i="6"] .dstat:nth-child(4) > b small': { en: ' k t/yr' },
+    'section[data-i="6"] .dstat:nth-child(4) > span': { en: 'Tea Britain imports<br>every year (UKTIA)' },
+    'section[data-i="6"] .coda h3': { en: 'The Price of a Cup' },
+    'section[data-i="6"] .coda p': { en: 'Tea left the East carrying mountains and poetry; by the time it reached the West, it had been tangled in silver, opium and war.<br>The same leaf — beauty on one side, capital on the other.' },
+    'section[data-i="7"] .coda h3': { en: 'One Leaf, Two Worlds' },
+    'section[data-i="7"] .coda p': { en: 'The East finds inner order in tea; the West finds companionship over it.<br>One looks inward, the other outward — yet as both raise the cup, both pause.' },
+    '.trademap .tm-cn': { en: 'The Leaf&rsquo;s Global Voyage' },
+    '.trademap .tm-replay': { en: 'Replay' },
+    '.trademap .tm-i-year': { en: 'Set · Sail' },
+    '.trademap .tm-i-txt': { en: 'Tap a port to read its story.' },
+    '.cmp-title': { en: 'One Question, Two Answers' },
+    '.cmp-foot': { en: 'same leaf, two answers' },
+    '.cmp-close': { en: 'Close' },
+    '.sources b': { en: 'References' },
+    '.dir-head .cn': { en: 'The Eight Chapters' },
+    '.dir-item[data-i="0"] .desc': { en: 'The same leaf, two worlds' },
+    '.dir-item[data-i="1"] .desc': { en: 'From a legendary antidote to a royal dowry' },
+    '.dir-item[data-i="2"] .desc': { en: 'A vessel for the tea — or a tea for the vessel' },
+    '.dir-item[data-i="3"] .desc': { en: 'Restraint of the hand, order at the table' },
+    '.dir-item[data-i="4"] .desc': { en: 'Tea in poetry, tea in novels' },
+    '.dir-item[data-i="5"] .desc': { en: 'Six teas of one leaf, one cup of six blends' },
+    '.dir-item[data-i="6"] .desc': { en: 'One leaf that redrew the map of world trade' },
+    '.dir-item[data-i="7"] .desc': { en: 'Two tea worlds, meeting again' },
+    '#dirPrev span': { en: 'Prev' },
+    '#dirNext span': { en: 'Next' },
+    '.menu-btn span': { en: 'Menu' }
+  };
+  const LISTS = [
+    { sel: 'section[data-i="1"] .col.east .timeline li', kind: 'li',
+      enH: ['Shennong Tastes a Hundred Herbs', 'Tea in Place of Wine', 'Lu Yu &amp; the <i>Classic of Tea</i>', 'Whisking &amp; the Tea Contest', 'From Cakes to Loose Leaf'],
+      enP: ['&ldquo;He met seventy-two poisons in a day and cured them all with tea.&rdquo; Tea began as medicine, not a drink.',
+            'In the <i>Records of the Three Kingdoms</i>, Sun Hao secretly offered Wei Yao &ldquo;tea as wine&rdquo; — the earliest recorded toast of tea.',
+            'The world&rsquo;s first monograph on tea lifted it from &ldquo;medicine&rdquo; to &ldquo;the Way&rdquo; — boiling and brewing became a discipline.',
+            'Tea was ground to powder and whisked with water; the aim was the whitest, most persistent foam. Tea became competition and aesthetics.',
+            'The Ming emperor abolished compressed cakes; brewing loose leaves directly became the norm — the way the whole world still drinks.'] },
+    { sel: 'section[data-i="1"] .col.west .timeline li', kind: 'li',
+      enH: ['Garraway&rsquo;s Coffee House', 'Catherine of Braganza', 'Twinings, 1706', 'The Birth of Afternoon Tea', 'A National Drink'],
+      enP: ['London&rsquo;s first public tea shop sold tea as a &ldquo;cure-all Chinese beverage&rdquo; — at a princely price.',
+            'The Portuguese princess married into the royal family and chose tea over ale. Courtly tea-drinking swept high society.',
+            'Thomas Twining opened a tea shop on the Strand — still trading on the same site today, one of the oldest in the world.',
+            'Anna, Duchess of Bedford, felt hungry at four o&rsquo;clock and asked for tea and cakes — a national institution was born.',
+            'Duties were cut and Indian plantations rose; tea collapsed in price and left the drawing room for the kitchen — the daily cup of every household.'] },
+    { sel: 'section[data-i="2"] .col.east .vitem', kind: 'vitem',
+      enH: ['Gaiwan', 'Yixing Teapot', 'Fairness Cup', 'Tasting Cup', 'Jian Ware', 'Celadon &amp; Porcelain'],
+      enP: ['Also called the &ldquo;Three Powers&rdquo; bowl — the lid is Heaven, the saucer Earth, the bowl Man. Drink alone, or brew in it.',
+            'Yixing clay has a double-pore structure that absorbs aroma. One pot serves one tea, and grows silkier with age.',
+            'Tea is poured first into this sharing vessel, then into each cup, so every guest gets the same strength. Fairness in a name.',
+            'Small, thin, white. Sip slowly; the white porcelain sets off the liquor — the eyes drink first.',
+            'The vessel of Song-dynasty whisking. Its dark, thick walls hold the heat, and hare&rsquo;s-fur or oil-spot glazes bloom like nebulae.',
+            'Celadon is rain-washed sky; porcelain is curd. Glaze colour is itself a language of taste.'] },
+    { sel: 'section[data-i="2"] .col.west .vitem', kind: 'vitem',
+      enH: ['Bone China Pot', 'Cup &amp; Saucer', 'Three-Tier Stand', 'Tea Strainer', 'Tea Caddy', 'Silver, Milk &amp; Sugar'],
+      enP: ['The English invented bone china in the 1750s — translucent, light, heat-retaining. The plump body lets the leaves open.',
+            'The saucer is not decoration but etiquette made porcelain — a rest for the spoon, a catch for spills, a shield from the heat.',
+            'Bottom to top: sandwiches, scones, sweets. The order is the rule — you don&rsquo;t just help yourself.',
+            'Once loose tea arrived, the strainer became standard — and with it, the little ceremony of pouring through the mesh.',
+            'When tea was as dear as gold, the caddy was locked — and the key hung at the mistress&rsquo;s waist. The guards were servants.',
+            'Milk and sugar are the &ldquo;blending philosophy&rdquo; of British tea — turning tea into a finished thing to be shared.'] },
+    { sel: 'section[data-i="3"] .col.east .step', kind: 'step',
+      enH: ['Warm', 'Measure', 'Awaken', 'High Pour', 'Skim', 'Share Evenly', 'Tap Thanks'],
+      enP: ['Scald the pot and cups with boiling water — to clear odours, hold the heat, and show the guest they are taken seriously.',
+            'The leaves take up about a third of the pot, depending on the tea. A spoonful too much is bitter; too little, thin.',
+            'A quick pour, immediately discarded — &ldquo;washing the tea&rdquo; is really waking the sleeping aroma.',
+            'Hold the kettle high so the stream strikes the leaves and releases the fragrance — &ldquo;pour high, serve low.&rdquo;',
+            'Skim the foam with the lid and steal one breath of the lid&rsquo;s aroma — the brewer&rsquo;s private sip.',
+            'Circle the cups so every one gets equal strength; the last drops are tipped in one by one — not a drop wasted.',
+            'When the host pours, the guest taps three times with a knuckle on the table — a silent, weighty thanks.'] },
+    { sel: 'section[data-i="3"] .col.west .step', kind: 'step',
+      enH: ['Fresh Water', 'Warm the Pot', 'One Spoon Each, and One for the Pot', 'Steep 3–5 min', 'Milk First or Last?', 'Bottom to Top', 'Stir Silently'],
+      enP: ['Water must be freshly boiled, never re-boiled — &ldquo;reboiled water has no oxygen; the tea dies.&rdquo;',
+            'Rinse the pot with hot water and tip it out. More functional than the East&rsquo;s version — but just as necessary.',
+            'The golden rule of British tea, literally precise to the spoon.',
+            'Strain at once, or it turns bitter. British tea is prized for being &ldquo;strong, bright, and brisk.&rdquo;',
+            'The classic quarrel. Milk first was the old working-class way — fearing the boiling tea would crack thin porcelain. Today, tea first rules.',
+            'Savouries before sweets; scones broken by hand, spread with jam then clotted cream — the order is itself etiquette.',
+            'Push the spoon back and forth (never in circles), keep it off the cup&rsquo;s walls, then rest it on the saucer — never leave it in the cup.'] },
+    { sel: 'section[data-i="5"] .col.east .titem', kind: 'titem',
+      enH: ['Green', 'White', 'Yellow', 'Oolong', 'Black', 'Dark'],
+      enP: ['Unoxidised · pan-fired to seal in freshness — Longjing and Biluochun are the most &ldquo;spring-like&rdquo; cups.',
+            'Gently oxidised · withered in the sun — downy buds with a honeyed finish. The quieter it ages, the deeper it grows.',
+            'Lightly oxidised · a sealed &ldquo;yellowing&rdquo; step gives golden leaves and liquor — Junshan Yinzhen&rsquo;s gentleness is stewed out of green.',
+            'Half-oxidised · shaken and bruised for aroma — Tieguanyin&rsquo;s &ldquo;Guan Yin charm,&rdquo; and a single Fenghuang bush that yields a single scent.',
+            'Fully oxidised — Lapsang Souchong&rsquo;s pine smoke to the bone; Keemun perfumed like rose and honey. The tea the West first loved.',
+            'Post-fermented · piled and aged — pu-erh grows better with decades, the only tea that ages into an asset.'] },
+    { sel: 'section[data-i="5"] .col.west .titem', kind: 'titem',
+      enH: ['English Breakfast', 'Earl Grey', 'Assam', 'Darjeeling', 'Lapsang Souchong', 'Tea Bag'],
+      enP: ['A 19th-century blend of Assam, Ceylon and Kenyan black teas — strong enough to take milk. The alarm clock of the English morning.',
+            'Black tea scented with bergamot, named for an earl — a &ldquo;perfume&rdquo; in a cup.',
+            'Malt-forward and powerful, native to India. The empire&rsquo;s second tea home, planted with Fortune&rsquo;s stolen seeds.',
+            'Grown in the Himalayan foothills — the champagne of teas, with a clear, floral elegance.',
+            'Pine-smoked in Wuyi — a taste of campfire that travelled west first.',
+            'An accident of 1908 — now the daily ritual of a nation. Britain still imports about 100,000 tonnes of tea a year, mostly in bags.'] },
+    { sel: 'section[data-i="6"] .col.east .timeline li', kind: 'li',
+      enH: ['The Tea-Horse Road', 'The Wanli Tea Road', 'The Canton System'],
+      enP: ['Tea for horses — from Yunnan and Sichuan over the Hengduan Mountains to Tibet and Central Asia.',
+            'Shanxi merchants carried it from Xiamei in Fujian, through Hankou and Zhangjiakou, to Kyakhta — about 13,000 kilometres.',
+            'The Thirteen Factories of Guangzhou monopolised foreign trade. Tea, silk and porcelain went out; silver came in. The imbalance became the fuse of war.'] },
+    { sel: 'section[data-i="6"] .col.west .timeline li', kind: 'li',
+      enH: ['The East India Company', 'The Boston Tea Party', 'The Opium Wars', 'Robert Fortune, Plant Hunter'],
+      enP: ['Chartered by Elizabeth I in 1600 — within two and a half centuries it nearly monopolised trade from the Cape to the Malacca Strait.',
+            'Protesters boarded the tea ships and dumped 342 chests into the harbour. One shipload of tea lit a revolution.',
+            'To balance the tea trade, Britain smuggled opium into China. The wars ended in the Treaty of Nanjing — and Hong Kong.',
+            'Fortune slipped into China in disguise and carried out 20,000 plants and seeds. The gardens of Assam broke China&rsquo;s monopoly.'] },
+    { sel: 'section[data-i="7"] .col.east .vitem', kind: 'vitem',
+      enH: ['New-Style Tea', 'Tea by the Brazier', 'Bubble Tea Goes Global', 'Cold Brew &amp; Pure Leaf'],
+      enP: ['After 2015, Heytea and Naixue put whole-leaf tea, fresh milk and fruit into a paper cup — and a new generation began drinking tea again.',
+            'Charcoal, a clay pot, roasted oranges and rice cakes — a slow social ritual that became a phenomenon after 2022.',
+            'Born in Taichung&rsquo;s Chun Shui Tang, now queued for on every high street from London to New York to Sydney.',
+            'Young drinkers are returning to plain water-and-leaf minimalism — fussing over origin, altitude and craft.'] },
+    { sel: 'section[data-i="7"] .col.west .vitem', kind: 'vitem',
+      enH: ['Builder&rsquo;s Tea', 'Tea Break', 'National Brands', 'Specialty Revival'],
+      enP: ['Strong, sweet, milky — the flask of a working man. It stands not for taste but for the right to rest.',
+            '&ldquo;Have a cuppa&rdquo; is comfort, an opener, a buffer before negotiations. Tea greases conversation.',
+            'Britain drinks over 100 million cups a day, about 98% with milk. The tea bag is the most ordinary thing in the kitchen.',
+            'Young Britons now brew gongfu tea, drink dan cong, and argue about water temperature and steep time — the two worlds are converging.'] }
+  ];
+  const EN_CLOAK_SEL = '.hero-title .en,.hero-lead-en,.duo-side .en,.scroll-hint em,.timeline p.en,.vitem p.en,.titem p.en,.quote .q-en,.coda .en,.tm-en';
+  function applyLang(){
+    const en = lang === 'en';
+    document.documentElement.lang = en ? 'en' : 'zh';
+    Object.keys(LANG).forEach(function(sel){
+      const el = document.querySelector(sel);
+      if(!el) return;
+      if(!zhCache.has(el)) zhCache.set(el, el.innerHTML);
+      el.innerHTML = en ? LANG[sel].en : zhCache.get(el);
+    });
+    LISTS.forEach(function(L){
+      const els = document.querySelectorAll(L.sel);
+      els.forEach(function(el, i){
+        if(!L.enH[i] && !L.enP[i]) return;
+        const h = L.kind === 'li' ? el.querySelector(':scope > h4')
+                : L.kind === 'vitem' ? el.querySelector('.vname')
+                : L.kind === 'step' ? el.querySelector('h5')
+                : el.querySelector('h4');
+        const p = el.querySelector('p');
+        if(h && L.enH[i]){
+          if(!zhCache.has(h)) zhCache.set(h, h.innerHTML);
+          h.innerHTML = en ? L.enH[i] : zhCache.get(h);
+        }
+        if(p && L.enP[i]){
+          if(!zhCache.has(p)) zhCache.set(p, p.innerHTML);
+          p.innerHTML = en ? L.enP[i] : zhCache.get(p);
+        }
+      });
+    });
+    document.querySelectorAll(EN_CLOAK_SEL).forEach(function(el){
+      el.classList.toggle('en-cloak', en);
+    });
+    document.querySelectorAll('.tm-node').forEach(function(g){
+      const k = g.getAttribute('data-k');
+      const t = g.querySelector('text');
+      if(!t) return;
+      if(!t.dataset.zh) t.dataset.zh = t.textContent;
+      t.textContent = (en && TRADE_EN[k]) ? TRADE_EN[k].name : t.dataset.zh;
+    });
+    if(langBtn){
+      langBtn.classList.toggle('en', en);
+      langBtn.querySelector('b').textContent = en ? '中' : 'EN';
+      langBtn.setAttribute('aria-label', en ? '切换至中文' : 'Switch to English');
+    }
+    if(cmpLayer.classList.contains('open')) renderCmp();
+    renderRefs();
+  }
+  if(langBtn){
+    langBtn.addEventListener('click', function(){
+      lang = lang === 'en' ? 'zh' : 'en';
+      applyLang();
+    });
+  }
+  /* ==================== 参考文献 ==================== */
+  const refsList = document.getElementById('refsList');
+  const refsFmt = document.getElementById('refsFmt');
+  const refsCopy = document.getElementById('refsCopy');
+  const REFS = [
+    { cat: 'official', zh: '国家统计局：《中华人民共和国2024年国民经济和社会发展统计公报》，2025年2月28日。', en: 'National Bureau of Statistics of China. <i>Statistical Communiqué on the 2024 National Economic and Social Development</i>. 28 Feb. 2025.', url: 'https://www.stats.gov.cn/sj/zxfb/202502/t20250228_1958817.html' },
+    { cat: 'news', zh: '中新网，转引国际茶叶委员会数据：2023年全球茶叶产量660.4万吨，2024年5月22日。', en: 'China News Service, citing the International Tea Committee. &ldquo;Global Tea Production Reached 6.604 Million Tonnes in 2023.&rdquo; 22 May 2024.', url: 'https://www.chinanews.com.cn/sh/2024/05-22/10221099.shtml' },
+    { cat: 'news', zh: '新华网：《国际茶日，一片树叶写传奇》，2025年5月21日。', en: 'Xinhua News Agency. &ldquo;International Tea Day: The Legend of a Leaf.&rdquo; 21 May 2025.', url: 'https://www.news.cn/world/20250521/d2ee963a27724c1d99b89e0c239547a5/c.html' },
+    { cat: 'official', zh: '英国茶与饮品协会（UK Tea & Infusions Association）：英国每日饮茶超1亿杯、全球每日超50亿杯、年进口茶叶约10万吨。', en: 'UK Tea &amp; Infusions Association. &ldquo;Tea Loved by Brits and 5 Billion Cups of Tea Are Drunk Globally Each Day.&rdquo;', url: 'https://tea.co.uk/news/article/tea-loved-by-brits-and-5-billion-cups-of-tea-are-drunk-globally-each-day' },
+    { cat: 'lit', zh: '奥威尔：《一杯好茶》（&ldquo;A Nice Cup of Tea&rdquo;），《Evening Standard》，1946年。', en: 'Orwell, George. &ldquo;A Nice Cup of Tea.&rdquo; <i>Evening Standard</i>, 1946.' },
+    { cat: 'lit', zh: '陆羽：《茶经》，约公元760年。', en: 'Lu, Yu. <i>The Classic of Tea</i>. c. 760.' },
+    { cat: 'lit', zh: '德·昆西：《一个英国鸦片服用者的自白》，1821年。', en: 'De Quincey, Thomas. <i>Confessions of an English Opium-Eater</i>. 1821.' },
+    { cat: 'lit', zh: '塞缪尔·约翰逊，1757年。', en: 'Johnson, Samuel. 1757.' }
+  ];
+  const REF_CAT_ZH = { official: '官方统计', news: '新闻报道', lit: '文学文献' };
+  const REF_CAT_EN = { official: 'Official', news: 'News', lit: 'Literature' };
+  let refFmt = 'mla';
+  function refLine(r, fmt){
+    const en = lang === 'en';
+    if(!en) return r.url ? r.zh + '（' + r.url + '）' : r.zh;
+    if(fmt === 'mla') return r.en + (r.url ? ' ' + r.url + '.' : '.');
+    return r.en.replace(/\.\s*$/, '') + '.' + (r.url ? ' Retrieved from ' + r.url : '');
+  }
+  function renderRefs(){
+    if(!refsList) return;
+    const en = lang === 'en';
+    refsList.innerHTML = '';
+    REFS.forEach(function(r, i){
+      const li = document.createElement('li');
+      li.className = 'refs-item';
+      const txt = en ? r.en : r.zh;
+      const cat = (en ? REF_CAT_EN : REF_CAT_ZH)[r.cat];
+      li.innerHTML =
+        '<span class="rn">' + (i + 1) + '</span><span>' +
+        (r.url ? '<a href="' + r.url + '" target="_blank" rel="noopener">' + txt + '</a>' : txt) +
+        '<span class="rf-note">' + cat + '</span></span>';
+      refsList.appendChild(li);
+    });
+  }
+  if(refsFmt){
+    refsFmt.addEventListener('click', function(e){
+      const b = e.target.closest('.rf-btn');
+      if(!b) return;
+      refFmt = b.getAttribute('data-f');
+      refsFmt.querySelectorAll('.rf-btn').forEach(function(x){ x.classList.toggle('active', x === b); });
+      renderRefs();
+    });
+  }
+  if(refsCopy){
+    refsCopy.addEventListener('click', function(){
+      const head = lang === 'en' ? 'References — One Leaf, Two Worlds\n' : '参考文献 —— 一盏茶的东西方\n';
+      const lines = REFS.map(function(r, i){ return (i + 1) + '. ' + refLine(r, refFmt); });
+      const txt = head + lines.join('\n');
+      const done = function(){
+        refsCopy.classList.add('refs-copied');
+        refsCopy.textContent = lang === 'en' ? 'Copied' : '已复制';
+        window.setTimeout(function(){
+          refsCopy.classList.remove('refs-copied');
+          refsCopy.textContent = lang === 'en' ? 'Copy' : '复制';
+        }, 1600);
+      };
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(done, function(){
+          const ta = document.createElement('textarea');
+          ta.value = txt;
+          document.body.appendChild(ta);
+          ta.select();
+          try{ document.execCommand('copy'); }catch(err){}
+          document.body.removeChild(ta);
+          done();
+        });
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = txt;
+        document.body.appendChild(ta);
+        ta.select();
+        try{ document.execCommand('copy'); }catch(err){}
+        document.body.removeChild(ta);
+        done();
+      }
+    });
+  }
+  applyLang();
+  renderRefs();
+
+  /* ==================== 启动 ==================== */
+  resize();
+  updateProg();
+  syncNav();
+  /* 首屏数字随 hero 入场节奏滚动 */
+  document.querySelectorAll('.page.active .stat .num').forEach(function(n){ runCount(n, 900); });
+  if(!REDUCED) requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
