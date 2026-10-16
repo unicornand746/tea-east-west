@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="一盏茶的东西方 · One Leaf, Two Worlds —— 中英茶文化八章对照：源流、茶器、茶礼、诗文、滋味、贸易与当下。">
+<meta name="description" content="一盏茶的东西方 · One Leaf, Two Worlds —— 中英茶文化九章对照：源流、茶器、茶礼、诗文、滋味、贸易、当下与饮茶场景。">
 <title>一盏茶的东西方 · One Leaf, Two Worlds</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c8402f'/%3E%3Ctext x='16' y='23' font-size='20' font-family='serif' fill='%23fff' text-anchor='middle'%3E茶%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap">
@@ -530,6 +530,26 @@ body::after{
 .chapter-banner figcaption .cap-x{
   font-family:var(--serif-en);font-style:italic;font-size:10.5px;color:var(--tea-light);
 }
+/* 线描对开横幅（无外链图片，永不失效） */
+.chapter-banner svg.scene-art{
+  display:block;width:100%;height:auto;aspect-ratio:16/9;
+  transition:transform 1.1s cubic-bezier(.22,.9,.3,1);
+  will-change:transform;
+}
+.chapter-banner:hover svg.scene-art{transform:scale(1.035);}
+.sa-steam{
+  transform-box:fill-box;transform-origin:50% 100%;
+  animation:saSteam 5.6s ease-in-out infinite;
+}
+.sa-steam.d1{animation-delay:-1.9s;}
+.sa-steam.d2{animation-delay:-3.5s;}
+@keyframes saSteam{
+  0%   {opacity:.16;transform:translateY(8px)   scale(.92);}
+  45%  {opacity:.60;transform:translateY(-6px)  scale(1.04);}
+  100% {opacity:.16;transform:translateY(-18px) scale(1.14);}
+}
+/* 三列数据带 */
+.dstat-band.three{grid-template-columns:repeat(3,1fr);}
 /* 双栏对照 */
 .compare{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
 .col{
@@ -725,6 +745,8 @@ body::after{
 .dstat b::after{content:'';display:block;width:26px;height:2px;margin:8px auto 10px;
   background:linear-gradient(90deg,var(--cinnabar),var(--gold));border-radius:2px;}
 .dstat span{display:block;font-size:12.5px;letter-spacing:.08em;color:#57483b;line-height:1.75;}
+.dstat small{display:block;margin-top:7px;font-family:var(--serif-en);font-style:italic;
+  font-size:10px;color:var(--tea-light);letter-spacing:.03em;}
 /* 结语 */
 .coda{
   margin-top:56px;text-align:center;padding:48px 30px;
@@ -949,6 +971,9 @@ body::after{
   .dir-item{padding:14px 16px;grid-template-columns:38px 1fr;}
   .dir-item .no{width:38px;height:38px;font-size:15px;}
 }
+@media (max-width:620px){
+  .dstat-band.three{grid-template-columns:1fr;}
+}
 @media (prefers-reduced-motion: reduce){
   *{animation:none!important;transition:none!important;}
   .page{transition:none;}
@@ -984,8 +1009,8 @@ body::after{
   </button>
   <div class="dir-inner">
     <div class="dir-head">
-      <div class="cn">八章茶路</div>
-      <em>Eight Chapters · One Leaf, Two Worlds</em>
+      <div class="cn">九章茶路</div>
+      <em>Nine Chapters · One Leaf, Two Worlds</em>
     </div>
     <ol class="dir-list">
       <li><button class="dir-item" data-i="0"><span class="no">序</span><span class="tt"><b>序<em>Prologue</em></b><span class="desc">同一片叶子，两个世界</span></span></button></li>
@@ -996,6 +1021,7 @@ body::after{
       <li><button class="dir-item" data-i="5"><span class="no">伍</span><span class="tt"><b>味<em>Taste</em></b><span class="desc">一种叶子六种味道，六种味道一杯茶</span></span></button></li>
       <li><button class="dir-item" data-i="6"><span class="no">陆</span><span class="tt"><b>商<em>Trade</em></b><span class="desc">一片叶子改写世界贸易地图</span></span></button></li>
       <li><button class="dir-item" data-i="7"><span class="no">柒</span><span class="tt"><b>今<em>Now</em></b><span class="desc">两个茶世界，重新遇见彼此</span></span></button></li>
+      <li><button class="dir-item" data-i="8"><span class="no">捌</span><span class="tt"><b>境<em>Scenes</em></b><span class="desc">东方以茶造境，西方以茶成会</span></span></button></li>
     </ol>
     <div class="dir-foot">
       <button id="dirPrev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6l-6 6 6 6"/></svg><span>上一章</span></button>
@@ -1015,6 +1041,7 @@ body::after{
     <button class="track-node" data-i="5" aria-label="味 Taste"><span class="track-seal">味</span><span class="track-name"><b>Taste</b></span></button>
     <button class="track-node" data-i="6" aria-label="商 Trade"><span class="track-seal">商</span><span class="track-name"><b>Trade</b></span></button>
     <button class="track-node" data-i="7" aria-label="今 Now"><span class="track-seal">今</span><span class="track-name"><b>Now</b></span></button>
+    <button class="track-node" data-i="8" aria-label="境 Scenes"><span class="track-seal">境</span><span class="track-name"><b>Scenes</b></span></button>
     <button class="track-node cmp-btn" id="cmpOpenBtn" type="button" aria-label="同题对照剧场"><span class="track-seal">对</span><span class="track-name"><b>Compare</b></span></button>
   </div>
 </nav>
@@ -1063,8 +1090,8 @@ body::after{
           <div class="stat"><b><span class="num" data-count="1">0</span><small>亿杯/日</small></b><span>英国人每日饮茶杯数<br>高于咖啡（9,800 万杯）</span><small>UK Tea &amp; Infusions Assoc.</small></div>
         </div>
         <div class="scroll-hint">
-          沿底部茶路，漫游八章
-          <em>Walk the tea road below — eight chapters await</em>
+          沿底部茶路，漫游九章
+          <em>Walk the tea road below — nine chapters await</em>
         </div>
       </div>
     </div>
@@ -1821,6 +1848,226 @@ body::after{
           Yet for a moment, both put the world down.
         </span>
       </div>
+    </div>
+  </section>
+  <!-- ========== 8 境 ========== -->
+  <section class="page" data-i="8">
+    <div class="wrap">
+      <div class="chapter-head">
+        <div class="chapter-num">捌</div>
+        <h2>境 <em>Scenes</em></h2>
+        <p class="chapter-sub">
+          东方以茶造境，西方以茶成会——一杯茶，照见许多世界
+          <em>One cup, many worlds — the East builds a mood around tea; the West builds an occasion around it.</em>
+        </p>
+      </div>
+      <figure class="chapter-banner">
+        <svg class="scene-art" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="对开插画：左侧东方书斋独饮，圆窗远山、盖碗与茶烟；右侧西方下午茶长桌，骨瓷茶壶、杯碟与三层点心架">
+          <defs>
+            <linearGradient id="saBgE" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f8f5"/><stop offset="1" stop-color="#dee9e3"/></linearGradient>
+            <linearGradient id="saBgW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbf5ea"/><stop offset="1" stop-color="#f0e3ca"/></linearGradient>
+            <linearGradient id="saCela" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dbeae2"/><stop offset="1" stop-color="#94b7a7"/></linearGradient>
+            <linearGradient id="saBone" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e6dac4"/></linearGradient>
+            <linearGradient id="saWood" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8d6a49"/><stop offset="1" stop-color="#6b4a2f"/></linearGradient>
+            <clipPath id="saMoon"><circle cx="400" cy="322" r="196"/></clipPath>
+          </defs>
+
+          <!-- ===== 東 · 以茶造境 ===== -->
+          <rect x="0" y="0" width="800" height="900" fill="url(#saBgE)"/>
+          <g clip-path="url(#saMoon)">
+            <rect x="204" y="126" width="392" height="392" fill="#fbfdfc"/>
+            <path d="M204 424 L318 296 L372 350 L446 258 L520 352 L596 296 L596 424 Z" fill="#bad3c8"/>
+            <path d="M204 434 L296 352 L352 394 L432 316 L512 394 L596 344 L596 434 Z" fill="#8fb3a3"/>
+            <ellipse cx="400" cy="428" rx="240" ry="40" fill="#ffffff" opacity=".55"/>
+            <rect x="204" y="446" width="392" height="72" fill="#eef4f1"/>
+          </g>
+          <circle cx="400" cy="322" r="196" fill="none" stroke="#7fae9c" stroke-width="7"/>
+          <circle cx="400" cy="322" r="213" fill="none" stroke="#7fae9c" stroke-width="2" opacity=".4"/>
+          <!-- 挂轴 -->
+          <rect x="640" y="182" width="86" height="228" rx="4" fill="#f6f1e4" stroke="#a9866a" stroke-width="2"/>
+          <rect x="626" y="174" width="114" height="12" rx="4" fill="#6b4a2f"/>
+          <rect x="626" y="406" width="114" height="12" rx="4" fill="#6b4a2f"/>
+          <g stroke="#a9866a" stroke-width="3" stroke-linecap="round" opacity=".5" fill="none">
+            <path d="M666 224 v148"/><path d="M692 238 v120"/><path d="M712 230 v132"/>
+          </g>
+          <!-- 梅枝 -->
+          <path d="M56 92 Q170 148 236 236 Q268 282 300 300" fill="none" stroke="#6b4a2f" stroke-width="6" stroke-linecap="round"/>
+          <path d="M150 140 Q176 116 208 120" fill="none" stroke="#6b4a2f" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="122" cy="124" r="7" fill="#c8402f" opacity=".85"/>
+          <circle cx="208" cy="116" r="6" fill="#c8402f" opacity=".8"/>
+          <circle cx="252" cy="242" r="6.5" fill="#c8402f" opacity=".8"/>
+          <circle cx="292" cy="286" r="5.5" fill="#c8402f" opacity=".75"/>
+          <circle cx="176" cy="194" r="5" fill="#c8402f" opacity=".7"/>
+          <!-- 地面与矮几 -->
+          <rect x="0" y="690" width="800" height="210" fill="#e7eee9"/>
+          <rect x="0" y="684" width="800" height="8" fill="#c3d5cc"/>
+          <rect x="180" y="656" width="440" height="14" rx="7" fill="url(#saWood)"/>
+          <rect x="214" y="668" width="16" height="44" rx="4" fill="#6b4a2f"/>
+          <rect x="570" y="668" width="16" height="44" rx="4" fill="#6b4a2f"/>
+          <!-- 盖碗 -->
+          <ellipse cx="330" cy="654" rx="54" ry="11" fill="#d5e5dd" stroke="#7fae9c" stroke-width="1.8"/>
+          <path d="M300 612 Q330 604 360 612 L354 650 Q330 656 306 650 Z" fill="url(#saCela)" stroke="#5e8b7b" stroke-width="1.6"/>
+          <ellipse cx="330" cy="610" rx="31" ry="8.5" fill="#eaf3ef" stroke="#5e8b7b" stroke-width="1.4"/>
+          <circle cx="330" cy="597" r="5" fill="#5e8b7b"/>
+          <!-- 品茗杯 -->
+          <ellipse cx="452" cy="654" rx="27" ry="7" fill="#dbe8e1" stroke="#7fae9c" stroke-width="1.4"/>
+          <path d="M436 630 Q452 625 468 630 L464 650 Q452 655 440 650 Z" fill="url(#saCela)" stroke="#5e8b7b" stroke-width="1.4"/>
+          <!-- 茶烟 -->
+          <path class="sa-steam" d="M330 580 q-14 -26 2 -48 q16 -22 2 -44" fill="none" stroke="#7fae9c" stroke-width="3.4" stroke-linecap="round"/>
+          <path class="sa-steam d1" d="M349 586 q-12 -24 3 -44 q15 -20 1 -40" fill="none" stroke="#7fae9c" stroke-width="2.8" stroke-linecap="round"/>
+          <path class="sa-steam d2" d="M311 588 q-13 -22 2 -42 q15 -18 1 -38" fill="none" stroke="#7fae9c" stroke-width="2.6" stroke-linecap="round"/>
+          <!-- 卷轴 -->
+          <rect x="596" y="630" width="120" height="26" rx="6" fill="#efe6d3" stroke="#a9866a" stroke-width="1.6"/>
+          <rect x="588" y="626" width="14" height="30" rx="5" fill="#a9866a"/>
+          <rect x="710" y="626" width="14" height="30" rx="5" fill="#a9866a"/>
+
+          <!-- ===== 西 · 以茶成会 ===== -->
+          <rect x="800" y="0" width="800" height="900" fill="url(#saBgW)"/>
+          <!-- 窗 -->
+          <rect x="880" y="150" width="300" height="300" rx="10" fill="#fffdf7" stroke="#c9a961" stroke-width="6"/>
+          <path d="M1030 150 v300 M880 300 h300" stroke="#c9a961" stroke-width="5"/>
+          <ellipse cx="962" cy="418" rx="70" ry="24" fill="#cfd8bd" opacity=".65"/>
+          <ellipse cx="1092" cy="422" rx="80" ry="20" fill="#c2cfae" opacity=".55"/>
+          <!-- 地面与长桌 -->
+          <rect x="800" y="690" width="800" height="210" fill="#f3e9d6"/>
+          <rect x="800" y="684" width="800" height="8" fill="#dcc9a6"/>
+          <rect x="880" y="668" width="16" height="46" rx="4" fill="#6b4a2f"/>
+          <rect x="1504" y="668" width="16" height="46" rx="4" fill="#6b4a2f"/>
+          <path d="M838 668 L1562 668 L1562 760 q-22 16 -45 0 q-23 -16 -45 0 q-23 16 -45 0 q-23 -16 -45 0 q-23 16 -45 0 q-23 -16 -45 0 q-23 16 -45 0 q-23 -16 -45 0 q-23 16 -45 0 q-23 -16 -45 0 q-23 16 -45 0 q-23 -16 -45 0 q-23 16 -45 0 q-23 -16 -45 0 q-23 16 -45 0 L838 760 Z" fill="#fffdf7" opacity=".95"/>
+          <rect x="828" y="656" width="744" height="14" rx="7" fill="url(#saWood)"/>
+          <!-- 骨瓷茶壶 -->
+          <ellipse cx="1200" cy="644" rx="70" ry="13" fill="#e0d2b8" opacity=".45"/>
+          <path d="M1264 592 C1306 588 1320 566 1324 544 L1308 538 C1304 558 1292 574 1262 578 Z" fill="url(#saBone)" stroke="#b9a681" stroke-width="2"/>
+          <path d="M1136 590 C1100 588 1096 640 1132 646" fill="none" stroke="#b9a681" stroke-width="10" stroke-linecap="round"/>
+          <ellipse cx="1200" cy="606" rx="66" ry="46" fill="url(#saBone)" stroke="#b9a681" stroke-width="2"/>
+          <ellipse cx="1200" cy="562" rx="26" ry="9" fill="#fffdf7" stroke="#b9a681" stroke-width="1.8"/>
+          <circle cx="1200" cy="550" r="7" fill="#b9a681"/>
+          <path class="sa-steam" d="M1200 540 q-14 -26 2 -46 q16 -22 2 -42" fill="none" stroke="#c9a961" stroke-width="3.4" stroke-linecap="round" opacity=".85"/>
+          <path class="sa-steam d1" d="M1219 546 q-12 -24 3 -42 q15 -20 1 -38" fill="none" stroke="#c9a961" stroke-width="2.8" stroke-linecap="round" opacity=".7"/>
+          <!-- 三层点心架 -->
+          <rect x="1426" y="470" width="8" height="186" rx="4" fill="#c9a961"/>
+          <circle cx="1430" cy="462" r="12" fill="none" stroke="#c9a961" stroke-width="5"/>
+          <ellipse cx="1430" cy="650" rx="76" ry="13" fill="#fffdf7" stroke="#c9a961" stroke-width="2.4"/>
+          <ellipse cx="1430" cy="576" rx="60" ry="11" fill="#fffdf7" stroke="#c9a961" stroke-width="2.4"/>
+          <ellipse cx="1430" cy="508" rx="46" ry="9" fill="#fffdf7" stroke="#c9a961" stroke-width="2.4"/>
+          <g fill="#e9d9a8" stroke="#c9a961" stroke-width="1.2">
+            <rect x="1394" y="638" width="32" height="12" rx="3"/>
+            <rect x="1434" y="638" width="32" height="12" rx="3"/>
+          </g>
+          <g fill="#e8c98f" stroke="#c9a961" stroke-width="1.2">
+            <circle cx="1410" cy="566" r="10"/><circle cx="1450" cy="566" r="10"/>
+          </g>
+          <circle cx="1430" cy="500" r="9" fill="#e6a7a2" stroke="#c9a961" stroke-width="1.2"/>
+          <!-- 糖罐 -->
+          <ellipse cx="1330" cy="654" rx="36" ry="9" fill="#fffdf7" stroke="#c9a961" stroke-width="2"/>
+          <path d="M1306 636 L1354 636 L1348 652 q-21 5 -42 0 Z" fill="url(#saBone)" stroke="#b9a681" stroke-width="1.6"/>
+          <ellipse cx="1330" cy="636" rx="24" ry="6" fill="#f6efe0" stroke="#b9a681" stroke-width="1.2"/>
+          <!-- 杯碟 ×2 -->
+          <ellipse cx="960" cy="654" rx="46" ry="11" fill="#fffdf7" stroke="#c9a961" stroke-width="2"/>
+          <path d="M990 636 q20 -2 20 -16 q0 -12 -16 -13" fill="none" stroke="#b9a681" stroke-width="5" stroke-linecap="round"/>
+          <path d="M930 632 L990 632 L984 650 q-27 7 -54 0 Z" fill="url(#saBone)" stroke="#b9a681" stroke-width="1.6"/>
+          <ellipse cx="960" cy="632" rx="30" ry="7" fill="#cf9247" stroke="#b9a681" stroke-width="1.2"/>
+          <ellipse cx="1050" cy="654" rx="42" ry="10" fill="#fffdf7" stroke="#c9a961" stroke-width="2"/>
+          <path d="M1078 636 q18 -2 18 -15 q0 -12 -15 -13" fill="none" stroke="#b9a681" stroke-width="5" stroke-linecap="round"/>
+          <path d="M1022 632 L1078 632 L1072 650 q-25 6 -50 0 Z" fill="url(#saBone)" stroke="#b9a681" stroke-width="1.6"/>
+          <ellipse cx="1050" cy="632" rx="28" ry="7" fill="#cf9247" stroke="#b9a681" stroke-width="1.2"/>
+
+          <!-- 中缝与落款 -->
+          <line x1="800" y1="120" x2="800" y2="756" stroke="#6b4a2f" stroke-width="2" stroke-dasharray="2 11" opacity=".3"/>
+          <circle cx="800" cy="790" r="28" fill="#c8402f" opacity=".92"/>
+          <text x="800" y="800" font-size="26" font-family="serif" fill="#fff" text-anchor="middle">茶</text>
+        </svg>
+        <figcaption><span class="cap-e">東 · 以茶造境</span><span class="cap-x">vs</span><span class="cap-w">西 · 以茶成会</span></figcaption>
+      </figure>
+      <div class="dstat-band three">
+        <div class="dstat"><b><span class="num" data-count="58">0</span><small> %</small></b><span>中国饮茶时刻中<br>独饮所占比例</span><small>China Tea Report 2025</small></div>
+        <div class="dstat"><b><span class="num" data-count="76">0</span><small> %</small></b><span>英国饮茶场合中<br>伴随社交互动的比例</span><small>UK Tea &amp; Infusions Assoc.</small></div>
+        <div class="dstat"><b><span class="num" data-count="2.8">0</span><small> x</small></b><span>全球主题茶空间<br>五年复合增长</span><small>Global Catering Insights</small></div>
+      </div>
+      <div class="compare" style="margin-top:38px;">
+        <div class="col east">
+          <div class="col-label">東方四境 · FOUR MOODS</div>
+          <div class="vitem">
+            <div class="vicon">静</div>
+            <div>
+              <span class="vname">静 · 独啜</span><span class="ven">Solitude</span>
+              <p>一室独饮，观心自省。茶是向内的修行。</p>
+              <p class="en">A desk, a pot, a quiet room. Tea as inward practice, as company for one.</p>
+            </div>
+          </div>
+          <div class="vitem">
+            <div class="vicon">遇</div>
+            <div>
+              <span class="vname">遇 · 知音</span><span class="ven">Kindred Spirits</span>
+              <p>知音对坐，清茶淡语。茶是相契的印证。</p>
+              <p class="en">Two old friends, two clear cups. No feast, no fanfare — just understanding steeped in water.</p>
+            </div>
+          </div>
+          <div class="vitem">
+            <div class="vicon">集</div>
+            <div>
+              <span class="vname">集 · 雅集</span><span class="ven">Refined Gathering</span>
+              <p>琴书花下，雅集清谈。茶是雅事的良媒。</p>
+              <p class="en">Among ink, zither and flower branches. Tea is the silent host of poetry and all elegant pleasures.</p>
+            </div>
+          </div>
+          <div class="vitem">
+            <div class="vicon">居</div>
+            <div>
+              <span class="vname">居 · 日常</span><span class="ven">Everyday Calm</span>
+              <p>日暮檐下，饭后家常。茶是寻常的温柔。</p>
+              <p class="en">Dusk by the stove, meals with family. Tea is the soft pause that softens ordinary days.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col west">
+          <div class="col-label">西方四会 · FOUR OCCASIONS</div>
+          <div class="vitem">
+            <div class="vicon">聚</div>
+            <div>
+              <span class="vname">聚 · 午后</span><span class="ven">Afternoon Gathering</span>
+              <p>好友围桌，茶点齐备。茶是相聚的理由。</p>
+              <p class="en">Friends around a table, cakes on the stand. Tea is the excuse to meet, laugh and share hours.</p>
+            </div>
+          </div>
+          <div class="vitem">
+            <div class="vicon">歇</div>
+            <div>
+              <span class="vname">歇 · 茶歇</span><span class="ven">Workday Pause</span>
+              <p>会议间隙，片刻茶歇。茶是节奏的缓冲。</p>
+              <p class="en">A quick cuppa between meetings. Tea resets the mind, eases tension, greases conversation.</p>
+            </div>
+          </div>
+          <div class="vitem">
+            <div class="vicon">家</div>
+            <div>
+              <span class="vname">家 · 家居</span><span class="ven">Domestic Ritual</span>
+              <p>晨起醒神，傍晚果腹。茶是家庭的线索。</p>
+              <p class="en">Breakfast tea to wake, high tea to fill. Tea stitches the hours of home together.</p>
+            </div>
+          </div>
+          <div class="vitem">
+            <div class="vicon">公</div>
+            <div>
+              <span class="vname">公 · 公共</span><span class="ven">Civic Exchange</span>
+              <p>馆阁之间，谈判桌前。茶是沟通的底色。</p>
+              <p class="en">In cafés and meeting rooms. Tea is neutral ground for deals, debates and polite talk.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="coda">
+        <div class="seal-mark">境</div>
+        <h3>境由心生，茶随境转</h3>
+        <p>
+          东方在茶里划出心的边界，西方在茶里围出人的圆圈。<br>
+          而无论杯盏落于何处，都能刻出一小段只属于持杯人的时光。
+        </p>
+        <span class="en">
+          In the East, tea draws a boundary around the mind; in the West, it draws a circle around people.<br>
+          Yet wherever the cup is set, it carves out a small piece of time that belongs only to those who hold it.
+        </span>
+      </div>
       <div class="sources" id="refsBox">
         <div class="refs-head">
           <b>数据与史实来源</b>
@@ -2476,7 +2723,10 @@ body::after{
       w: { t: '三层架上的秩序', d: '自下而上：三明治 → 司康 → 甜点。先咸后甜，顺序就是规矩。', x: '司康要手掰，涂果酱，再涂凝脂奶油。' } },
     { q: '水温怎么控？', en: 'How Hot?',
       e: { t: '看茶下壶', d: '绿茶 80°C 上下，乌龙沸水高冲。不同茶类不同水温，是功课，也是敬意。', x: '「水老不可食也」——陆羽。' },
-      w: { t: '必须现烧的沸水', d: '水要现烧，不能反复煮沸——「再沸的水没有氧气，茶就死了」。闷泡三至五分钟，到点即滤。', x: '英式红茶讲究「浓、亮、有劲」。' } }
+      w: { t: '必须现烧的沸水', d: '水要现烧，不能反复煮沸——「再沸的水没有氧气，茶就死了」。闷泡三至五分钟，到点即滤。', x: '英式红茶讲究「浓、亮、有劲」。' } },
+    { q: '在哪儿喝？', en: 'Where?',
+      e: { t: '以茶造境', d: '先有境，后有茶。书斋独饮、知音对坐、雅集清谈、檐下家常——茶把一段安静的时间围出来，人在其中向内安顿。', x: '一人得神，二人得趣，三人得味。' },
+      w: { t: '以茶成会', d: '先有事，后有茶。午后相聚、会议茶歇、家庭餐桌、馆阁谈判——茶给一件事一个开始和一个结束，人在其中彼此连接。', x: '「Have a cuppa」——三个词，就是一个邀请。' } }
   ];
   let cmpIdx = 0;
   function renderCmp(){
@@ -2556,7 +2806,8 @@ body::after{
     { loops: [ {k:'air', f:520, v:.032} ], events: [ {k:'page', lo:6, hi:13, v:.045} ] },
     { loops: [ {k:'air', f:850, v:.026} ], events: [ {k:'stir', lo:8, hi:15, v:.06} ] },
     { loops: [ {k:'harbor', f:280, v:.06} ], events: [ {k:'horn', lo:12, hi:24, v:.075} ] },
-    { loops: [ {k:'rain', f:3800, v:.055} ], events: [ {k:'chime', lo:14, hi:22, v:.025} ] }
+    { loops: [ {k:'rain', f:3800, v:.055} ], events: [ {k:'chime', lo:14, hi:22, v:.025} ] },
+    { loops: [ {k:'air', f:340, v:.042} ], events: [ {k:'chime', lo:7, hi:14, v:.05}, {k:'stir', lo:13, hi:22, v:.032} ] }
   ];
   function triggerEvent(ev, out){
     const t = actx.currentTime;
@@ -2764,7 +3015,9 @@ body::after{
     { e: { t: 'Plain, with Plain Things', d: 'Snacks are supporting actors, never stealing the show. A dish of seeds, a few tea cakes — lightness is the point.', x: 'Pair the light with the strong, the plain with the fragrant.' },
       w: { t: 'Order on the Stand', d: 'Bottom to top: sandwiches, scones, sweets. Savoury before sweet — the sequence is the rule.', x: 'Scones are broken by hand, then jam, then clotted cream.' } },
     { e: { t: 'Match the Leaf', d: 'Green tea around 80°C, oolong at a rolling boil poured from high. Matching the water to the tea is homework, and respect.', x: '&ldquo;Water too old is undrinkable&rdquo; — Lu Yu.' },
-      w: { t: 'Fresh Boiling Water, Always', d: 'Water must be freshly boiled and never re-boiled — &ldquo;reboiled water has no oxygen; the tea dies.&rdquo; Steep three to five minutes, then strain at once.', x: 'British tea is prized for being &ldquo;strong, bright, brisk.&rdquo;' } }
+      w: { t: 'Fresh Boiling Water, Always', d: 'Water must be freshly boiled and never re-boiled — &ldquo;reboiled water has no oxygen; the tea dies.&rdquo; Steep three to five minutes, then strain at once.', x: 'British tea is prized for being &ldquo;strong, bright, brisk.&rdquo;' } },
+    { e: { t: 'A Mood Built Around Tea', d: 'First the mood, then the tea — a desk alone, two old friends, a gathering of scholars, dusk beneath the eaves. Tea fences off a quiet stretch of time, and the drinker settles inward.', x: 'One person finds the spirit, two the fun, three the taste.' },
+      w: { t: 'An Occasion Built Around Tea', d: 'First the occasion, then the tea — an afternoon with friends, a pause between meetings, the family table, a negotiating room. Tea gives an event a beginning and an end, and connects the people in it.', x: '&ldquo;Have a cuppa&rdquo; — an invitation in three words.' } }
   ];
   const LANG = {
     '.brand-cn': { en: 'One Leaf, Two Worlds' },
@@ -2775,7 +3028,7 @@ body::after{
     '.duo-side.east p': { en: 'A leaf, a kettle of spring water.<br>Tea is a journey inward.' },
     '.duo-side.west h3': { en: 'Blended · Together' },
     '.duo-side.west p': { en: 'A cup, a plate of cakes.<br>Tea is a reason to gather.' },
-    '.scroll-hint': { en: 'Walk the tea road below — eight chapters await' },
+    '.scroll-hint': { en: 'Walk the tea road below — nine chapters await' },
     '.stats .stat:nth-child(1) b small': { en: 'mn t' },
     '.stats .stat:nth-child(1) > span': { en: 'China&rsquo;s tea output (2024)<br>world No. 1' },
     '.stats .stat:nth-child(1) > small': { en: 'NBS China' },
@@ -2828,6 +3081,13 @@ body::after{
     'section[data-i="6"] .coda p': { en: 'Tea left the East carrying mountains and poetry; by the time it reached the West, it had been tangled in silver, opium and war.<br>The same leaf — beauty on one side, capital on the other.' },
     'section[data-i="7"] .coda h3': { en: 'One Leaf, Two Worlds' },
     'section[data-i="7"] .coda p': { en: 'The East finds inner order in tea; the West finds companionship over it.<br>One looks inward, the other outward — yet as both raise the cup, both pause.' },
+    'section[data-i="8"] h2': { en: 'Scenes' },
+    'section[data-i="8"] .chapter-sub': { en: 'One cup, many worlds — the East builds a mood around tea; the West builds an occasion around it.' },
+    'section[data-i="8"] .dstat:nth-child(1) > span': { en: 'Share of Chinese tea moments<br>spent alone' },
+    'section[data-i="8"] .dstat:nth-child(2) > span': { en: 'Share of UK tea occasions<br>with social interaction' },
+    'section[data-i="8"] .dstat:nth-child(3) > span': { en: 'Growth of themed tea spaces<br>worldwide, 5-year CAGR' },
+    'section[data-i="8"] .coda h3': { en: 'A Mood Within, an Occasion Without' },
+    'section[data-i="8"] .coda p': { en: 'In the East, tea draws a boundary around the mind; in the West, it draws a circle around people.<br>Yet wherever the cup is set, it carves out a small piece of time that belongs only to those who hold it.' },
     '.trademap .tm-cn': { en: 'The Leaf&rsquo;s Global Voyage' },
     '.trademap .tm-replay': { en: 'Replay' },
     '.trademap .tm-i-year': { en: 'Set · Sail' },
@@ -2836,7 +3096,7 @@ body::after{
     '.cmp-foot': { en: 'same leaf, two answers' },
     '.cmp-close': { en: 'Close' },
     '.sources b': { en: 'References' },
-    '.dir-head .cn': { en: 'The Eight Chapters' },
+    '.dir-head .cn': { en: 'The Nine Chapters' },
     '.dir-item[data-i="0"] .desc': { en: 'The same leaf, two worlds' },
     '.dir-item[data-i="1"] .desc': { en: 'From a legendary antidote to a royal dowry' },
     '.dir-item[data-i="2"] .desc': { en: 'A vessel for the tea — or a tea for the vessel' },
@@ -2845,6 +3105,7 @@ body::after{
     '.dir-item[data-i="5"] .desc': { en: 'Six teas of one leaf, one cup of six blends' },
     '.dir-item[data-i="6"] .desc': { en: 'One leaf that redrew the map of world trade' },
     '.dir-item[data-i="7"] .desc': { en: 'Two tea worlds, meeting again' },
+    '.dir-item[data-i="8"] .desc': { en: 'The East builds a mood; the West builds an occasion' },
     '#dirPrev span': { en: 'Prev' },
     '#dirNext span': { en: 'Next' },
     '.menu-btn span': { en: 'Menu' }
@@ -2936,9 +3197,21 @@ body::after{
       enP: ['Strong, sweet, milky — the flask of a working man. It stands not for taste but for the right to rest.',
             '&ldquo;Have a cuppa&rdquo; is comfort, an opener, a buffer before negotiations. Tea greases conversation.',
             'Britain drinks over 100 million cups a day, about 98% with milk. The tea bag is the most ordinary thing in the kitchen.',
-            'Young Britons now brew gongfu tea, drink dan cong, and argue about water temperature and steep time — the two worlds are converging.'] }
+            'Young Britons now brew gongfu tea, drink dan cong, and argue about water temperature and steep time — the two worlds are converging.'] },
+    { sel: 'section[data-i="8"] .col.east .vitem', kind: 'vitem',
+      enH: ['Solitude', 'Kindred Spirits', 'Refined Gathering', 'Everyday Calm'],
+      enP: ['A desk, a pot, a quiet room. Tea as inward practice, as company for one.',
+            'Two old friends, two clear cups. No feast, no fanfare — just understanding steeped in water.',
+            'Among ink, zither and flower branches. Tea is the silent host of poetry and all elegant pleasures.',
+            'Dusk by the stove, meals with family. Tea is the soft pause that softens ordinary days.'] },
+    { sel: 'section[data-i="8"] .col.west .vitem', kind: 'vitem',
+      enH: ['Afternoon Gathering', 'Workday Pause', 'Domestic Ritual', 'Civic Exchange'],
+      enP: ['Friends around a table, cakes on the stand. Tea is the excuse to meet, laugh and share hours.',
+            'A quick cuppa between meetings. Tea resets the mind, eases tension, greases conversation.',
+            'Breakfast tea to wake, high tea to fill. Tea stitches the hours of home together.',
+            'In cafés and meeting rooms. Tea is neutral ground for deals, debates and polite talk.'] }
   ];
-  const EN_CLOAK_SEL = '.hero-title .en,.hero-lead-en,.duo-side .en,.scroll-hint em,.timeline p.en,.vitem p.en,.titem p.en,.quote .q-en,.coda .en,.tm-en';
+  const EN_CLOAK_SEL = '.hero-title .en,.hero-lead-en,.duo-side .en,.scroll-hint em,.timeline p.en,.vitem p.en,.vitem .ven,.titem p.en,.quote .q-en,.coda .en,.tm-en';
   function applyLang(){
     const en = lang === 'en';
     document.documentElement.lang = en ? 'en' : 'zh';
@@ -3003,7 +3276,10 @@ body::after{
     { cat: 'lit', zh: '奥威尔：《一杯好茶》（&ldquo;A Nice Cup of Tea&rdquo;），《Evening Standard》，1946年。', en: 'Orwell, George. &ldquo;A Nice Cup of Tea.&rdquo; <i>Evening Standard</i>, 1946.' },
     { cat: 'lit', zh: '陆羽：《茶经》，约公元760年。', en: 'Lu, Yu. <i>The Classic of Tea</i>. c. 760.' },
     { cat: 'lit', zh: '德·昆西：《一个英国鸦片服用者的自白》，1821年。', en: 'De Quincey, Thomas. <i>Confessions of an English Opium-Eater</i>. 1821.' },
-    { cat: 'lit', zh: '塞缪尔·约翰逊，1757年。', en: 'Johnson, Samuel. 1757.' }
+    { cat: 'lit', zh: '塞缪尔·约翰逊，1757年。', en: 'Johnson, Samuel. 1757.' },
+    { cat: 'official', zh: '《中国茶产业报告 2025》：约 58% 的饮茶时刻为独饮。', en: '<i>China Tea Report 2025</i>. 58% of Chinese tea moments are spent alone.' },
+    { cat: 'official', zh: '英国茶与饮品协会（UK Tea & Infusions Association）：约 76% 的英国饮茶场合伴随社交互动。', en: 'UK Tea &amp; Infusions Association. 76% of UK tea occasions involve social interaction.' },
+    { cat: 'news', zh: 'Global Catering Insights：全球主题茶空间五年复合增长率约 2.8 倍。', en: 'Global Catering Insights. Themed tea spaces worldwide grew about 2.8x over five years.' }
   ];
   const REF_CAT_ZH = { official: '官方统计', news: '新闻报道', lit: '文学文献' };
   const REF_CAT_EN = { official: 'Official', news: 'News', lit: 'Literature' };
